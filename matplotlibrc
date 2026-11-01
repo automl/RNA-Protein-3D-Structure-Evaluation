@@ -1,0 +1,25 @@
+## AUTO-GENERATED from figstyle.py -- edit figstyle.py, not this file.
+font.family: sans-serif
+font.sans-serif: Arial, Helvetica, DejaVu Sans
+mathtext.fontset: dejavusans
+text.usetex: False
+font.size: 8
+axes.titlesize: 9
+axes.labelsize: 8
+xtick.labelsize: 8
+ytick.labelsize: 8
+legend.fontsize: 7
+figure.titlesize: 9
+axes.linewidth: 0.8
+lines.linewidth: 1.0
+lines.markersize: 4.0
+grid.linewidth: 0.5
+axes.grid: False
+axes.spines.top: False
+axes.spines.right: False
+axes.prop_cycle: cycler('color', ['4E79A7', 'F28E2B', '59A14F', 'E15759', 'B07AA1', '9C755F', 'FF9DA7', 'BAB0AC', '76B7B2', 'EDC948'])
+savefig.dpi: 600
+savefig.bbox: tight
+savefig.pad_inches: 0.06
+pdf.fonttype: 42
+ps.fonttype: 42

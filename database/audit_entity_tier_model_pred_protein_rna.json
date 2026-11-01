@@ -1,0 +1,890 @@
+{
+  "model_version": 1,
+  "exported_at": "2026-06-20T23:00:16.958429+00:00",
+  "source_table": "pred_protein_rna",
+  "caption": "Each metric is assigned to one or more audit classifications (no fold ordinal (i)\u2192(iv) or fold binary). DockQ good/mid/bad: RNAmotif, AAmatch_score, RBP_PDB_Templates count, has_RBP_Template, has_Ions, pH, RBP_QS, RBP_fnat, RBP_irmsd, RNA_iLDDT_AllChains, af3_rna_ipTM, af3_protein_ipTM. RNA accuracy (i)+(ii) vs (iii)+(iv): RNAChain_Count, RNA length (longest), RNA chain load, RBP templates, has_RBP_Template, has_RNA_MSA, RNA MSA depth, has_Ions, pH, RNA_LDDT, RNA_TM, RNA_MFE, RNA_SequenceComplexity, RNA_Shannon_Entropy_K2, RNA_GC_Content, af3_rna_pTM, af3_rna_pLDDT_avg. Protein accuracy (i)+(iii) vs (ii)+(iv): ProteinChain_Count, Protein length, Protein chain load, Protein_PDB templates, Protein MSA depth, Protein_LDDT, Protein_TM, af3_protein_pTM, af3_protein_pLDDT_avg. Complex_RMSD (<2 / [2,10) / \u226510 \u00c5): RNA/Protein ratio, RBP templates, has_RBP_Template, has_Ions, pH, Complex_RMSD, Complex_TM, Complex_LDDT, af3_global_pae_avg, af3_chain_pair_pae_min, af3_ranking_score. When a metric appears in multiple lists, adopt strictest cutpoints if direction matches (\u2191 good \u2192 max(t_lo, t_hi); \u2193 good \u2192 min). Displayed medians are from the highest-priority assigned classification (DockQ > RNA > protein > CRMSD).",
+  "pred_score_values": [
+    "bad",
+    "mid",
+    "good"
+  ],
+  "entity_groups": {
+    "Interface": [
+      "af3_protein_ipTM",
+      "af3_rna_ipTM"
+    ],
+    "RNA": [
+      "af3_rna_pLDDT_avg"
+    ],
+    "Protein": [
+      "af3_protein_pTM"
+    ],
+    "Protein-RNA": [
+      "af3_chain_pair_pae_min",
+      "af3_global_pae_avg"
+    ]
+  },
+  "rna_influence_rules": {
+    "plddt_good": 0.775,
+    "plddt_bad": 0.55,
+    "shannon_iv_like": 3.0
+  },
+  "final_tier_rules": "good: Interface=Protein=good and Protein-RNA in {good, mid}; mid: Interface=good, Protein=bad; or Interface=Protein=good but Protein-RNA=bad; or other mixed with \u22641 of {Interface, Protein} bad; bad: Interface bad, or both Interface and Protein bad; RNA excluded from final.",
+  "pred_score_columns": {
+    "final": "Final_pred_score",
+    "Interface": "Interface_pred_score",
+    "RNA": "RNA_pred_score",
+    "Protein": "Protein_pred_score",
+    "Protein-RNA": "Protein_RNA_pred_score"
+  },
+  "metrics": {
+    "AAmatch_score": {
+      "metric_key": "AAmatch_score",
+      "label": "AAmatch_score",
+      "unit_interval": true,
+      "higher_is_good": true,
+      "t_lo": 0.18909667863932583,
+      "t_hi": 0.31165461329391553,
+      "good_band": "[0.3117, 1]",
+      "mid_band": "[0.1891, 0.3117)",
+      "bad_band": "< 0.1891",
+      "med_good": 0.33559727806185513,
+      "med_mid": 0.287711948525976,
+      "med_bad": 0.09048140875267566,
+      "n_good": 41,
+      "n_mid": 131,
+      "n_bad": 158,
+      "consensus_sources": [
+        "dockq"
+      ],
+      "consensus_note": "from DockQ good/mid/bad only"
+    },
+    "Complex_LDDT_allAtom": {
+      "metric_key": "Complex_LDDT_allAtom",
+      "label": "Complex_LDDT",
+      "unit_interval": true,
+      "higher_is_good": true,
+      "t_lo": 0.7115,
+      "t_hi": 0.761,
+      "good_band": "[0.7610, 1]",
+      "mid_band": "[0.7115, 0.7610)",
+      "bad_band": "< 0.7115",
+      "med_good": 0.812,
+      "med_mid": 0.71,
+      "med_bad": 0.713,
+      "n_good": 181,
+      "n_mid": 97,
+      "n_bad": 89,
+      "consensus_sources": [
+        "crmsd"
+      ],
+      "consensus_note": "from Complex_RMSD (<2 / [2,10) / \u226510 \u00c5) only"
+    },
+    "Complex_TM": {
+      "metric_key": "Complex_TM",
+      "label": "Complex_TM",
+      "unit_interval": true,
+      "higher_is_good": true,
+      "t_lo": 0.6777925,
+      "t_hi": 0.912525,
+      "good_band": "[0.9125, 1]",
+      "mid_band": "[0.6778, 0.9125)",
+      "bad_band": "< 0.6778",
+      "med_good": 0.953225,
+      "med_mid": 0.8718250000000001,
+      "med_bad": 0.48375999999999997,
+      "n_good": 188,
+      "n_mid": 98,
+      "n_bad": 98,
+      "consensus_sources": [
+        "crmsd"
+      ],
+      "consensus_note": "from Complex_RMSD (<2 / [2,10) / \u226510 \u00c5) only"
+    },
+    "Protein_msa_depth": {
+      "metric_key": "Protein_msa_depth",
+      "label": "Protein MSA depth\n(longest chain)",
+      "unit_interval": false,
+      "higher_is_good": false,
+      "t_lo": 2955.5,
+      "t_hi": 3692.5,
+      "good_band": "\u2264 2955.5000",
+      "mid_band": "(2955.5000, 3692.5000]",
+      "bad_band": "> 3692.5000",
+      "med_good": 2587.0,
+      "med_mid": 3324.0,
+      "med_bad": 4061.0,
+      "n_good": 271,
+      "n_mid": 0,
+      "n_bad": 111,
+      "consensus_sources": [
+        "protein_accuracy"
+      ],
+      "consensus_note": "from protein accuracy (i)+(iii) vs (ii)+(iv) only"
+    },
+    "Protein_length_longest": {
+      "metric_key": "Protein_length_longest",
+      "label": "Protein length\n(longest chain)",
+      "unit_interval": false,
+      "higher_is_good": false,
+      "t_lo": 550.75,
+      "t_hi": 736.25,
+      "good_band": "\u2264 550.7500",
+      "mid_band": "(550.7500, 736.2500]",
+      "bad_band": "> 736.2500",
+      "med_good": 458.0,
+      "med_mid": 643.5,
+      "med_bad": 829.0,
+      "n_good": 271,
+      "n_mid": 0,
+      "n_bad": 113,
+      "consensus_sources": [
+        "protein_accuracy"
+      ],
+      "consensus_note": "from protein accuracy (i)+(iii) vs (ii)+(iv) only"
+    },
+    "Protein_chain_load": {
+      "metric_key": "Protein_chain_load",
+      "label": "Protein:\nchains \u00d7 L_longest",
+      "unit_interval": false,
+      "higher_is_good": false,
+      "t_lo": 1243.5,
+      "t_hi": 1444.5,
+      "good_band": "\u2264 1243.5000",
+      "mid_band": "(1243.5000, 1444.5000]",
+      "bad_band": "> 1444.5000",
+      "med_good": 1143.0,
+      "med_mid": 1344.0,
+      "med_bad": 1545.0,
+      "n_good": 271,
+      "n_mid": 0,
+      "n_bad": 113,
+      "consensus_sources": [
+        "protein_accuracy"
+      ],
+      "consensus_note": "from protein accuracy (i)+(iii) vs (ii)+(iv) only"
+    },
+    "ProteinChain_Count": {
+      "metric_key": "ProteinChain_Count",
+      "label": "ProteinChain_Count",
+      "unit_interval": false,
+      "higher_is_good": false,
+      "t_lo": 3.2683685465173236,
+      "t_hi": 3.384441432909904,
+      "good_band": "\u2264 3.2684",
+      "mid_band": "(3.2684, 3.3844]",
+      "bad_band": "> 3.3844",
+      "med_good": 2.0,
+      "med_mid": 2.0,
+      "med_bad": 2.0,
+      "n_good": 271,
+      "n_mid": 0,
+      "n_bad": 113,
+      "consensus_sources": [
+        "protein_accuracy"
+      ],
+      "consensus_note": "from protein accuracy (i)+(iii) vs (ii)+(iv) only"
+    },
+    "Protein_LDDT": {
+      "metric_key": "Protein_LDDT",
+      "label": "Protein_LDDT",
+      "unit_interval": true,
+      "higher_is_good": true,
+      "t_lo": 0.8481085156996203,
+      "t_hi": 0.9088536345542126,
+      "good_band": "[0.9089, 1]",
+      "mid_band": "[0.8481, 0.9089)",
+      "bad_band": "< 0.8481",
+      "med_good": 0.9392261939815089,
+      "med_mid": 0.8784810751269165,
+      "med_bad": 0.8177359562723241,
+      "n_good": 271,
+      "n_mid": 0,
+      "n_bad": 113,
+      "consensus_sources": [
+        "protein_accuracy"
+      ],
+      "consensus_note": "from protein accuracy (i)+(iii) vs (ii)+(iv) only"
+    },
+    "Protein_PDB_n": {
+      "metric_key": "Protein_PDB_n",
+      "label": "Protein_PDB_Templates\ncount",
+      "unit_interval": false,
+      "higher_is_good": true,
+      "t_lo": 2.25,
+      "t_hi": 2.75,
+      "good_band": "[2.7500, \u221e]",
+      "mid_band": "[2.2500, 2.7500)",
+      "bad_band": "< 2.2500",
+      "med_good": 3.0,
+      "med_mid": 2.5,
+      "med_bad": 2.0,
+      "n_good": 271,
+      "n_mid": 0,
+      "n_bad": 113,
+      "consensus_sources": [
+        "protein_accuracy"
+      ],
+      "consensus_note": "from protein accuracy (i)+(iii) vs (ii)+(iv) only"
+    },
+    "Protein_TM": {
+      "metric_key": "Protein_TM",
+      "label": "Protein_TM",
+      "unit_interval": true,
+      "higher_is_good": true,
+      "t_lo": 0.8777275,
+      "t_hi": 0.9387825000000001,
+      "good_band": "[0.9388, 1]",
+      "mid_band": "[0.8777, 0.9388)",
+      "bad_band": "< 0.8777",
+      "med_good": 0.96931,
+      "med_mid": 0.908255,
+      "med_bad": 0.8472,
+      "n_good": 271,
+      "n_mid": 0,
+      "n_bad": 113,
+      "consensus_sources": [
+        "protein_accuracy"
+      ],
+      "consensus_note": "from protein accuracy (i)+(iii) vs (ii)+(iv) only"
+    },
+    "RBP_PDB_n": {
+      "metric_key": "RBP_PDB_n",
+      "label": "RBP_PDB_Templates\ncount",
+      "unit_interval": false,
+      "higher_is_good": true,
+      "t_lo": 1.0263657630383927,
+      "t_hi": 1.5,
+      "good_band": "[1.5000, \u221e]",
+      "mid_band": "[1.0264, 1.5000)",
+      "bad_band": "< 1.0264",
+      "med_good": 2.0,
+      "med_mid": 1.0,
+      "med_bad": 1.0,
+      "n_good": 41,
+      "n_mid": 131,
+      "n_bad": 158,
+      "consensus_sources": [
+        "dockq",
+        "rna_accuracy",
+        "crmsd"
+      ],
+      "consensus_note": "strictest cutpoints across assigned classifications: RNA accuracy (i)+(ii) vs (iii)+(iv)"
+    },
+    "RBP_QS": {
+      "metric_key": "RBP_QS",
+      "label": "RBP_QS\n(longest RNA)",
+      "unit_interval": true,
+      "higher_is_good": true,
+      "t_lo": 0.3637,
+      "t_hi": 0.8331999999999999,
+      "good_band": "[0.8332, 1]",
+      "mid_band": "[0.3637, 0.8332)",
+      "bad_band": "< 0.3637",
+      "med_good": 0.959,
+      "med_mid": 0.7074,
+      "med_bad": 0.02,
+      "n_good": 41,
+      "n_mid": 131,
+      "n_bad": 158,
+      "consensus_sources": [
+        "dockq"
+      ],
+      "consensus_note": "from DockQ good/mid/bad only"
+    },
+    "RBP_fnat": {
+      "metric_key": "RBP_fnat",
+      "label": "RBP_fnat\n(longest RNA)",
+      "unit_interval": true,
+      "higher_is_good": true,
+      "t_lo": 0.32925,
+      "t_hi": 0.77275,
+      "good_band": "[0.7728, 1]",
+      "mid_band": "[0.3292, 0.7728)",
+      "bad_band": "< 0.3292",
+      "med_good": 0.894,
+      "med_mid": 0.6515,
+      "med_bad": 0.007,
+      "n_good": 41,
+      "n_mid": 131,
+      "n_bad": 158,
+      "consensus_sources": [
+        "dockq"
+      ],
+      "consensus_note": "from DockQ good/mid/bad only"
+    },
+    "RBP_irmsd": {
+      "metric_key": "RBP_irmsd",
+      "label": "RBP_irmsd\n(longest RNA)",
+      "unit_interval": false,
+      "higher_is_good": false,
+      "t_lo": 1.71275,
+      "t_hi": 8.201250000000002,
+      "good_band": "\u2264 1.7127",
+      "mid_band": "(1.7127, 8.2013]",
+      "bad_band": "> 8.2013",
+      "med_good": 0.8165,
+      "med_mid": 2.609,
+      "med_bad": 13.793500000000002,
+      "n_good": 41,
+      "n_mid": 131,
+      "n_bad": 158,
+      "consensus_sources": [
+        "dockq"
+      ],
+      "consensus_note": "from DockQ good/mid/bad only"
+    },
+    "RNA_msa_depth": {
+      "metric_key": "RNA_msa_depth",
+      "label": "RNA MSA depth\n(longest chain)",
+      "unit_interval": false,
+      "higher_is_good": false,
+      "t_lo": 490.4369642758392,
+      "t_hi": 1007.7250940109495,
+      "good_band": "\u2264 490.4370",
+      "mid_band": "(490.4370, 1007.7251]",
+      "bad_band": "> 1007.7251",
+      "med_good": 0.0,
+      "med_mid": 0.0,
+      "med_bad": 0.0,
+      "n_good": 169,
+      "n_mid": 0,
+      "n_bad": 214,
+      "consensus_sources": [
+        "rna_accuracy"
+      ],
+      "consensus_note": "from RNA accuracy (i)+(ii) vs (iii)+(iv) only"
+    },
+    "RNA_length_longest": {
+      "metric_key": "RNA_length_longest",
+      "label": "RNA length\n(longest chain)",
+      "unit_interval": false,
+      "higher_is_good": false,
+      "t_lo": 20.5,
+      "t_hi": 29.5,
+      "good_band": "\u2264 20.5000",
+      "mid_band": "(20.5000, 29.5000]",
+      "bad_band": "> 29.5000",
+      "med_good": 16.0,
+      "med_mid": 25.0,
+      "med_bad": 34.0,
+      "n_good": 169,
+      "n_mid": 0,
+      "n_bad": 215,
+      "consensus_sources": [
+        "rna_accuracy"
+      ],
+      "consensus_note": "from RNA accuracy (i)+(ii) vs (iii)+(iv) only"
+    },
+    "RNAProtein_Ratio": {
+      "metric_key": "RNAProtein_Ratio",
+      "label": "RNA/Protein\n(L_longest ratio)",
+      "unit_interval": false,
+      "higher_is_good": false,
+      "t_lo": 0.026253054865474412,
+      "t_hi": 0.05324168962595553,
+      "good_band": "\u2264 0.0263",
+      "mid_band": "(0.0263, 0.0532]",
+      "bad_band": "> 0.0532",
+      "med_good": 0.023426738980716254,
+      "med_mid": 0.02907937075023257,
+      "med_bad": 0.07740400850167849,
+      "n_good": 188,
+      "n_mid": 98,
+      "n_bad": 98,
+      "consensus_sources": [
+        "crmsd"
+      ],
+      "consensus_note": "from Complex_RMSD (<2 / [2,10) / \u226510 \u00c5) only"
+    },
+    "RNA_chain_load": {
+      "metric_key": "RNA_chain_load",
+      "label": "RNA:\nchains \u00d7 L_longest",
+      "unit_interval": false,
+      "higher_is_good": false,
+      "t_lo": 36.0,
+      "t_hi": 40.0,
+      "good_band": "\u2264 36.0000",
+      "mid_band": "(36.0000, 40.0000]",
+      "bad_band": "> 40.0000",
+      "med_good": 34.0,
+      "med_mid": 38.0,
+      "med_bad": 42.0,
+      "n_good": 169,
+      "n_mid": 0,
+      "n_bad": 215,
+      "consensus_sources": [
+        "rna_accuracy"
+      ],
+      "consensus_note": "from RNA accuracy (i)+(ii) vs (iii)+(iv) only"
+    },
+    "RNAChain_Count": {
+      "metric_key": "RNAChain_Count",
+      "label": "RNAChain_Count",
+      "unit_interval": false,
+      "higher_is_good": true,
+      "t_lo": 1.25,
+      "t_hi": 1.75,
+      "good_band": "[1.7500, \u221e]",
+      "mid_band": "[1.2500, 1.7500)",
+      "bad_band": "< 1.2500",
+      "med_good": 2.0,
+      "med_mid": 1.5,
+      "med_bad": 1.0,
+      "n_good": 169,
+      "n_mid": 0,
+      "n_bad": 215,
+      "consensus_sources": [
+        "rna_accuracy"
+      ],
+      "consensus_note": "from RNA accuracy (i)+(ii) vs (iii)+(iv) only"
+    },
+    "RNA_GC_Content": {
+      "metric_key": "RNA_GC_Content",
+      "label": "RNA_GC_Content",
+      "unit_interval": true,
+      "higher_is_good": false,
+      "t_lo": 0.44999999999999996,
+      "t_hi": 0.47,
+      "good_band": "\u2264 0.4500",
+      "mid_band": "(0.4500, 0.4700]",
+      "bad_band": "(0.4700, 1.0000]",
+      "med_good": 0.44,
+      "med_mid": 0.45999999999999996,
+      "med_bad": 0.48,
+      "n_good": 169,
+      "n_mid": 0,
+      "n_bad": 215,
+      "consensus_sources": [
+        "rna_accuracy"
+      ],
+      "consensus_note": "from RNA accuracy (i)+(ii) vs (iii)+(iv) only"
+    },
+    "RNA_LDDT_allAtom": {
+      "metric_key": "RNA_LDDT_allAtom",
+      "label": "RNA_LDDT",
+      "unit_interval": true,
+      "higher_is_good": true,
+      "t_lo": 0.6108750000000001,
+      "t_hi": 0.777825,
+      "good_band": "[0.7778, 1]",
+      "mid_band": "[0.6109, 0.7778)",
+      "bad_band": "< 0.6109",
+      "med_good": 0.8613,
+      "med_mid": 0.69435,
+      "med_bad": 0.5274,
+      "n_good": 169,
+      "n_mid": 0,
+      "n_bad": 215,
+      "consensus_sources": [
+        "rna_accuracy"
+      ],
+      "consensus_note": "from RNA accuracy (i)+(ii) vs (iii)+(iv) only"
+    },
+    "RNA_MFE_Value": {
+      "metric_key": "RNA_MFE_Value",
+      "label": "RNA_MFE_Value",
+      "unit_interval": false,
+      "higher_is_good": true,
+      "t_lo": -2.925,
+      "t_hi": -0.975,
+      "good_band": "[-0.9750, \u221e]",
+      "mid_band": "[-2.9250, -0.9750)",
+      "bad_band": "< -2.9250",
+      "med_good": 0.0,
+      "med_mid": -1.95,
+      "med_bad": -3.9,
+      "n_good": 169,
+      "n_mid": 0,
+      "n_bad": 215,
+      "consensus_sources": [
+        "rna_accuracy"
+      ],
+      "consensus_note": "from RNA accuracy (i)+(ii) vs (iii)+(iv) only"
+    },
+    "RNA_SequenceComplexity": {
+      "metric_key": "RNA_SequenceComplexity",
+      "label": "RNA_SequenceComplexity",
+      "unit_interval": true,
+      "higher_is_good": false,
+      "t_lo": 0.905,
+      "t_hi": 0.915,
+      "good_band": "\u2264 0.9050",
+      "mid_band": "(0.9050, 0.9150]",
+      "bad_band": "(0.9150, 1.0000]",
+      "med_good": 0.9,
+      "med_mid": 0.91,
+      "med_bad": 0.92,
+      "n_good": 169,
+      "n_mid": 0,
+      "n_bad": 215,
+      "consensus_sources": [
+        "rna_accuracy"
+      ],
+      "consensus_note": "from RNA accuracy (i)+(ii) vs (iii)+(iv) only"
+    },
+    "RNA_Shannon_Entropy_K2": {
+      "metric_key": "RNA_Shannon_Entropy_K2",
+      "label": "RNA_Shannon_Entropy_K2",
+      "unit_interval": false,
+      "higher_is_good": false,
+      "t_lo": 3.2175,
+      "t_hi": 3.4725,
+      "good_band": "\u2264 3.2175",
+      "mid_band": "(3.2175, 3.4725]",
+      "bad_band": "> 3.4725",
+      "med_good": 3.09,
+      "med_mid": 3.3449999999999998,
+      "med_bad": 3.6,
+      "n_good": 169,
+      "n_mid": 0,
+      "n_bad": 215,
+      "consensus_sources": [
+        "rna_accuracy"
+      ],
+      "consensus_note": "from RNA accuracy (i)+(ii) vs (iii)+(iv) only"
+    },
+    "RNA_TM": {
+      "metric_key": "RNA_TM",
+      "label": "RNA_TM",
+      "unit_interval": true,
+      "higher_is_good": true,
+      "t_lo": 0.33018,
+      "t_hi": 0.40442,
+      "good_band": "[0.4044, 1]",
+      "mid_band": "[0.3302, 0.4044)",
+      "bad_band": "< 0.3302",
+      "med_good": 0.44154,
+      "med_mid": 0.36729999999999996,
+      "med_bad": 0.29306,
+      "n_good": 169,
+      "n_mid": 0,
+      "n_bad": 215,
+      "consensus_sources": [
+        "rna_accuracy"
+      ],
+      "consensus_note": "from RNA accuracy (i)+(ii) vs (iii)+(iv) only"
+    },
+    "RNA_iLDDT_AllChains": {
+      "metric_key": "RNA_iLDDT_AllChains",
+      "label": "RNA_iLDDT_AllChains\n(longest RNA)",
+      "unit_interval": true,
+      "higher_is_good": true,
+      "t_lo": 0.2525,
+      "t_hi": 0.6225,
+      "good_band": "[0.6225, 1]",
+      "mid_band": "[0.2525, 0.6225)",
+      "bad_band": "< 0.2525",
+      "med_good": 0.759,
+      "med_mid": 0.486,
+      "med_bad": 0.019,
+      "n_good": 41,
+      "n_mid": 131,
+      "n_bad": 158,
+      "consensus_sources": [
+        "dockq"
+      ],
+      "consensus_note": "from DockQ good/mid/bad only"
+    },
+    "RNAmotif": {
+      "metric_key": "RNAmotif",
+      "label": "RNAmotif",
+      "unit_interval": true,
+      "higher_is_good": true,
+      "t_lo": 0.7749999999999999,
+      "t_hi": 0.9199999999999999,
+      "good_band": "[0.9200, 1]",
+      "mid_band": "[0.7750, 0.9200)",
+      "bad_band": "< 0.7750",
+      "med_good": 1.0,
+      "med_mid": 0.84,
+      "med_bad": 0.71,
+      "n_good": 41,
+      "n_mid": 131,
+      "n_bad": 157,
+      "consensus_sources": [
+        "dockq"
+      ],
+      "consensus_note": "from DockQ good/mid/bad only"
+    },
+    "af3_chain_pair_pae_min": {
+      "metric_key": "af3_chain_pair_pae_min",
+      "label": "af3_chain_pair_pae_min",
+      "unit_interval": false,
+      "higher_is_good": false,
+      "t_lo": 3.085,
+      "t_hi": 8.32,
+      "good_band": "\u2264 3.0850",
+      "mid_band": "(3.0850, 8.3200]",
+      "bad_band": "> 8.3200",
+      "med_good": 2.2300000000000004,
+      "med_mid": 3.94,
+      "med_bad": 12.7,
+      "n_good": 188,
+      "n_mid": 98,
+      "n_bad": 97,
+      "consensus_sources": [
+        "crmsd"
+      ],
+      "consensus_note": "from Complex_RMSD (<2 / [2,10) / \u226510 \u00c5) only"
+    },
+    "af3_global_pae_avg": {
+      "metric_key": "af3_global_pae_avg",
+      "label": "af3_global_pae_avg",
+      "unit_interval": false,
+      "higher_is_good": false,
+      "t_lo": 13.450000000000001,
+      "t_hi": 19.0,
+      "good_band": "\u2264 13.4500",
+      "mid_band": "(13.4500, 19.0000]",
+      "bad_band": "> 19.0000",
+      "med_good": 9.52,
+      "med_mid": 17.380000000000003,
+      "med_bad": 20.62,
+      "n_good": 188,
+      "n_mid": 98,
+      "n_bad": 97,
+      "consensus_sources": [
+        "crmsd"
+      ],
+      "consensus_note": "from Complex_RMSD (<2 / [2,10) / \u226510 \u00c5) only"
+    },
+    "af3_protein_ipTM": {
+      "metric_key": "af3_protein_ipTM",
+      "label": "af3_protein_ipTM\n(longest prot.)",
+      "unit_interval": true,
+      "higher_is_good": true,
+      "t_lo": 0.625,
+      "t_hi": 0.81,
+      "good_band": "[0.8100, 1]",
+      "mid_band": "[0.6250, 0.8100)",
+      "bad_band": "< 0.6250",
+      "med_good": 0.87,
+      "med_mid": 0.75,
+      "med_bad": 0.5,
+      "n_good": 40,
+      "n_mid": 131,
+      "n_bad": 158,
+      "consensus_sources": [
+        "dockq"
+      ],
+      "consensus_note": "from DockQ good/mid/bad only"
+    },
+    "af3_protein_pLDDT_avg": {
+      "metric_key": "af3_protein_pLDDT_avg",
+      "label": "af3_protein_pLDDT_avg",
+      "unit_interval": true,
+      "higher_is_good": true,
+      "t_lo": 0.765,
+      "t_hi": 0.835,
+      "good_band": "[0.8350, 1]",
+      "mid_band": "[0.7650, 0.8350)",
+      "bad_band": "< 0.7650",
+      "med_good": 0.87,
+      "med_mid": 0.8,
+      "med_bad": 0.73,
+      "n_good": 270,
+      "n_mid": 0,
+      "n_bad": 113,
+      "consensus_sources": [
+        "protein_accuracy"
+      ],
+      "consensus_note": "from protein accuracy (i)+(iii) vs (ii)+(iv) only"
+    },
+    "af3_protein_pTM": {
+      "metric_key": "af3_protein_pTM",
+      "label": "af3_protein_pTM\n(longest prot.)",
+      "unit_interval": true,
+      "higher_is_good": true,
+      "t_lo": 0.7725,
+      "t_hi": 0.8374999999999999,
+      "good_band": "[0.8375, 1]",
+      "mid_band": "[0.7725, 0.8375)",
+      "bad_band": "< 0.7725",
+      "med_good": 0.87,
+      "med_mid": 0.8049999999999999,
+      "med_bad": 0.74,
+      "n_good": 270,
+      "n_mid": 0,
+      "n_bad": 113,
+      "consensus_sources": [
+        "protein_accuracy"
+      ],
+      "consensus_note": "from protein accuracy (i)+(iii) vs (ii)+(iv) only"
+    },
+    "af3_ranking_score": {
+      "metric_key": "af3_ranking_score",
+      "label": "af3_ranking_score",
+      "unit_interval": true,
+      "higher_is_good": true,
+      "t_lo": 0.5125,
+      "t_hi": 0.7675000000000001,
+      "good_band": "[0.7675, 1]",
+      "mid_band": "[0.5125, 0.7675)",
+      "bad_band": "< 0.5125",
+      "med_good": 0.86,
+      "med_mid": 0.675,
+      "med_bad": 0.35,
+      "n_good": 188,
+      "n_mid": 98,
+      "n_bad": 97,
+      "consensus_sources": [
+        "crmsd"
+      ],
+      "consensus_note": "from Complex_RMSD (<2 / [2,10) / \u226510 \u00c5) only"
+    },
+    "af3_rna_ipTM": {
+      "metric_key": "af3_rna_ipTM",
+      "label": "af3_rna_ipTM\n(longest RNA)",
+      "unit_interval": true,
+      "higher_is_good": true,
+      "t_lo": 0.44500000000000006,
+      "t_hi": 0.6100000000000001,
+      "good_band": "[0.6100, 1]",
+      "mid_band": "[0.4450, 0.6100)",
+      "bad_band": "< 0.4450",
+      "med_good": 0.66,
+      "med_mid": 0.56,
+      "med_bad": 0.33,
+      "n_good": 40,
+      "n_mid": 131,
+      "n_bad": 158,
+      "consensus_sources": [
+        "dockq"
+      ],
+      "consensus_note": "from DockQ good/mid/bad only"
+    },
+    "af3_rna_pLDDT_avg": {
+      "metric_key": "af3_rna_pLDDT_avg",
+      "label": "af3_rna_pLDDT_avg",
+      "unit_interval": true,
+      "higher_is_good": true,
+      "t_lo": 0.55,
+      "t_hi": 0.6300000000000001,
+      "good_band": "[0.6300, 1]",
+      "mid_band": "[0.5500, 0.6300)",
+      "bad_band": "< 0.5500",
+      "med_good": 0.67,
+      "med_mid": 0.5900000000000001,
+      "med_bad": 0.51,
+      "n_good": 168,
+      "n_mid": 0,
+      "n_bad": 215,
+      "consensus_sources": [
+        "rna_accuracy"
+      ],
+      "consensus_note": "from RNA accuracy (i)+(ii) vs (iii)+(iv) only"
+    },
+    "af3_rna_pTM": {
+      "metric_key": "af3_rna_pTM",
+      "label": "af3_rna_pTM\n(longest RNA)",
+      "unit_interval": true,
+      "higher_is_good": false,
+      "t_lo": 0.065,
+      "t_hi": 0.135,
+      "good_band": "\u2264 0.0650",
+      "mid_band": "(0.0650, 0.1350]",
+      "bad_band": "(0.1350, 1.0000]",
+      "med_good": 0.03,
+      "med_mid": 0.1,
+      "med_bad": 0.17,
+      "n_good": 168,
+      "n_mid": 0,
+      "n_bad": 215,
+      "consensus_sources": [
+        "rna_accuracy"
+      ],
+      "consensus_note": "from RNA accuracy (i)+(ii) vs (iii)+(iv) only"
+    },
+    "has_Ions": {
+      "metric_key": "has_Ions",
+      "label": "has_Ions",
+      "unit_interval": true,
+      "higher_is_good": false,
+      "t_lo": 0.5,
+      "t_hi": 1.5,
+      "good_band": "\u2264 0.5000",
+      "mid_band": "(0.5000, 1.5000]",
+      "bad_band": "(1.5000, 1.0000]",
+      "med_good": 0.0,
+      "med_mid": 1.0,
+      "med_bad": 2.0,
+      "n_good": 41,
+      "n_mid": 131,
+      "n_bad": 158,
+      "consensus_sources": [
+        "dockq",
+        "rna_accuracy",
+        "crmsd"
+      ],
+      "consensus_note": "same across assigned classifications: DockQ good/mid/bad, RNA accuracy (i)+(ii) vs (iii)+(iv), Complex_RMSD (<2 / [2,10) / \u226510 \u00c5)"
+    },
+    "has_RBP_Template": {
+      "metric_key": "has_RBP_Template",
+      "label": "has_RBP_Template",
+      "unit_interval": true,
+      "higher_is_good": true,
+      "t_lo": 0.5978838535124167,
+      "t_hi": 1.0,
+      "good_band": "[1.0000, 1]",
+      "mid_band": "[0.5979, 1.0000)",
+      "bad_band": "< 0.5979",
+      "med_good": 1.0,
+      "med_mid": 1.0,
+      "med_bad": 1.0,
+      "n_good": 41,
+      "n_mid": 131,
+      "n_bad": 158,
+      "consensus_sources": [
+        "dockq",
+        "rna_accuracy",
+        "crmsd"
+      ],
+      "consensus_note": "strictest cutpoints across assigned classifications: Complex_RMSD (<2 / [2,10) / \u226510 \u00c5)"
+    },
+    "has_RNA_MSA": {
+      "metric_key": "has_RNA_MSA",
+      "label": "has_RNA_MSA",
+      "unit_interval": true,
+      "higher_is_good": false,
+      "t_lo": 0.13315683238400708,
+      "t_hi": 0.22195570425261293,
+      "good_band": "\u2264 0.1332",
+      "mid_band": "(0.1332, 0.2220]",
+      "bad_band": "(0.2220, 1.0000]",
+      "med_good": 0.0,
+      "med_mid": 0.0,
+      "med_bad": 0.0,
+      "n_good": 169,
+      "n_mid": 0,
+      "n_bad": 214,
+      "consensus_sources": [
+        "rna_accuracy"
+      ],
+      "consensus_note": "from RNA accuracy (i)+(ii) vs (iii)+(iv) only"
+    },
+    "exp_pH": {
+      "metric_key": "exp_pH",
+      "label": "pH",
+      "unit_interval": false,
+      "higher_is_good": true,
+      "t_lo": 7.374795307554699,
+      "t_hi": 7.471838363004776,
+      "good_band": "[7.4718, \u221e]",
+      "mid_band": "[7.3748, 7.4718)",
+      "bad_band": "< 7.3748",
+      "med_good": 7.5,
+      "med_mid": 7.5,
+      "med_bad": 7.5,
+      "n_good": 41,
+      "n_mid": 131,
+      "n_bad": 158,
+      "consensus_sources": [
+        "dockq",
+        "rna_accuracy",
+        "crmsd"
+      ],
+      "consensus_note": "strictest cutpoints across assigned classifications: RNA accuracy (i)+(ii) vs (iii)+(iv), Complex_RMSD (<2 / [2,10) / \u226510 \u00c5)"
+    }
+  }
+}

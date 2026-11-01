@@ -1,0 +1,53 @@
+% Decision framework figure (variant 18: decision tree v3 = v3 fold side + v2 interface side).
+% Requires decision_tree_styles.tex to be \input in the main preamble.
+% Numbers: decision_tree/calibration_v3.json (fold: held-out 2026 set; interface: held-out post-cutoff set).
+{\sffamily
+\begin{tikzpicture}[x=1cm,y=1cm]
+
+\def\sx{7.8}\def\ix{14.6}
+
+\node[root, text width=8.2cm] (h) at (11.2,17.8) {AF3 RNA--protein prediction\\[-1pt]\footnotesize\mdseries(unknown structure; no MSA information needed)};
+\node[colhead, text width=5.6cm] (fh) at (\sx,16.0) {RNA FOLD score\\[-1pt]\scriptsize\mdseries RNA chain of the complex};
+\node[colhead, text width=5.6cm] (ih) at (\ix,16.0) {INTERFACE score\\[-1pt]\scriptsize\mdseries protein--RNA interface; decoupled from fold};
+\draw[ed] (h) -- (fh); \draw[ed] (h) -- (ih);
+
+% ===================== FOLD (v3) =====================
+\node[dec, text width=5.4cm] (f1) at (\sx,13.9) {\textbf{1 \; AF3 RNA confidence} (intra-RNA PAE)\\
+  \up\ $\le$4~\AA\ \hfill $+2$\\
+  \phantom{\up}\ 4--8~\AA\ \hfill $+1$\\
+  \dn\ $>$8~\AA\ \hfill $\phantom{+}0$};
+\node[dec, text width=5.4cm] (f2) at (\sx,10.9) {\textbf{2 \; Familiar RNA sequence?} \hfill \up\ $+1$\\
+  \scriptsize pre-cutoff PDB RNA with $\ge$80\% identity\\[2pt]
+  \footnotesize\textbf{3 \; Familiar RNA fold?} \hfill \up\ $+1$\\
+  \scriptsize pre-cutoff PDB RNA with US-align TM $\ge$0.5\\[2pt]
+  \footnotesize\textbf{4 \; RBP template?} \hfill \up\ $+1$\\
+  \scriptsize AF3 used a protein--RNA complex template (any protein chain)\\[2pt]
+  \footnotesize\textbf{5 \; $\ge$2 RNA chains?} \hfill \up\ $+1$};
+\draw[ed] (fh) -- (f1); \draw[ed] (f1) -- (f2);
+
+\node[leafL,  text width=1.6cm] (fW) at (\sx-1.9,7.0) {WEAK\\[-1pt]\mdseries score $\le$2\\14\% [8--25]};
+\node[leafM,  text width=1.6cm] (fM) at (\sx,7.0)     {MODERATE\\[-1pt]\mdseries score 3\\31\% [13--58]};
+\node[leafH,  text width=1.6cm] (fS) at (\sx+1.9,7.0) {STRONG\\[-1pt]\mdseries score $\ge$4\\82\% [59--94]};
+\draw[ed] (f2.south) -- (fW.north); \draw[ed] (f2.south) -- (fM.north); \draw[ed] (f2.south) -- (fS.north);
+\node[font=\scriptsize, align=center, text width=5.8cm] at (\sx,5.75) {99 independent 2026 complexes: \% RNAs well folded (LDDT$_r>0.85$) [95\% CI]};
+
+% ===================== INTERFACE (v2) =====================
+\node[dec, text width=5.4cm] (i1) at (\ix,13.9) {\textbf{1 \; AF3 interface confidence}\\
+  \up\ ipTM$_r\ge$0.5 and chain-pair PAE $\le$8~\AA \hfill $+2$\\
+  \phantom{\up}\ otherwise \hfill $+1$\\
+  \dn\ ipTM$_r<$0.25 or PAE $>$15~\AA \hfill $\phantom{+}0$};
+\node[dec, text width=5.4cm] (i2) at (\ix,10.9) {\textbf{2 \; Familiar RNA in the PDB?} \hfill \up\ $+1$\\
+  \scriptsize pre-cutoff RNA with $\ge$80\% identity or TM $\ge$0.5\\[2pt]
+  \footnotesize\textbf{3 \; Warning sign} \hfill \dn\ $-1$\\
+  \scriptsize partner pTM $<$0.84 or RNA pLDDT $<$0.78\\
+  \scriptsize flag only: large RBP domain (dsRBD / RNase III)};
+\draw[ed] (ih) -- (i1); \draw[ed] (i1) -- (i2);
+
+\node[leafL,  text width=1.6cm] (iU) at (\ix-1.9,7.0) {UNRELIABLE\\[-1pt]\mdseries score $\le$1\\36\% [31--40]};
+\node[leafM,  text width=1.6cm] (iC) at (\ix,7.0)     {CAUTION\\[-1pt]\mdseries score 2\\76\% [66--83]};
+\node[leafH,  text width=1.6cm] (iR) at (\ix+1.9,7.0) {RELIABLE\\[-1pt]\mdseries score 3\\77\% [67--85]};
+\draw[ed] (i2.south) -- (iU.north); \draw[ed] (i2.south) -- (iC.north); \draw[ed] (i2.south) -- (iR.north);
+\node[font=\scriptsize, align=center, text width=5.8cm] at (\ix,5.75) {post-cutoff targets: \% correct interfaces [95\% CI]};
+
+\end{tikzpicture}%
+}

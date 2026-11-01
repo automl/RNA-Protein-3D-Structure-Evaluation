@@ -1,0 +1,5 @@
+{
+    "classification": "protein_rna",
+    "base_data_path": "data/all_data/a2021_post_cutoff",
+    "db_path": "database/rbpDatabase.db"
+}

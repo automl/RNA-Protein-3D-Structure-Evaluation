@@ -1,0 +1,144 @@
+{
+ "version": "v3: fold side v3 (develop_v3.py), interface side v2 (develop.py)",
+ "fold": {
+  "confidence": {
+   "name": "RNA PAE <= 4 good, > 8 bad",
+   "function": "conf_rnapae",
+   "params": {
+    "lo": 4,
+    "hi": 8
+   }
+  },
+  "questions": [
+   [
+    "n_rnas",
+    "num",
+    2.0,
+    1
+   ],
+   [
+    "rbp_template",
+    "bool",
+    true,
+    1
+   ],
+   [
+    "tm_familiar",
+    "bool",
+    true,
+    1
+   ],
+   [
+    "seq_familiar",
+    "bool",
+    true,
+    1
+   ]
+  ],
+  "cuts": [
+   2.0,
+   3.0
+  ],
+  "rates": {
+   "post_development": {
+    "WEAK": {
+     "rate": 0.20512820512820512,
+     "ci_lo": 0.1544107700961666,
+     "ci_hi": 0.26723942785033955,
+     "n": 195
+    },
+    "MODERATE": {
+     "rate": 0.5802469135802469,
+     "ci_lo": 0.471534628313757,
+     "ci_hi": 0.6816920906542965,
+     "n": 81
+    },
+    "STRONG": {
+     "rate": 0.7547169811320755,
+     "ci_lo": 0.6648534502859221,
+     "ci_hi": 0.8267635691311294,
+     "n": 106
+    },
+    "auc": 0.8049018242584598,
+    "auc_confidence_only": 0.6748363737640997
+   },
+   "2026_heldout": {
+    "WEAK": {
+     "rate": 0.14492753623188406,
+     "ci_lo": 0.08067008672383712,
+     "ci_hi": 0.24663738592915235,
+     "n": 69
+    },
+    "MODERATE": {
+     "rate": 0.3076923076923077,
+     "ci_lo": 0.12680497161618087,
+     "ci_hi": 0.5763111218666236,
+     "n": 13
+    },
+    "STRONG": {
+     "rate": 0.8235294117647058,
+     "ci_lo": 0.5897007098262422,
+     "ci_hi": 0.9380898628745101,
+     "n": 17
+    },
+    "auc": 0.8367706237424547,
+    "auc_confidence_only": 0.7173038229376257
+   }
+  },
+  "note": "protein-RNA complexes; designed on post-cutoff targets, tested on 2026"
+ },
+ "interface": {
+  "design": {
+   "interface_downgrades": [
+    "large",
+    "low_ptm_or_plddt"
+   ]
+  },
+  "rates": {
+   "pre": {
+    "UNRELIABLE": {
+     "rate": 0.7543053960964409,
+     "ci_lo": 0.7246394049376699,
+     "ci_hi": 0.7817379781223035,
+     "n": 871
+    },
+    "CAUTION": {
+     "rate": 0.9485530546623794,
+     "ci_lo": 0.9180719632648465,
+     "ci_hi": 0.9680879342836349,
+     "n": 311
+    },
+    "RELIABLE": {
+     "rate": 0.9526881720430107,
+     "ci_lo": 0.9294064596691589,
+     "ci_hi": 0.9685514007254816,
+     "n": 465
+    }
+   },
+   "post": {
+    "UNRELIABLE": {
+     "rate": 0.39243027888446214,
+     "ci_lo": 0.35068657563965794,
+     "ci_hi": 0.43580785265568184,
+     "n": 502
+    },
+    "CAUTION": {
+     "rate": 0.8863636363636364,
+     "ci_lo": 0.8033125457954653,
+     "ci_hi": 0.9370926736257992,
+     "n": 88
+    },
+    "RELIABLE": {
+     "rate": 0.8846153846153846,
+     "ci_lo": 0.7950279031382532,
+     "ci_hi": 0.9380955939585778,
+     "n": 78
+    }
+   }
+  }
+ },
+ "familiar": {
+  "seq": 0.8,
+  "tm": 0.5
+ }
+}

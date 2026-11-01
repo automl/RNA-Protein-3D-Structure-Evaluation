@@ -1,0 +1,60 @@
+name: RNABench
+# Linux (linux-64) variant of env/silicon/environment-rnabench.yml.
+# Same versions for every package the scripts use; the platform-specific low-level
+# pins (macOS-only libraries, Qt/X11 stack, build hashes) are left to the solver.
+# Differences to the macOS environment:
+#   - pymol (schrodinger, incentive, licensed) -> pymol-open-source 3.0.0 (conda-forge; 3.1.0 cannot be
+#     co-installed with viennarna 2.5.0, which needs zlib < 1.3)
+#   - channels lb_arrakistx, schrodinger, pytorch and defaults dropped (conda-forge/bioconda only)
+#   - pytorch 2.2.2 (pytorch channel) -> pytorch 2.4.1 CPU (conda-forge): newest py3.9 CPU build compatible with viennarna 2.5.0;
+#     the pip wheel 2.2.2 loads the system libstdc++ and breaks pandas when imported first.
+#     torch is only used for integer pair-matrix bookkeeping (extractDSSRpairs / extractSecondaryFeat).
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.9.19
+  - pip=24.0
+  # scientific stack
+  - numpy=1.26.4
+  - pandas=2.2.2
+  - scipy=1.13.1
+  - matplotlib-base=3.8.4
+  - seaborn=0.13.2
+  - networkx=3.2.1
+  - joblib=1.4.2
+  - pillow=10.3.0
+  - tqdm=4.66.4
+  - requests=2.32.2
+  - h5py=3.12.1
+  - shap=0.47.1
+  - pytorch=2.4.1=cpu*
+  - logomaker=0.8
+  - pyyaml=6.0.1
+  # structure / RNA tools
+  - biopython=1.85
+  - mmcif_pdbx=2.0.1
+  - pymol-open-source=3.0.0
+  - freesasa=2.2.1
+  - viennarna=2.5.0
+  - forgi=2.2.2
+  - rnastructure=6.4
+  - infernal=1.1.4
+  - cd-hit=4.8.1
+  - mmseqs2=13.45111
+  - apbs=1.5
+  - propka=3.5.1
+  - pdbfixer=1.9
+  - openmm=8.1.1
+  - pip:
+      - csvsort==1.6.1
+      - gemmi==0.6.6
+      - grakel==0.1.10
+      - icecream==2.1.3
+      - pdb2pqr==3.6.2
+      - plotly==5.24.1
+      - rcsb-api==1.5.0
+      - rna-tools==3.21
+      - scikit-learn==1.5.0
+      - statsmodels==0.14.6
+      - wget==3.2

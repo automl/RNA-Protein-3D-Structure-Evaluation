@@ -1,0 +1,116 @@
+#!/usr/bin/env python3
+"""Decision-framework branch statistics (paper Table 1 + inputs to Figure 3).
+
+Computes the observed AF3 accuracy at each branch of the decision framework as
+plain conditional group means on the analysis CSVs (no modelling). Run after
+run_preprocessing.sh has generated the csvs4analysis_* directories.
+
+Outputs:
+  decision_branch_stats.csv            all branch means (mean, sd, n)
+  tex/tables/table_decision_accuracy.tex   LaTeX Table 1 (system class + length)
+"""
+import os, numpy as np, pandas as pd
+
+RNAONLY = "csvs4analysis_rnaonly_with_af3/combined/combined__per_chain_all.csv"
+PRNA_PC = "csvs4analysis_per_chain_complex/combined/combined__per_chain_all.csv"
+CX      = "csvs4analysis_with_interface/combined/complex_level_all.csv"
+TM = "assigned_rna_tm"
+
+def msd(s):
+    s = pd.to_numeric(s, errors="coerce").dropna()
+    return (np.nan, np.nan, 0) if len(s) == 0 else (s.mean(), s.std(), len(s))
+
+def lenbin(x):
+    if pd.isna(x): return "NA"
+    x = float(x)
+    return "≤40" if x <= 40 else "41-100" if x <= 100 else "101-200" if x <= 200 else ">200"
+
+rows = []
+def add(level, branch, metric, series, extra=""):
+    m, sd, n = msd(series)
+    rows.append(dict(level=level, branch=branch, metric=metric, mean=m, sd=sd, n=n, extra=extra))
+    print(f"  {level:12s} {branch:34s} {metric:11s} mean={m:.3f} sd={sd:.3f} n={n} {extra}")
+
+def msacol(df):
+    for c in ("rna_msa_size", "RNA_msa_size"):
+        if c in df.columns: return c
+    raise KeyError("no msa col")
+
+ro = pd.read_csv(RNAONLY); pr = pd.read_csv(PRNA_PC); cx = pd.read_csv(CX)
+print("loaded:", "rnaonly", len(ro), "protein-rna per-chain", len(pr), "complex", len(cx))
+pr_1v1 = pr[(pr.NumberProteins == 1) & (pr.NumberRNAs == 1)]
+pr_mc  = pr[~((pr.NumberProteins == 1) & (pr.NumberRNAs == 1))]
+
+print("\n== L1 system class (per-chain RNA TM) ==")
+add("L1_system", "Single-chain RNA", TM, ro[TM])
+add("L1_system", "RNA-protein 1v1", TM, pr_1v1[TM])
+add("L1_system", "RNA-protein multichain", TM, pr_mc[TM])
+
+print("\n== L3 RNA length bin (per-chain RNA TM) ==")
+for label, df in [("Single-chain RNA", ro), ("RNA-protein multichain", pr_mc)]:
+    lb = df["pred_rna_chain_length"].map(lenbin)
+    for b in ("≤40", "41-100", "101-200", ">200"):
+        add("L3_len", f"{label} | {b} nt", TM, df[lb == b][TM])
+
+print("\n== complex level (Complex_TM, DockQ) ==")
+cx_1v1 = cx[(cx.NumberProteins == 1) & (cx.NumberRNAs == 1)]
+cx_mc  = cx[~((cx.NumberProteins == 1) & (cx.NumberRNAs == 1))]
+for label, df in [("1v1", cx_1v1), ("multichain", cx_mc)]:
+    add("CX_class", label, "Complex_TM", df["Complex_TM"])
+    add("CX_class", label, "DockQ", df["Dockq"])
+
+print("\n== cutoff validation (pre=b/in-training, post=a/novel) ==")
+for label, df in [("Single-chain RNA", ro), ("RNA-protein 1v1", pr_1v1), ("RNA-protein multichain", pr_mc)]:
+    if "is_post_cutoff" not in df.columns:
+        print("   (no is_post_cutoff for", label, ")"); continue
+    add("CUT_pre",  f"{label} | pre-cutoff",  TM, df[df.is_post_cutoff == 0][TM])
+    add("CUT_post", f"{label} | post-cutoff", TM, df[df.is_post_cutoff == 1][TM])
+
+out = pd.DataFrame(rows)
+out.to_csv("decision_branch_stats.csv", index=False)
+print("\nwrote decision_branch_stats.csv")
+
+# ---- emit LaTeX Table 1 straight from the computed values ----
+def g(level, branch, metric="assigned_rna_tm"):
+    r = out[(out.level == level) & (out.branch == branch) & (out.metric == metric)]
+    return None if len(r) == 0 else r.iloc[0]
+def cell_msd_n(level, branch):
+    r = g(level, branch)
+    return "--" if r is None or r["n"] == 0 else f"{r['mean']:.2f} ({r['sd']:.2f}), {int(r['n'])}"
+def cell_m_n(level, branch):
+    r = g(level, branch)
+    return "" if r is None or r["n"] == 0 else f"{r['mean']:.2f}, {int(r['n'])}"
+
+sysrows = [("Single-chain RNA", "Single-chain RNA"),
+           ("RNA--protein 1v1", "RNA-protein 1v1"),
+           ("RNA--protein multichain", "RNA-protein multichain")]
+lenrows = [("Single-chain RNA, $\\le 40$~nt", "Single-chain RNA | ≤40 nt"),
+           ("Single-chain RNA, 41--100~nt", "Single-chain RNA | 41-100 nt"),
+           ("Single-chain RNA, 101--200~nt", "Single-chain RNA | 101-200 nt"),
+           ("Single-chain RNA, $>200$~nt", "Single-chain RNA | >200 nt"),
+           ("Multichain, $\\le 40$~nt", "RNA-protein multichain | ≤40 nt"),
+           ("Multichain, 41--100~nt", "RNA-protein multichain | 41-100 nt"),
+           ("Multichain, 101--200~nt", "RNA-protein multichain | 101-200 nt"),
+           ("Multichain, $>200$~nt", "RNA-protein multichain | >200 nt")]
+
+L = []
+L.append(r"\begin{table}[t]\centering\begin{threeparttable}")
+L.append(r"\caption{Observed AF3 accuracy at the branches of the decision framework, as conditional means on the analysis set (no modelling). Values are the per-chain RNA TM-score, mean (SD). ``Combined'' pools all data; the pre-/post-cutoff columns split chains by deposition relative to the AF3 training cutoff. $n$ is the number of RNA chains. Auto-generated by \texttt{decision\_branch\_stats.py}.}")
+L.append(r"\label{tab:decision_accuracy}")
+L.append(r"\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.15}")
+L.append(r"\begin{tabular}{lccc}\toprule")
+L.append(r"Branch & Combined, $n$ & Pre-cutoff, $n$ & Post-cutoff, $n$ \\ \midrule")
+L.append(r"\multicolumn{4}{l}{\emph{System class}}\\")
+for disp, key in sysrows:
+    L.append(f"{disp} & {cell_msd_n('L1_system', key)} & "
+             f"{cell_m_n('CUT_pre', key + ' | pre-cutoff')} & "
+             f"{cell_m_n('CUT_post', key + ' | post-cutoff')}\\\\")
+L.append(r"\midrule \multicolumn{4}{l}{\emph{RNA chain length (combined)}}\\")
+for disp, key in lenrows:
+    L.append(f"{disp} & {cell_msd_n('L3_len', key)} & & \\\\")
+L.append(r"\bottomrule\end{tabular}\end{threeparttable}\end{table}")
+
+os.makedirs("tex/tables", exist_ok=True)
+with open("tex/tables/table_decision_accuracy.tex", "w", encoding="utf-8") as fh:
+    fh.write("\n".join(L) + "\n")
+print("wrote tex/tables/table_decision_accuracy.tex")

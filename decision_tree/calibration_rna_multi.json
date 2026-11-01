@@ -1,0 +1,42 @@
+{
+ "with_alignment": {
+  "metric": "rna_pae",
+  "conf_cuts": [
+   -9.648027420043945,
+   -5.411805152893066
+  ],
+  "familiarity": false,
+  "metric_aucs": {
+   "ptm": 0.4791666666666667,
+   "iptm": 0.5,
+   "plddt": 0.6448412698412699,
+   "gpae": 0.6507936507936508,
+   "rna_pae": 0.8630952380952381
+  },
+  "cv_auc_confidence": 0.8322420634920634,
+  "cv_auc_with_familiarity": 0.7128472222222222,
+  "n": 46,
+  "n_good": 18,
+  "n_clusters": 26
+ },
+ "without_alignment": {
+  "metric": "rna_pae",
+  "conf_cuts": [
+   -10.909759521484375,
+   -5.108842849731445
+  ],
+  "familiarity": false,
+  "metric_aucs": {
+   "ptm": 0.6427125506072875,
+   "iptm": 0.6153846153846154,
+   "plddt": 0.7834008097165992,
+   "gpae": 0.7813765182186235,
+   "rna_pae": 0.9109311740890689
+  },
+  "cv_auc_confidence": 0.8799342105263157,
+  "cv_auc_with_familiarity": 0.7759362348178138,
+  "n": 64,
+  "n_good": 26,
+  "n_clusters": 34
+ }
+}

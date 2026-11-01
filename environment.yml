@@ -1,0 +1,24 @@
+name: af3_eval
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - scikit-learn=1.5    # the version of the paper's analyses; 1.8 removed ElasticNetCV(n_alphas=...)
+  - scipy
+  - matplotlib
+  - seaborn
+  - biopython
+  - pillow          # PIL: assemble_figures.py composes the Figure1/Figure2 montages
+  - joblib
+  - gemmi           # structure reading in the interface and SI figures
+  - pymol-open-source   # renders of the example structures (SI figures)
+  - jupyterlab          # notebooks/regression_analysis.ipynb
+  - pip
+# Environment for the reproduction pipeline (reproduce_all.sh):
+#   - regression_analysis/ needs numpy/pandas/scikit-learn/scipy
+#   - publication_figures/ additionally need matplotlib/seaborn/biopython
+# (Upstream metric computation via OpenStructure/RnaBench uses the separate
+#  env/ specs; it is not required to reproduce the figures from the databases.)

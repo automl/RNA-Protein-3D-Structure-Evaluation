@@ -1,0 +1,21 @@
+name: ost
+# Linux (linux-64) variant of env/silicon/environment-ost.yml: same versions for the
+# packages the ost_* scripts use; macOS-only and low-level library pins left to the solver.
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11.11
+  - openstructure=2.11.1
+  - numpy=1.26.4
+  - pandas=2.3.1
+  - scipy=1.16.1
+  - networkx=3.5
+  - parasail=2.6.2
+  - voronota=1.29.4415
+  - openmm=8.3.1
+  - pip=25.1
+  - pip:
+      - biopython==1.85
+      - gemmi==0.7.5
+      - tqdm==4.68.3

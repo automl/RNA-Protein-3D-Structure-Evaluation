@@ -1,0 +1,78 @@
+% ============================================================================
+%  Decision-tree figure styles.
+%  \input THIS FILE IN THE PREAMBLE of the main document (before \begin{document}).
+%  It defines packages, colours, glyph macros and all TikZ node/edge styles used
+%  by decision_tree_16a.tex and decision_tree_16b.tex.
+%
+%  NOTE: it deliberately does NOT change the document font. The figures switch to
+%  Helvetica locally (via \sffamily inside each picture), so the rest of your paper
+%  is untouched. Delete any \usepackage line below that your main preamble already
+%  loads (fontenc / amssymb / tikz are commonly loaded already).
+% ============================================================================
+\usepackage[T1]{fontenc}
+\usepackage{helvet}   % provides the sans (Helvetica) family; does NOT switch the doc font
+\usepackage{amssymb}  % \blacktriangle / \blacktriangledown
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,fit,backgrounds,shapes.geometric,calc,shapes.misc}
+
+% accuracy colour scale
+\definecolor{cHigh}{RGB}{56,142,80}
+\definecolor{cMod}{RGB}{236,178,46}
+\definecolor{cLow}{RGB}{206,74,58}
+\definecolor{cRoot}{RGB}{51,84,122}
+\definecolor{cBand}{RGB}{223,231,240}
+\definecolor{cGate}{RGB}{238,241,246}
+\definecolor{cInk}{RGB}{28,38,48}
+\definecolor{cSide}{RGB}{247,244,236}
+\definecolor{cUp}{RGB}{56,142,80}
+\definecolor{cDown}{RGB}{206,74,58}
+\definecolor{cLowMod}{RGB}{222,120,52}
+\definecolor{cModHigh}{RGB}{150,170,58}
+
+\newcommand{\up}{\textcolor{cUp}{\ensuremath{\blacktriangle}}}
+\newcommand{\upp}{\textcolor{cUp}{\ensuremath{\blacktriangle\blacktriangle}}}
+\newcommand{\dn}{\textcolor{cDown}{\ensuremath{\blacktriangledown}}}
+\newcommand{\dnn}{\textcolor{cDown}{\ensuremath{\blacktriangledown\blacktriangledown}}}
+\newcommand{\warn}{\textcolor{cDown}{\ensuremath{\blacktriangle}\kern-0.9ex\raisebox{0.15ex}{\scriptsize!}}}
+
+\tikzset{
+  root/.style={rounded corners=3pt, draw=cInk, fill=cRoot, text=white,
+               font=\bfseries\small, align=center, inner sep=6pt, minimum height=0.9cm},
+  split/.style={rounded corners=3pt, draw=cInk, line width=0.8pt, fill=white,
+                font=\bfseries\footnotesize, align=center, inner sep=5pt},
+  track/.style={rounded corners=2pt, draw=cInk!55, fill=cBand, font=\bfseries\scriptsize,
+                align=center, inner sep=4pt},
+  q/.style={rounded corners=2pt, draw=cInk!45, fill=white, font=\scriptsize,
+            align=left, inner sep=4pt},
+  leafH/.style={rounded corners=2pt, draw=cInk, fill=cHigh, text=white,
+                font=\scriptsize\bfseries, align=center, inner sep=4pt},
+  leafM/.style={rounded corners=2pt, draw=cInk, fill=cMod, text=cInk,
+                font=\scriptsize\bfseries, align=center, inner sep=4pt},
+  leafL/.style={rounded corners=2pt, draw=cInk, fill=cLow, text=white,
+                font=\scriptsize\bfseries, align=center, inner sep=4pt},
+  side/.style={rounded corners=3pt, draw=cInk!45, fill=cSide, font=\scriptsize,
+               align=left, inner sep=6pt},
+  gate/.style={rounded corners=3pt, draw=cInk!55, fill=cGate, font=\scriptsize,
+               align=center, inner sep=6pt},
+  gatehead/.style={font=\bfseries\scriptsize, align=center},
+  ed/.style={draw=cInk!55, -{Stealth[length=5pt]}, line width=0.7pt},
+  edp/.style={draw=cInk!45, line width=0.6pt},
+  leafLM/.style={rounded corners=2pt, draw=cInk, fill=cLowMod, text=white,
+                 font=\scriptsize\bfseries, align=center, inner sep=4pt},
+  leafMH/.style={rounded corners=2pt, draw=cInk, fill=cModHigh, text=white,
+                 font=\scriptsize\bfseries, align=center, inner sep=4pt},
+  qbox/.style={rounded corners=3pt, draw=cInk, line width=0.8pt, fill=white,
+               font=\bfseries\footnotesize, align=center, inner sep=5pt},
+  ortho/.style={draw=cInk!60, line width=0.9pt},
+  orthoA/.style={draw=cInk!60, line width=0.9pt, -{Stealth[length=5pt]}},
+  ybr/.style={font=\bfseries\scriptsize, text=cUp, inner sep=1pt},
+  nbr/.style={font=\bfseries\scriptsize, text=cDown, inner sep=1pt},
+  dec/.style={rounded corners=3pt, draw=cInk!55, fill=cRoot!8, font=\scriptsize,
+              align=left, inner sep=5pt, text width=5.4cm},
+  colhead/.style={rounded corners=3pt, draw=cInk, fill=cRoot!18, font=\bfseries\footnotesize,
+                  align=center, inner sep=5pt, text width=5.6cm},
+  caution/.style={rounded corners=3pt, draw=cLow!70, fill=cLow!8, font=\scriptsize,
+                  align=left, inner sep=6pt},
+  callout/.style 2 args={rounded corners=3pt, draw=#1, line width=1pt, fill=#1!7,
+                  font=\scriptsize, align=left, inner sep=6pt},
+}

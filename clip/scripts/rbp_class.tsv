@@ -1,0 +1,58 @@
+gene	class	basis
+SNRPA	sequence	U1A RRM reads the AUUGCAC loop
+HNRNPA1	sequence	RRM reads UAGGGA/UAG
+LIN28A	sequence	CSD+ZnF read the GGAG preE loop
+WDR33	sequence	direct AAUAAA polyadenylation-signal readout
+IGF2BP3	sequence	KH domains read CA-rich elements
+YBX2	sequence	CSD reads a short linear element
+SFPQ	sequence	RRM, UGUAA-like preference
+RBM5	sequence	RRM/ZnF sequence readout
+TUT1	sequence	Star-PAP, U-rich preference
+LARP7	sequence	La module reads the 7SK 3' UUU-OH
+TRIM71	sequence	NHL domain reads a hairpin with a sequence preference
+ADAR	structure	dsRBD reads A-form duplex, not sequence
+DDX3X	structure	helicase, backbone-driven
+IFIH1	structure	MDA5 filaments along dsRNA backbone
+AGO2	guide	specificity supplied by the miRNA guide seed, not the protein
+PUM1	sequence	PUF repeats read UGUANAUA base by base
+PUM2	sequence	PUF repeats read UGUANAUA base by base
+ELAVL1	sequence	RRM reads AU-rich elements
+ELAVL4	sequence	RRM reads AU-rich elements
+CELF1	sequence	RRM reads UGU-rich elements
+CELF2	sequence	RRM reads UGU-rich elements
+NOVA1	sequence	KH reads YCAY
+NOVA2	sequence	KH reads YCAY
+MBNL1	sequence	ZnF reads YGCY
+HNRNPA2B1	sequence	RRM reads a UAG-containing element
+KHDRBS3	sequence	KH (STAR family) reads UAAA
+U2AF2	sequence	RRM reads the polypyrimidine tract
+RBPMS	sequence	RRM reads tandem CAC
+PABPC1	sequence	RRM reads poly(A)
+NUDT21	sequence	CFIm25 reads UGUA
+CPSF6	sequence	CFIm68 partner, UGUA-containing element
+RBM38	sequence	RRM reads U-rich
+SNRPB2	sequence	U2B'' reads the U2 snRNA stem-loop IV sequence
+ZRANB2	sequence	ZnF reads AGGUAA
+UNK	sequence	unkempt ZnF reads UAG-containing elements
+MEX3C	sequence	KH reads a short linear element
+YBX1	sequence	cold-shock domain reads a short linear element
+YTHDC1	sequence	YTH reads m6A in a GGACU context
+ZC3H12B	sequence	Regnase reads a loop sequence in a stem-loop
+EIF4A3	structure	EJC core, deposited sequence-independently on spliced mRNA
+RBM8A	structure	EJC core, deposited sequence-independently
+DHX9	structure	helicase, duplex backbone
+DHX58	structure	LGP2, dsRNA terminus
+ILF3	structure	dsRBD, duplex backbone
+OAS1	structure	dsRNA backbone sensor
+TARBP2	structure	dsRBD, duplex backbone
+DDX19B	structure	DEAD-box helicase, backbone
+SUPV3L1	structure	helicase, backbone
+SRP19	structure	reads SRP RNA tertiary structure
+SRP68	structure	reads SRP RNA tertiary structure
+RC3H1	structure	Roquin ROQ domain reads a decay-element stem-loop shape
+RC3H2	structure	Roquin ROQ domain reads a decay-element stem-loop shape
+ERI1	structure	reads the histone mRNA 3' stem-loop
+LSM11	structure	U7 snRNP, histone stem-loop processing
+CMTR1	structure	cap methyltransferase, acts at the 5' end
+NFKB1	structure	non-canonical RNA binding, no sequence motif
+PIWIL1	guide	specificity supplied by the loaded piRNA

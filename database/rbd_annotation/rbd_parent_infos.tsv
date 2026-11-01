@@ -1,0 +1,1001 @@
+interpro_id	short	name	type	parent_id	parent_short	parent_name	parent_type
+IPR000061	Surp	SWAP/Surp	domain	IPR000061	Surp	SWAP/Surp	domain
+IPR000196	Ribosomal_eL19_dom	Large ribosomal subunit protein eL19 domain	domain	IPR000196	Ribosomal_eL19_dom	Large ribosomal subunit protein eL19 domain	domain
+IPR000197	Znf_TAZ	Zinc finger, TAZ-type	domain	IPR000197	Znf_TAZ	Zinc finger, TAZ-type	domain
+IPR000241	RlmKL-like_Mtase	Ribosomal RNA large subunit methyltransferase K/L-like, methyltransferase domain	domain	IPR000241	RlmKL-like_Mtase	Ribosomal RNA large subunit methyltransferase K/L-like, methyltransferase domain	domain
+IPR000253	FHA_dom	Forkhead-associated (FHA) domain	domain	IPR000253	FHA_dom	Forkhead-associated (FHA) domain	domain
+IPR000261	EH_dom	EH domain	domain	IPR000261	EH_dom	EH domain	domain
+IPR000331	Rap/Ran_GAP_dom	Rap/Ran-GAP domain	domain	IPR000331	Rap/Ran_GAP_dom	Rap/Ran-GAP domain	domain
+IPR000352	Pep_chain_release_fac_I	Peptide chain release factor class I	domain	IPR000352	Pep_chain_release_fac_I	Peptide chain release factor class I	domain
+IPR000467	G_patch_dom	G-patch domain	domain	IPR000467	G_patch_dom	G-patch domain	domain
+IPR000477	RT_dom	Reverse transcriptase domain	domain	IPR000477	RT_dom	Reverse transcriptase domain	domain
+IPR000504	RRM_dom	RNA recognition motif domain	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR000557	Calponin_repeat	Calponin repeat	repeat	IPR000557	Calponin_repeat	Calponin repeat	repeat
+IPR000571	Znf_CCCH	Zinc finger, CCCH-type	domain	IPR000571	Znf_CCCH	Zinc finger, CCCH-type	domain
+IPR000573	AconitaseA/IPMdHydase_ssu_swvl	Aconitase A/isopropylmalate dehydratase small subunit, swivel domain	domain	IPR000573	AconitaseA/IPMdHydase_ssu_swvl	Aconitase A/isopropylmalate dehydratase small subunit, swivel domain	domain
+IPR000684	RNA_pol_II_repeat_euk	RNA polymerase II, heptapeptide repeat, eukaryotic	repeat	IPR000684	RNA_pol_II_repeat_euk	RNA polymerase II, heptapeptide repeat, eukaryotic	repeat
+IPR000690	Matrin/U1-C_Znf_C2H2	Matrin/U1-C, C2H2-type zinc finger	domain	IPR013087	Zf-C2H2_type	Zinc finger C2H2-type	domain
+IPR013087	Zf-C2H2_type	Zinc finger C2H2-type	domain	IPR013087	Zf-C2H2_type	Zinc finger C2H2-type	domain
+IPR000722	RNA_pol_asu	RNA polymerase, alpha subunit	domain	IPR000722	RNA_pol_asu	RNA polymerase, alpha subunit	domain
+IPR000738	WHEP-TRS_dom	WHEP-TRS domain	domain	IPR000738	WHEP-TRS_dom	WHEP-TRS domain	domain
+IPR000783	RNA_pol_subH/Rpb5_C	RNA polymerase, subunit H/Rpb5 C-terminal	domain	IPR000783	RNA_pol_subH/Rpb5_C	RNA polymerase, subunit H/Rpb5 C-terminal	domain
+IPR000795	T_Tr_GTP-bd_dom	Translational (tr)-type GTP-binding domain	domain	IPR000795	T_Tr_GTP-bd_dom	Translational (tr)-type GTP-binding domain	domain
+IPR000897	SRP54_GTPase_dom	Signal recognition particle, SRP54 subunit, GTPase domain	domain	IPR000897	SRP54_GTPase_dom	Signal recognition particle, SRP54 subunit, GTPase domain	domain
+IPR000953	Chromo/chromo_shadow_dom	Chromo/chromo shadow domain	domain	IPR000953	Chromo/chromo_shadow_dom	Chromo/chromo shadow domain	domain
+IPR000967	Znf_NFX1	Zinc finger, NF-X1-type	domain	IPR000967	Znf_NFX1	Zinc finger, NF-X1-type	domain
+IPR000976	Wilms_tumour_N	Wilm's tumour protein, N-terminal	domain	IPR000976	Wilms_tumour_N	Wilm's tumour protein, N-terminal	domain
+IPR000994	Pept_M24	Peptidase M24	domain	IPR000994	Pept_M24	Peptidase M24	domain
+IPR000999	RNase_III_dom	Ribonuclease III domain	domain	IPR000999	RNase_III_dom	Ribonuclease III domain	domain
+IPR001030	Acoase/IPM_deHydtase_lsu_aba	Aconitase/3-isopropylmalate dehydratase large subunit, alpha/beta/alpha domain	domain	IPR001030	Acoase/IPM_deHydtase_lsu_aba	Aconitase/3-isopropylmalate dehydratase large subunit, alpha/beta/alpha domain	domain
+IPR001084	MAP_tubulin-bd_rpt	Microtubule associated protein, tubulin-binding repeat	repeat	IPR001084	MAP_tubulin-bd_rpt	Microtubule associated protein, tubulin-binding repeat	repeat
+IPR001163	Sm_dom_euk/arc	Sm domain, eukaryotic/archaea-type	domain	IPR047575	Sm	Sm domain	domain
+IPR047575	Sm	Sm domain	domain	IPR047575	Sm	Sm domain	domain
+IPR001179	PPIase_FKBP_dom	FKBP-type peptidyl-prolyl cis-trans isomerase domain	domain	IPR001179	PPIase_FKBP_dom	FKBP-type peptidyl-prolyl cis-trans isomerase domain	domain
+IPR001236	Lactate/malate_DH_N	Lactate/malate dehydrogenase, N-terminal	domain	IPR001236	Lactate/malate_DH_N	Lactate/malate dehydrogenase, N-terminal	domain
+IPR001247	ExoRNase_PH_dom1	Exoribonuclease, phosphorolytic domain 1	domain	IPR001247	ExoRNase_PH_dom1	Exoribonuclease, phosphorolytic domain 1	domain
+IPR001279	Metallo-B-lactamas	Metallo-beta-lactamase	domain	IPR001279	Metallo-B-lactamas	Metallo-beta-lactamase	domain
+IPR001313	Pumilio_RNA-bd_rpt	Pumilio RNA-binding repeat	repeat	IPR001313	Pumilio_RNA-bd_rpt	Pumilio RNA-binding repeat	repeat
+IPR001339	mRNA_cap_enzyme_adenylation	mRNA capping enzyme, adenylation domain	domain	IPR001339	mRNA_cap_enzyme_adenylation	mRNA capping enzyme, adenylation domain	domain
+IPR001351	Ribosomal_uS3_C	Small ribosomal subunit protein uS3, C-terminal	domain	IPR001351	Ribosomal_uS3_C	Small ribosomal subunit protein uS3, C-terminal	domain
+IPR001374	R3H_dom	R3H domain	domain	IPR001374	R3H_dom	R3H domain	domain
+IPR001494	Importin-beta_N	Importin-beta, N-terminal domain	domain	IPR001494	Importin-beta_N	Importin-beta, N-terminal domain	domain
+IPR001510	Znf_PARP	Zinc finger, PARP-type	domain	IPR001510	Znf_PARP	Zinc finger, PARP-type	domain
+IPR001529	Zn_ribbon_RPB9	DNA-directed RNA polymerase II subunit RPB9-like, zinc ribbon	domain	IPR001529	Zn_ribbon_RPB9	DNA-directed RNA polymerase II subunit RPB9-like, zinc ribbon	domain
+IPR001537	SpoU_MeTrfase	tRNA/rRNA methyltransferase, SpoU type	domain	IPR001537	SpoU_MeTrfase	tRNA/rRNA methyltransferase, SpoU type	domain
+IPR001607	Znf_UBP	Zinc finger, UBP-type	domain	IPR001607	Znf_UBP	Zinc finger, UBP-type	domain
+IPR001650	Helicase_C-like	Helicase, C-terminal domain-like	domain	IPR001650	Helicase_C-like	Helicase, C-terminal domain-like	domain
+IPR001662	EF1B_G_C	Elongation factor 1B gamma, C-terminal	domain	IPR001662	EF1B_G_C	Elongation factor 1B gamma, C-terminal	domain
+IPR001678	MeTrfase_RsmB-F_NOP2_dom	SAM-dependent methyltransferase RsmB-F/NOP2-type domain	domain	IPR001678	MeTrfase_RsmB-F_NOP2_dom	SAM-dependent methyltransferase RsmB-F/NOP2-type domain	domain
+IPR001739	Methyl_CpG_DNA-bd	Methyl-CpG DNA binding	domain	IPR001739	Methyl_CpG_DNA-bd	Methyl-CpG DNA binding	domain
+IPR001876	Znf_RanBP2	Zinc finger, RanBP2-type	domain	IPR001876	Znf_RanBP2	Zinc finger, RanBP2-type	domain
+IPR001878	Znf_CCHC	Zinc finger, CCHC-type	domain	IPR001878	Znf_CCHC	Zinc finger, CCHC-type	domain
+IPR001900	RNase_II/R	Ribonuclease II/R	domain	IPR001900	RNase_II/R	Ribonuclease II/R	domain
+IPR001912	Ribosomal_uS4_N	Small ribosomal subunit protein uS4, N-terminal	domain	IPR001912	Ribosomal_uS4_N	Small ribosomal subunit protein uS4, N-terminal	domain
+IPR001950	SUI1	SUI1 domain	domain	IPR001950	SUI1	SUI1 domain	domain
+IPR001965	Znf_PHD	Zinc finger, PHD-type	domain	IPR001965	Znf_PHD	Zinc finger, PHD-type	domain
+IPR001975	Ribosomal_eL40_dom	Large ribosomal subunit protein eL40 domain	domain	IPR001975	Ribosomal_eL40_dom	Large ribosomal subunit protein eL40 domain	domain
+IPR002004	PABP_HYD_C	Polyadenylate-binding protein/Hyperplastic disc protein, C-terminal	domain	IPR002004	PABP_HYD_C	Polyadenylate-binding protein/Hyperplastic disc protein, C-terminal	domain
+IPR002058	PAP_assoc	PAP/25A-associated	domain	IPR002058	PAP_assoc	PAP/25A-associated	domain
+IPR002059	CSP_DNA-bd	Cold-shock protein Csp, DNA-binding	domain	IPR011129	CSD	Cold-shock domain	domain
+IPR011129	CSD	Cold-shock domain	domain	IPR011129	CSD	Cold-shock domain	domain
+IPR002075	NTF2_dom	Nuclear transport factor 2 domain	domain	IPR002075	NTF2_dom	Nuclear transport factor 2 domain	domain
+IPR002121	HRDC_dom	HRDC domain	domain	IPR002121	HRDC_dom	HRDC domain	domain
+IPR002156	RNaseH_domain	Ribonuclease H domain	domain	IPR002156	RNaseH_domain	Ribonuclease H domain	domain
+IPR002300	aa-tRNA-synth_Ia	Aminoacyl-tRNA synthetase, class Ia	domain	IPR002300	aa-tRNA-synth_Ia	Aminoacyl-tRNA synthetase, class Ia	domain
+IPR002314	aa-tRNA-synt_IIb	Aminoacyl-tRNA synthetase, class II (G/ P/ S/T)	domain	IPR006195	aa-tRNA-synth_II	Aminoacyl-tRNA synthetase, class II	domain
+IPR006195	aa-tRNA-synth_II	Aminoacyl-tRNA synthetase, class II	domain	IPR006195	aa-tRNA-synth_II	Aminoacyl-tRNA synthetase, class II	domain
+IPR002319	Phenylalanyl-tRNA_Synthase	Phenylalanyl-tRNA synthetase	domain	IPR002319	Phenylalanyl-tRNA_Synthase	Phenylalanyl-tRNA synthetase	domain
+IPR002466	A_deamin	Adenosine deaminase/editase	domain	IPR002466	A_deamin	Adenosine deaminase/editase	domain
+IPR002478	PUA	PUA domain	domain	IPR002478	PUA	PUA domain	domain
+IPR002483	PWI_dom	PWI domain	domain	IPR002483	PWI_dom	PWI domain	domain
+IPR002501	PsdUridine_synth_N	Pseudouridine synthase II, N-terminal	domain	IPR002501	PsdUridine_synth_N	Pseudouridine synthase II, N-terminal	domain
+IPR002547	tRNA-bd_dom	tRNA-binding domain	domain	IPR002547	tRNA-bd_dom	tRNA-binding domain	domain
+IPR002562	3'-5'_exonuclease_dom	3'-5' exonuclease domain	domain	IPR002562	3'-5'_exonuclease_dom	3'-5' exonuclease domain	domain
+IPR002616	tRNA_ribo_trans-like	tRNA-guanine(15) transglycosylase-like	domain	IPR002616	tRNA_ribo_trans-like	tRNA-guanine(15) transglycosylase-like	domain
+IPR002646	PolA_pol_head_dom	Poly A polymerase, head domain	domain	IPR002646	PolA_pol_head_dom	Poly A polymerase, head domain	domain
+IPR002676	RimM_N	RimM, N-terminal	domain	IPR002676	RimM_N	RimM, N-terminal	domain
+IPR002687	Nop_dom	Nop domain	domain	IPR002687	Nop_dom	Nop domain	domain
+IPR002694	Znf_CHC2	Zinc finger, CHC2-type	domain	IPR002694	Znf_CHC2	Zinc finger, CHC2-type	domain
+IPR002716	PIN_dom	PIN domain	domain	IPR002716	PIN_dom	PIN domain	domain
+IPR002735	Transl_init_fac_IF2/IF5_dom	Translation initiation factor IF2/IF5 domain	domain	IPR002735	Transl_init_fac_IF2/IF5_dom	Translation initiation factor IF2/IF5 domain	domain
+IPR002740	EVE_domain	EVE domain	domain	IPR002740	EVE_domain	EVE domain	domain
+IPR002775	DNA/RNA-bd_Alba-like	DNA/RNA-binding protein Alba-like	domain	IPR002775	DNA/RNA-bd_Alba-like	DNA/RNA-binding protein Alba-like	domain
+IPR002784	Ribosomal_eL14_dom	Large ribosomal subunit protein eL14 domain	domain	IPR002784	Ribosomal_eL14_dom	Large ribosomal subunit protein eL14 domain	domain
+IPR002853	TFIIE_asu	Transcription initiation factor IIE subunit alpha, N-terminal	domain	IPR002853	TFIIE_asu	Transcription initiation factor IIE subunit alpha, N-terminal	domain
+IPR002877	RNA_MeTrfase_FtsJ_dom	Ribosomal RNA methyltransferase, FtsJ domain	domain	IPR002877	RNA_MeTrfase_FtsJ_dom	Ribosomal RNA methyltransferase, FtsJ domain	domain
+IPR002885	PPR_rpt	Pentatricopeptide repeat	repeat	IPR002885	PPR_rpt	Pentatricopeptide repeat	repeat
+IPR002934	Polymerase_NTP_transf_dom	Polymerase, nucleotidyl transferase domain	domain	IPR002934	Polymerase_NTP_transf_dom	Polymerase, nucleotidyl transferase domain	domain
+IPR002942	S4_RNA-bd	RNA-binding S4 domain	domain	IPR002942	S4_RNA-bd	RNA-binding S4 domain	domain
+IPR002999	Tudor	Tudor domain	domain	IPR002999	Tudor	Tudor domain	domain
+IPR003029	S1_domain	S1 domain	domain	IPR003029	S1_domain	S1 domain	domain
+IPR003034	SAP_dom	SAP domain	domain	IPR003034	SAP_dom	SAP domain	domain
+IPR003100	PAZ_dom	PAZ domain	domain	IPR003100	PAZ_dom	PAZ domain	domain
+IPR003107	HAT	HAT (Half-A-TPR) repeat	repeat	IPR003107	HAT	HAT (Half-A-TPR) repeat	repeat
+IPR003156	DHHA1_dom	DHHA1 domain	domain	IPR003156	DHHA1_dom	DHHA1 domain	domain
+IPR003165	Piwi	Piwi domain	domain	IPR003165	Piwi	Piwi domain	domain
+IPR003166	TFIIE_bsu_DNA-bd	Transcription factor TFIIE beta subunit, DNA-binding domain	domain	IPR003166	TFIIE_bsu_DNA-bd	Transcription factor TFIIE beta subunit, DNA-binding domain	domain
+IPR003173	PC4_C	Transcriptional coactivator p15 (PC4), C-terminal	domain	IPR003173	PC4_C	Transcriptional coactivator p15 (PC4), C-terminal	domain
+IPR003228	TFIID_TAF12_dom	Transcription initiation factor TFIID subunit 12 domain	domain	IPR003228	TFIID_TAF12_dom	Transcription initiation factor TFIID subunit 12 domain	domain
+IPR003307	W2_domain	W2 domain	domain	IPR003307	W2_domain	W2 domain	domain
+IPR003323	OTU_dom	OTU domain	domain	IPR003323	OTU_dom	OTU domain	domain
+IPR003604	Matrin/U1-like-C_Znf_C2H2	Matrin/U1-C-like, C2H2-type zinc finger	domain	IPR013087	Zf-C2H2_type	Zinc finger C2H2-type	domain
+IPR003652	Ataxin_AXH_dom	Ataxin, AXH domain	domain	IPR003652	Ataxin_AXH_dom	Ataxin, AXH domain	domain
+IPR003827	tRNA_yW-synthesising	tRNA wybutosine-synthesizing protein	domain	IPR003827	tRNA_yW-synthesising	tRNA wybutosine-synthesizing protein	domain
+IPR003890	MIF4G-like_typ-3	MIF4G-like, type 3	domain	IPR003890	MIF4G-like_typ-3	MIF4G-like, type 3	domain
+IPR003891	Initiation_fac_eIF4g_MI	Initiation factor eIF-4 gamma, MA3	domain	IPR003891	Initiation_fac_eIF4g_MI	Initiation factor eIF-4 gamma, MA3	domain
+IPR003954	RRM_euk-type	RNA recognition motif domain, eukaryotic-type	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR004038	Ribosomal_eL8/eL30/eS12/Gad45	Ribosomal protein eL8/eL30/eS12/Gadd45	domain	IPR004038	Ribosomal_eL8/eL30/eS12/Gad45	Ribosomal protein eL8/eL30/eS12/Gadd45	domain
+IPR004044	KH_dom_type_2	K Homology domain, type 2	domain	IPR004087	KH_dom	K Homology domain	domain
+IPR004087	KH_dom	K Homology domain	domain	IPR004087	KH_dom	K Homology domain	domain
+IPR004088	KH_dom_type_1	K Homology domain, type 1	domain	IPR004087	KH_dom	K Homology domain	domain
+IPR004098	Prp18	Prp18	domain	IPR004098	Prp18	Prp18	domain
+IPR004114	THUMP_dom	THUMP domain	domain	IPR004114	THUMP_dom	THUMP domain	domain
+IPR004125	Signal_recog_particle_SRP54_M	Signal recognition particle, SRP54 subunit, M-domain	domain	IPR004125	Signal_recog_particle_SRP54_M	Signal recognition particle, SRP54 subunit, M-domain	domain
+IPR004149	Znf_DNAligase_C4	Zinc-finger, NAD-dependent DNA ligase C4-type	domain	IPR004149	Znf_DNAligase_C4	Zinc-finger, NAD-dependent DNA ligase C4-type	domain
+IPR004154	Anticodon-bd	Anticodon-binding	domain	IPR004154	Anticodon-bd	Anticodon-binding	domain
+IPR004160	Transl_elong_EFTu/EF1A_C	Translation elongation factor EFTu/EF1A, C-terminal	domain	IPR004160	Transl_elong_EFTu/EF1A_C	Translation elongation factor EFTu/EF1A, C-terminal	domain
+IPR004161	EFTu-like_2	Translation elongation factor EFTu-like, domain 2	domain	IPR004161	EFTu-like_2	Translation elongation factor EFTu-like, domain 2	domain
+IPR004188	Phe-tRNA_ligase_II_N	Phenylalanine-tRNA ligase, class II, N-terminal	domain	IPR004188	Phe-tRNA_ligase_II_N	Phenylalanine-tRNA ligase, class II, N-terminal	domain
+IPR004198	Znf_C5HC2	Zinc finger, C5HC2-type	domain	IPR004198	Znf_C5HC2	Zinc finger, C5HC2-type	domain
+IPR004341	CAT_RNA-bd_dom	CAT RNA-binding domain	domain	IPR004341	CAT_RNA-bd_dom	CAT RNA-binding domain	domain
+IPR004364	Aa-tRNA-synt_II	Aminoacyl-tRNA synthetase, class II (D/K/N)	domain	IPR006195	aa-tRNA-synth_II	Aminoacyl-tRNA synthetase, class II	domain
+IPR004365	NA-bd_OB_tRNA	OB-fold nucleic acid binding domain, AA-tRNA synthetase-type	domain	IPR004365	NA-bd_OB_tRNA	OB-fold nucleic acid binding domain, AA-tRNA synthetase-type	domain
+IPR004457	Znf_ZPR1	Zinc finger, ZPR1-type	domain	IPR004457	Znf_ZPR1	Zinc finger, ZPR1-type	domain
+IPR004495	Met-tRNA-synth_bsu_C	Methionyl-tRNA synthetase, beta subunit, C-terminal	domain	IPR002547	tRNA-bd_dom	tRNA-binding domain	domain
+IPR004521	Uncharacterised_CHP00451	Uncharacterised domain CHP00451	domain	IPR002478	PUA	PUA domain	domain
+IPR004823	TAF_TATA-bd_Histone-like_dom	TATA box binding protein associated factor (TAF), histone-like fold domain	domain	IPR004823	TAF_TATA-bd_Histone-like_dom	TATA box binding protein associated factor (TAF), histone-like fold domain	domain
+IPR004859	Xrn1_N	Xrn1, N-terminal	domain	IPR004859	Xrn1_N	Xrn1, N-terminal	domain
+IPR004871	RSE1/DDB1/CPSF1_C	RSE1/DDB1/CPSF1, C-terminal	domain	IPR004871	RSE1/DDB1/CPSF1_C	RSE1/DDB1/CPSF1, C-terminal	domain
+IPR004971	mRNA_G-N7_MeTrfase_dom	mRNA (guanine-N(7))-methyltransferase domain	domain	IPR004971	mRNA_G-N7_MeTrfase_dom	mRNA (guanine-N(7))-methyltransferase domain	domain
+IPR005034	Dicer_dimerisation	Dicer, dimerisation domain	domain	IPR005034	Dicer_dimerisation	Dicer, dimerisation domain	domain
+IPR005100	NGN-domain	NGN domain	domain	IPR005100	NGN-domain	NGN domain	domain
+IPR005120	UPF3_dom	UPF3 domain	domain	IPR005120	UPF3_dom	UPF3 domain	domain
+IPR005121	Fdx_antiC-bd	Ferrodoxin-fold anticodon-binding domain	domain	IPR005121	Fdx_antiC-bd	Ferrodoxin-fold anticodon-binding domain	domain
+IPR005140	eRF1_Pelota-like_N	eRF1/Pelota-like, N-terminal domain	domain	IPR005140	eRF1_Pelota-like_N	eRF1/Pelota-like, N-terminal domain	domain
+IPR005141	eRF1_2	eRF1 domain 2	domain	IPR005141	eRF1_2	eRF1 domain 2	domain
+IPR005142	eRF1_3	eRF1 domain 3	domain	IPR005142	eRF1_3	eRF1 domain 3	domain
+IPR005146	B3/B4_tRNA-bd	B3/B4 tRNA-binding domain	domain	IPR005146	B3/B4_tRNA-bd	B3/B4 tRNA-binding domain	domain
+IPR005147	tRNA_synthase_B5-dom	tRNA synthetase, B5-domain	domain	IPR005147	tRNA_synthase_B5-dom	tRNA synthetase, B5-domain	domain
+IPR005148	Arg-tRNA-synth_N	Arginyl tRNA synthetase N-terminal domain	domain	IPR005148	Arg-tRNA-synth_N	Arginyl tRNA synthetase N-terminal domain	domain
+IPR005155	UPF0113_PUA	UPF0113, PUA domain	domain	IPR002478	PUA	PUA domain	domain
+IPR005324	Ribosomal_uS5_C	Small ribosomal subunit protein uS5, C-terminal	domain	IPR005324	Ribosomal_uS5_C	Small ribosomal subunit protein uS5, C-terminal	domain
+IPR005326	Plectin_eS10_N	Plectin/eS10, N-terminal	domain	IPR005326	Plectin_eS10_N	Plectin/eS10, N-terminal	domain
+IPR005517	Transl_elong_EFG/EF2_IV	Translation elongation factor EFG/EF2, domain IV	domain	IPR005517	Transl_elong_EFG/EF2_IV	Translation elongation factor EFG/EF2, domain IV	domain
+IPR005568	Ribosomal_uL6_N	Large ribosomal subunit protein uL6, N-terminal	domain	IPR005568	Ribosomal_uL6_N	Large ribosomal subunit protein uL6, N-terminal	domain
+IPR005571	RNA_pol_Rpb5_N	RNA polymerase, Rpb5, N-terminal	domain	IPR005571	RNA_pol_Rpb5_N	RNA polymerase, Rpb5, N-terminal	domain
+IPR005576	Rpb7-like_N	RNA polymerase Rpb7-like , N-terminal	domain	IPR005576	Rpb7-like_N	RNA polymerase Rpb7-like , N-terminal	domain
+IPR005612	CCAAT-binding_factor	CCAAT-binding factor	domain	IPR005612	CCAAT-binding_factor	CCAAT-binding factor	domain
+IPR005633	Ribosomal_uL23_N	Large ribosomal subunit protein uL23, N-terminal	domain	IPR005633	Ribosomal_uL23_N	Large ribosomal subunit protein uL23, N-terminal	domain
+IPR005637	TAP_C_dom	TAP C-terminal (TAP-C) domain	domain	IPR005637	TAP_C_dom	TAP C-terminal (TAP-C) domain	domain
+IPR005818	Histone_H1/H5_H15	Linker histone H1/H5, domain H15	domain	IPR005818	Histone_H1/H5_H15	Linker histone H1/H5, domain H15	domain
+IPR005824	KOW	KOW	domain	IPR005824	KOW	KOW	domain
+IPR006070	Sua5-like_dom	Threonylcarbamoyl-AMP synthase-like domain	domain	IPR006070	Sua5-like_dom	Threonylcarbamoyl-AMP synthase-like domain	domain
+IPR006073	GTP-bd	GTP binding domain	domain	IPR006073	GTP-bd	GTP binding domain	domain
+IPR006133	DNA-dir_DNA_pol_B_exonuc	DNA-directed DNA polymerase, family B, exonuclease domain	domain	IPR006133	DNA-dir_DNA_pol_B_exonuc	DNA-directed DNA polymerase, family B, exonuclease domain	domain
+IPR006134	DNA-dir_DNA_pol_B_multi_dom	DNA-directed DNA polymerase, family B, multifunctional domain	domain	IPR006134	DNA-dir_DNA_pol_B_multi_dom	DNA-directed DNA polymerase, family B, multifunctional domain	domain
+IPR006145	PsdUridine_synth_RsuA/RluA	Pseudouridine synthase, RsuA/RluA-like	domain	IPR006145	PsdUridine_synth_RsuA/RluA	Pseudouridine synthase, RsuA/RluA-like	domain
+IPR006196	RNA-binding_domain_S1_IF1	RNA-binding domain, S1, IF1 type	domain	IPR006196	RNA-binding_domain_S1_IF1	RNA-binding domain, S1, IF1 type	domain
+IPR006295	DNA_primase_DnaG	DNA primase, DnaG	domain	IPR006295	DNA_primase_DnaG	DNA primase, DnaG	domain
+IPR006561	DZF_dom	DZF domain	domain	IPR006561	DZF_dom	DZF domain	domain
+IPR006572	Znf_DBF	Zinc finger, DBF-type	domain	IPR006572	Znf_DBF	Zinc finger, DBF-type	domain
+IPR006576	BRK_domain	BRK domain	domain	IPR006576	BRK_domain	BRK domain	domain
+IPR006630	La_HTH	La-type HTH domain	domain	IPR006630	La_HTH	La-type HTH domain	domain
+IPR006677	tRNA_intron_Endonuc_cat-like	tRNA intron endonuclease, catalytic domain-like	domain	IPR006677	tRNA_intron_Endonuc_cat-like	tRNA intron endonuclease, catalytic domain-like	domain
+IPR006678	tRNA_intron_Endonuc_N	tRNA intron endonuclease, N-terminal	domain	IPR006678	tRNA_intron_Endonuc_N	tRNA intron endonuclease, N-terminal	domain
+IPR006767	Cwf19-like_C_dom-2	Cwf19-like protein, C-terminal domain-2	domain	IPR006767	Cwf19-like_C_dom-2	Cwf19-like protein, C-terminal domain-2	domain
+IPR006768	Cwf19-like_C_dom-1	Cwf19-like, C-terminal domain-1	domain	IPR006768	Cwf19-like_C_dom-1	Cwf19-like, C-terminal domain-1	domain
+IPR006847	IF2_N	Translation initiation factor IF-2, N-terminal	domain	IPR006847	IF2_N	Translation initiation factor IF-2, N-terminal	domain
+IPR006895	Znf_Sec23_Sec24	Zinc finger, Sec23/Sec24-type	domain	IPR006895	Znf_Sec23_Sec24	Zinc finger, Sec23/Sec24-type	domain
+IPR006935	Helicase/UvrB_N	Helicase/UvrB, N-terminal	domain	IPR014001	Helicase_ATP-bd	Helicase superfamily 1/2, ATP-binding domain	domain
+IPR014001	Helicase_ATP-bd	Helicase superfamily 1/2, ATP-binding domain	domain	IPR014001	Helicase_ATP-bd	Helicase superfamily 1/2, ATP-binding domain	domain
+IPR007009	Shq1_C	Shq1, C-terminal domain	domain	IPR007009	Shq1_C	Shq1, C-terminal domain	domain
+IPR007010	PolA_pol_RNA-bd_dom	Poly(A) polymerase, RNA-binding domain	domain	IPR007010	PolA_pol_RNA-bd_dom	Poly(A) polymerase, RNA-binding domain	domain
+IPR007042	SERRATE/Ars2_C	SERRATE/Ars2 , C-terminal	domain	IPR007042	SERRATE/Ars2_C	SERRATE/Ars2 , C-terminal	domain
+IPR007046	RNA_pol_sigma_54_core-bd	RNA polymerase sigma factor 54, core-binding domain	domain	IPR007046	RNA_pol_sigma_54_core-bd	RNA polymerase sigma factor 54, core-binding domain	domain
+IPR007064	Nmd3_N	Nmd3, N-terminal	domain	IPR007064	Nmd3_N	Nmd3, N-terminal	domain
+IPR007066	RNA_pol_Rpb1_3	RNA polymerase Rpb1, domain 3	domain	IPR007066	RNA_pol_Rpb1_3	RNA polymerase Rpb1, domain 3	domain
+IPR007073	RNA_pol_Rpb1_7	RNA polymerase Rpb1, domain 7	domain	IPR007073	RNA_pol_Rpb1_7	RNA polymerase Rpb1, domain 7	domain
+IPR007075	RNA_pol_Rpb1_6	RNA polymerase Rpb1, domain 6	domain	IPR007075	RNA_pol_Rpb1_6	RNA polymerase Rpb1, domain 6	domain
+IPR007080	RNA_pol_Rpb1_1	RNA polymerase Rpb1, domain 1	domain	IPR007080	RNA_pol_Rpb1_1	RNA polymerase Rpb1, domain 1	domain
+IPR007081	RNA_pol_Rpb1_5	RNA polymerase Rpb1, domain 5	domain	IPR007081	RNA_pol_Rpb1_5	RNA polymerase Rpb1, domain 5	domain
+IPR007083	RNA_pol_Rpb1_4	RNA polymerase Rpb1, domain 4	domain	IPR007083	RNA_pol_Rpb1_4	RNA polymerase Rpb1, domain 4	domain
+IPR007109	Brix	Brix domain	domain	IPR007109	Brix	Brix domain	domain
+IPR007120	DNA-dir_RNAP_su2_dom	DNA-directed RNA polymerase, subunit 2, hybrid-binding domain	domain	IPR007120	DNA-dir_RNAP_su2_dom	DNA-directed RNA polymerase, subunit 2, hybrid-binding domain	domain
+IPR007127	RNA_pol_sigma_70_r1_1	RNA polymerase sigma factor 70, region 1.1	domain	IPR007127	RNA_pol_sigma_70_r1_1	RNA polymerase sigma factor 70, region 1.1	domain
+IPR007148	SSU_processome_Utp12	Small-subunit processome, Utp12	domain	IPR007148	SSU_processome_Utp12	Small-subunit processome, Utp12	domain
+IPR007177	Tsr3_C	16S/18S rRNA aminocarboxypropyltransferase Tsr3, C-terminal	domain	IPR007177	Tsr3_C	16S/18S rRNA aminocarboxypropyltransferase Tsr3, C-terminal	domain
+IPR007180	DUF382	Domain of unknown function DUF382	domain	IPR007180	DUF382	Domain of unknown function DUF382	domain
+IPR007193	Upf2/Nmd2_C	Up-frameshift suppressor 2, C-terminal	domain	IPR007193	Upf2/Nmd2_C	Up-frameshift suppressor 2, C-terminal	domain
+IPR007196	CCR4-Not_Not1_C	CCR4-Not complex component, Not1, C-terminal	domain	IPR007196	CCR4-Not_Not1_C	CCR4-Not complex component, Not1, C-terminal	domain
+IPR007201	Mei2-like_Rrm_C	Mei2-like, C-terminal RNA recognition motif	domain	IPR007201	Mei2-like_Rrm_C	Mei2-like, C-terminal RNA recognition motif	domain
+IPR007207	Not_N	CCR4-Not complex component, Not N-terminal domain	domain	IPR007207	Not_N	CCR4-Not complex component, Not N-terminal domain	domain
+IPR007222	SRPRA_N	Signal recognition particle receptor, alpha subunit, N-terminal	domain	IPR007222	SRPRA_N	Signal recognition particle receptor, alpha subunit, N-terminal	domain
+IPR007230	Nup98_auto-Pept-S59_dom	Nuclear pore complex protein Nup98-Nup96-like, autopeptidase S59 domain	domain	IPR007230	Nup98_auto-Pept-S59_dom	Nuclear pore complex protein Nup98-Nup96-like, autopeptidase S59 domain	domain
+IPR007275	YTH_domain	YTH domain	domain	IPR007275	YTH_domain	YTH domain	domain
+IPR007282	NOT2/3/5_C	NOT2/NOT3/NOT5, C-terminal	domain	IPR007282	NOT2/3/5_C	NOT2/NOT3/NOT5, C-terminal	domain
+IPR007287	Sof1	Sof1-like protein	domain	IPR007287	Sof1	Sof1-like protein	domain
+IPR007319	WDR36/Utp21_C	WDR36/Utp21, C-terminal domain	domain	IPR007319	WDR36/Utp21_C	WDR36/Utp21, C-terminal domain	domain
+IPR007502	Helicase-assoc_dom	Helicase-associated domain	domain	IPR007502	Helicase-assoc_dom	Helicase-associated domain	domain
+IPR007529	Znf_HIT	Zinc finger, HIT-type	domain	IPR007529	Znf_HIT	Zinc finger, HIT-type	domain
+IPR007631	RNA_pol_sigma_70_non-ess	RNA polymerase sigma factor 70, non-essential domain	domain	IPR007631	RNA_pol_sigma_70_non-ess	RNA polymerase sigma factor 70, non-essential domain	domain
+IPR007634	RNA_pol_sigma_54_DNA-bd	RNA polymerase sigma factor 54, DNA-binding	domain	IPR007634	RNA_pol_sigma_54_DNA-bd	RNA polymerase sigma factor 54, DNA-binding	domain
+IPR007638	Gln-tRNA-synth_Ib_RNA-bd_2	Glutaminyl-tRNA synthetase, class Ib, non-specific RNA-binding domain 2	domain	IPR007638	Gln-tRNA-synth_Ib_RNA-bd_2	Glutaminyl-tRNA synthetase, class Ib, non-specific RNA-binding domain 2	domain
+IPR007639	Gln-tRNA-synth_Ib_RNA-bd_N	Glutaminyl-tRNA synthetase, class Ib, non-specific RNA-binding domain, N-terminal	domain	IPR007639	Gln-tRNA-synth_Ib_RNA-bd_N	Glutaminyl-tRNA synthetase, class Ib, non-specific RNA-binding domain, N-terminal	domain
+IPR007641	RNA_pol_Rpb2_7	RNA polymerase Rpb2, domain 7	domain	IPR007641	RNA_pol_Rpb2_7	RNA polymerase Rpb2, domain 7	domain
+IPR007642	RNA_pol_Rpb2_2	RNA polymerase Rpb2, domain 2	domain	IPR007642	RNA_pol_Rpb2_2	RNA polymerase Rpb2, domain 2	domain
+IPR007644	RNA_pol_bsu_protrusion	RNA polymerase, beta subunit, protrusion	domain	IPR007644	RNA_pol_bsu_protrusion	RNA polymerase, beta subunit, protrusion	domain
+IPR007645	RNA_pol_Rpb2_3	RNA polymerase Rpb2, domain 3	domain	IPR007645	RNA_pol_Rpb2_3	RNA polymerase Rpb2, domain 3	domain
+IPR007646	RNA_pol_Rpb2_4	RNA polymerase Rpb2, domain 4	domain	IPR007646	RNA_pol_Rpb2_4	RNA polymerase Rpb2, domain 4	domain
+IPR007647	RNA_pol_Rpb2_5	RNA polymerase Rpb2, domain 5	domain	IPR007647	RNA_pol_Rpb2_5	RNA polymerase Rpb2, domain 5	domain
+IPR007708	DBR1_C	Lariat debranching enzyme, C-terminal	domain	IPR007708	DBR1_C	Lariat debranching enzyme, C-terminal	domain
+IPR007718	Srp40_C	Srp40, C-terminal	domain	IPR007718	Srp40_C	Srp40, C-terminal	domain
+IPR007722	DCP2_BoxA	mRNA decapping protein 2, Box A domain	domain	IPR007722	DCP2_BoxA	mRNA decapping protein 2, Box A domain	domain
+IPR007741	Ribosomal_mL43/mS25/NADH_DH	Ribosomal protein/NADH dehydrogenase domain	domain	IPR007741	Ribosomal_mL43/mS25/NADH_DH	Ribosomal protein/NADH dehydrogenase domain	domain
+IPR007846	RRM_NUP35_dom	RNA-recognition motif (RRM) Nup35-type domain	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR007854	Fip1_dom	Pre-mRNA polyadenylation factor Fip1 domain	domain	IPR007854	Fip1_dom	Pre-mRNA polyadenylation factor Fip1 domain	domain
+IPR007862	Adenylate_kinase_lid-dom	Adenylate kinase, active site lid domain	domain	IPR007862	Adenylate_kinase_lid-dom	Adenylate kinase, active site lid domain	domain
+IPR007871	Methyltransferase_TRM13	Methyltransferase TRM13	domain	IPR007871	Methyltransferase_TRM13	Methyltransferase TRM13	domain
+IPR008395	Agenet-like_dom	Agenet-like domain	domain	IPR008395	Agenet-like_dom	Agenet-like domain	domain
+IPR008532	NFACT_RNA-bd	NFACT, RNA-binding domain	domain	IPR008532	NFACT_RNA-bd	NFACT, RNA-binding domain	domain
+IPR008669	LSM_interact	LSM-interacting domain	domain	IPR008669	LSM_interact	LSM-interacting domain	domain
+IPR008806	RNA_pol_III_Rpc82_C	RNA polymerase III Rpc82, C -terminal	domain	IPR008806	RNA_pol_III_Rpc82_C	RNA polymerase III Rpc82, C -terminal	domain
+IPR008847	Suf	Suppressor of forked	domain	IPR008847	Suf	Suppressor of forked	domain
+IPR008850	TEP1_N	TEP1, N-terminal	repeat	IPR008850	TEP1_N	TEP1, N-terminal	repeat
+IPR008858	TROVE_dom	TROVE domain	domain	IPR008858	TROVE_dom	TROVE domain	domain
+IPR008905	EIF3C_N_dom	Eukaryotic translation initiation factor 3 subunit C, N-terminal domain	domain	IPR008905	EIF3C_N_dom	Eukaryotic translation initiation factor 3 subunit C, N-terminal domain	domain
+IPR008909	DALR_anticod-bd	DALR anticodon binding	domain	IPR008909	DALR_anticod-bd	DALR anticodon binding	domain
+IPR008932	Ribosomal_bL12_oligo	Large ribosomal subunit protein bL12, oligomerization	domain	IPR008932	Ribosomal_bL12_oligo	Large ribosomal subunit protein bL12, oligomerization	domain
+IPR009022	EFG_III	Elongation factor G, domain III	domain	IPR009022	EFG_III	Elongation factor G, domain III	domain
+IPR009025	RBP11-like_dimer	DNA-directed RNA polymerase, RBP11-like dimerisation domain	domain	IPR009025	RBP11-like_dimer	DNA-directed RNA polymerase, RBP11-like dimerisation domain	domain
+IPR009042	RNA_pol_sigma70_r1_2	RNA polymerase sigma-70 region 1.2	domain	IPR009042	RNA_pol_sigma70_r1_2	RNA polymerase sigma-70 region 1.2	domain
+IPR009349	TRIP4/RQT4_C2HC5_Znf	TRIP4/RQT4, C2HC5-type zinc finger	domain	IPR009349	TRIP4/RQT4_C2HC5_Znf	TRIP4/RQT4, C2HC5-type zinc finger	domain
+IPR009604	LsmAD_domain	LsmAD domain	domain	IPR009604	LsmAD_domain	LsmAD domain	domain
+IPR009674	Rpa2_dom_4	DNA-directed RNA polymerase I subunit RPA2, domain 4	domain	IPR009674	Rpa2_dom_4	DNA-directed RNA polymerase I subunit RPA2, domain 4	domain
+IPR009723	Pop1_N	Pop1, N-terminal	domain	IPR009723	Pop1_N	Pop1, N-terminal	domain
+IPR009818	PAM2_motif	PAM2 motif	conserved_site	IPR009818	PAM2_motif	PAM2 motif	conserved_site
+IPR009917	SRA1/Sec31	SRA1/Sec31	domain	IPR009917	SRA1/Sec31	SRA1/Sec31	domain
+IPR010213	TF_NusA	Transcription factor NusA	domain	IPR010213	TF_NusA	Transcription factor NusA	domain
+IPR010304	SMN_Tudor	Survival motor neuron, Tudor domain	domain	IPR010304	SMN_Tudor	Survival motor neuron, Tudor domain	domain
+IPR010491	PRP1_N	PRP1 splicing factor, N-terminal	domain	IPR010491	PRP1_N	PRP1 splicing factor, N-terminal	domain
+IPR010507	Znf_MYM	Zinc finger, MYM-type	domain	IPR010507	Znf_MYM	Zinc finger, MYM-type	domain
+IPR010513	KEN_dom	KEN domain	domain	IPR010513	KEN_dom	KEN domain	domain
+IPR010603	Znf_CppX_C4	ATP-dependent Clp protease ATP-binding subunit ClpX, zinc ribbon domain	domain	IPR059188	Znf_CLPX-like	ClpX-like, zinc ribbon domain	domain
+IPR010622	FAST_Leu-rich	FAST kinase leucine-rich	domain	IPR010622	FAST_Leu-rich	FAST kinase leucine-rich	domain
+IPR010655	Clp1_C	Clp1, C-terminal	domain	IPR010655	Clp1_C	Clp1, C-terminal	domain
+IPR010663	Znf_FPG/IleRS	Zinc finger, FPG/IleRS-type	domain	IPR010663	Znf_FPG/IleRS	Zinc finger, FPG/IleRS-type	domain
+IPR010666	Znf_GRF	Zinc finger, GRF-type	domain	IPR010666	Znf_GRF	Zinc finger, GRF-type	domain
+IPR010674	NOG1_Rossman_fold_dom	Nucleolar GTP-binding protein 1, Rossman-fold domain	domain	IPR010674	NOG1_Rossman_fold_dom	Nucleolar GTP-binding protein 1, Rossman-fold domain	domain
+IPR010675	Bin3_C	RNA methyltransferase bin3, C-terminal	domain	IPR010675	Bin3_C	RNA methyltransferase bin3, C-terminal	domain
+IPR010912	SPOC_met	Spen paralogue/orthologue C-terminal, metazoa	domain	IPR012921	SPOC_C	Spen paralogue and orthologue SPOC, C-terminal	domain
+IPR012921	SPOC_C	Spen paralogue and orthologue SPOC, C-terminal	domain	IPR012921	SPOC_C	Spen paralogue and orthologue SPOC, C-terminal	domain
+IPR011023	Nop2p	Nop2p	domain	IPR001678	MeTrfase_RsmB-F_NOP2_dom	SAM-dependent methyltransferase RsmB-F/NOP2-type domain	domain
+IPR011108	RMMBL	Zn-dependent metallo-hydrolase, RNA specificity domain	domain	IPR011108	RMMBL	Zn-dependent metallo-hydrolase, RNA specificity domain	domain
+IPR011113	Rho_RNA-bd	Rho termination factor, RNA-binding domain	domain	IPR011129	CSD	Cold-shock domain	domain
+IPR011125	Znf_HypF	Zinc finger, HypF-type	domain	IPR011125	Znf_HypF	Zinc finger, HypF-type	domain
+IPR011260	RNAP_asu_C	RNA polymerase, alpha subunit, C-terminal	domain	IPR011260	RNAP_asu_C	RNA polymerase, alpha subunit, C-terminal	domain
+IPR011262	DNA-dir_RNA_pol_insert	DNA-directed RNA polymerase, insert domain	domain	IPR011262	DNA-dir_RNA_pol_insert	DNA-directed RNA polymerase, insert domain	domain
+IPR011263	DNA-dir_RNA_pol_RpoA/D/Rpb3	DNA-directed RNA polymerase, RpoA/D/Rpb3-type	domain	IPR011263	DNA-dir_RNA_pol_RpoA/D/Rpb3	DNA-directed RNA polymerase, RpoA/D/Rpb3-type	domain
+IPR011320	RNase_H1_N	Ribonuclease H1, N-terminal	domain	IPR011320	RNase_H1_N	Ribonuclease H1, N-terminal	domain
+IPR011430	UTP20_N	U3 small nucleolar RNA-associated protein 20, N-terminal	domain	IPR011430	UTP20_N	U3 small nucleolar RNA-associated protein 20, N-terminal	domain
+IPR011501	Noc3_N	Nucleolar complex-associated protein 3, N-terminal	domain	IPR011501	Noc3_N	Nucleolar complex-associated protein 3, N-terminal	domain
+IPR011545	DEAD/DEAH_box_helicase_dom	DEAD/DEAH-box helicase domain	domain	IPR014001	Helicase_ATP-bd	Helicase superfamily 1/2, ATP-binding domain	domain
+IPR011666	DUF1604	G patch domain-containing protein, N-terminal	domain	IPR011666	DUF1604	G patch domain-containing protein, N-terminal	domain
+IPR011709	DEAD-box_helicase_OB_fold	DEAD-box helicase, OB fold	domain	IPR011709	DEAD-box_helicase_OB_fold	DEAD-box helicase, OB fold	domain
+IPR011760	PsdUridine_synth_TruD_insert	Pseudouridine synthase, TruD, insertion domain	domain	IPR011760	PsdUridine_synth_TruD_insert	Pseudouridine synthase, TruD, insertion domain	domain
+IPR012313	Znf_FCS	Zinc finger, FCS-type	domain	IPR012313	Znf_FCS	Zinc finger, FCS-type	domain
+IPR012317	Poly(ADP-ribose)pol_cat_dom	Poly(ADP-ribose) polymerase, catalytic domain	domain	IPR012317	Poly(ADP-ribose)pol_cat_dom	Poly(ADP-ribose) polymerase, catalytic domain	domain
+IPR012532	BDHCT	BDHCT	domain	IPR012532	BDHCT	BDHCT	domain
+IPR012541	DBP10_C	DBP10, C-terminal	domain	IPR012541	DBP10_C	DBP10, C-terminal	domain
+IPR012562	GUCT	GUCT	domain	IPR012562	GUCT	GUCT	domain
+IPR012579	NOL7_C	U3 small nucleolar RNA-associated protein NOL7, C-terminal	domain	IPR012579	NOL7_C	U3 small nucleolar RNA-associated protein NOL7, C-terminal	domain
+IPR012580	NUC153	NUC153	domain	IPR012580	NUC153	NUC153	domain
+IPR012583	RIX1_N	Pre-rRNA-processing protein RIX1, N-terminal	domain	IPR012583	RIX1_N	Pre-rRNA-processing protein RIX1, N-terminal	domain
+IPR012584	NOL11_N	Nucleolar protein 11, N-terminal domain	domain	IPR012584	NOL11_N	Nucleolar protein 11, N-terminal domain	domain
+IPR012587	P68_rpt	RNA helicase p68 repeat	repeat	IPR012587	P68_rpt	RNA helicase p68 repeat	repeat
+IPR012588	Exosome-assoc_fac_Rrp6_N	Exosome-associated factor Rrp6, N-terminal	domain	IPR012588	Exosome-assoc_fac_Rrp6_N	Exosome-associated factor Rrp6, N-terminal	domain
+IPR012590	POPLD_dom	POPLD domain	domain	IPR012590	POPLD_dom	POPLD domain	domain
+IPR012591	PRO8NT	PRO8NT domain	domain	IPR012591	PRO8NT	PRO8NT domain	domain
+IPR012592	PROCN	PROCN domain	domain	IPR012592	PROCN	PROCN domain	domain
+IPR012604	RBM1CTR	RBM1CTR	domain	IPR012604	RBM1CTR	RBM1CTR	domain
+IPR012606	Ribosomal_uS15_N	Small ribosomal subunit protein uS15, N-terminal	domain	IPR012606	Ribosomal_uS15_N	Small ribosomal subunit protein uS15, N-terminal	domain
+IPR012760	RNA_pol_sigma_RpoD_C	RNA polymerase sigma factor RpoD, C-terminal	domain	IPR014284	RNA_pol_sigma-70_dom	RNA polymerase sigma-70-like domain	domain
+IPR014284	RNA_pol_sigma-70_dom	RNA polymerase sigma-70-like domain	domain	IPR014284	RNA_pol_sigma-70_dom	RNA polymerase sigma-70-like domain	domain
+IPR012796	Lysidine-tRNA-synth_C	Lysidine-tRNA(Ile) synthetase, C-terminal	domain	IPR012796	Lysidine-tRNA-synth_C	Lysidine-tRNA(Ile) synthetase, C-terminal	domain
+IPR012935	NuBaID_N	NuBaID, N-terminal domain	domain	IPR012935	NuBaID_N	NuBaID, N-terminal domain	domain
+IPR012947	tRNA_SAD	Threonyl/alanyl tRNA synthetase, SAD	domain	IPR012947	tRNA_SAD	Threonyl/alanyl tRNA synthetase, SAD	domain
+IPR012948	AARP2CN	AARP2CN	domain	IPR012948	AARP2CN	AARP2CN	domain
+IPR012953	BOP1_N_dom	BOP1, N-terminal domain	domain	IPR012953	BOP1_N_dom	BOP1, N-terminal domain	domain
+IPR012956	CARG-binding_factor_N	CARG-binding factor, N-terminal	domain	IPR012956	CARG-binding_factor_N	CARG-binding factor, N-terminal	domain
+IPR012959	CPL_dom	CPL domain	domain	IPR012959	CPL_dom	CPL domain	domain
+IPR012960	Dyskerin-like	Dyskerin-like	domain	IPR012960	Dyskerin-like	Dyskerin-like	domain
+IPR012973	NOG_C	NOG, C-terminal	domain	IPR012973	NOG_C	NOG, C-terminal	domain
+IPR012974	NOP58/56_N	Nucleolar protein 58/56, N-terminal	domain	IPR012974	NOP58/56_N	Nucleolar protein 58/56, N-terminal	domain
+IPR012975	NOPS	NOPS	domain	IPR012975	NOPS	NOPS	domain
+IPR012978	HEAT_RRP12	RRP12, HEAT domain	domain	IPR012978	HEAT_RRP12	RRP12, HEAT domain	domain
+IPR012981	PIH1_N	PIH1, N-terminal	domain	IPR012981	PIH1_N	PIH1, N-terminal	domain
+IPR012984	PROCT	PROCT domain	domain	IPR012984	PROCT	PROCT domain	domain
+IPR012987	ROK_N	ROK, N-terminal	domain	IPR012987	ROK_N	ROK, N-terminal	domain
+IPR012988	Ribosomal_uL30_N_euk	Large ribosomal subunit protein uL30, N-terminal, eukaryota	domain	IPR012988	Ribosomal_uL30_N_euk	Large ribosomal subunit protein uL30, N-terminal, eukaryota	domain
+IPR012996	Znf_CHHC	Zinc finger, CHHC-type	domain	IPR012996	Znf_CHHC	Zinc finger, CHHC-type	domain
+IPR013029	YchF_C	YchF, C-terminal domain	domain	IPR013029	YchF_C	YchF, C-terminal domain	domain
+IPR013085	U1-CZ_Znf_C2H2	U1-C, C2H2-type zinc finger	domain	IPR013087	Zf-C2H2_type	Zinc finger C2H2-type	domain
+IPR013103	RVT_2	Reverse transcriptase, RNA-dependent DNA polymerase	domain	IPR013103	RVT_2	Reverse transcriptase, RNA-dependent DNA polymerase	domain
+IPR013123	SpoU_subst-bd	RNA 2-O ribose methyltransferase, substrate binding	domain	IPR013123	SpoU_subst-bd	RNA 2-O ribose methyltransferase, substrate binding	domain
+IPR013155	M/V/L/I-tRNA-synth_anticd-bd	Methionyl/Valyl/Leucyl/Isoleucyl-tRNA synthetase, anticodon-binding	domain	IPR013155	M/V/L/I-tRNA-synth_anticd-bd	Methionyl/Valyl/Leucyl/Isoleucyl-tRNA synthetase, anticodon-binding	domain
+IPR013158	AID	Activation-induced cytidine deaminase AID	domain	IPR002125	CMP_dCMP_dom	Cytidine and deoxycytidylate deaminase domain	domain
+IPR013159	DnaA_C	Chromosomal replication initiator, DnaA C-terminal	domain	IPR013159	DnaA_C	Chromosomal replication initiator, DnaA C-terminal	domain
+IPR013170	mRNA_splic_Cwf21_dom	mRNA splicing factor Cwf21 domain	domain	IPR013170	mRNA_splic_Cwf21_dom	mRNA splicing factor Cwf21 domain	domain
+IPR013197	RNA_pol_III_RPC82-rel_HTH	RNA polymerase III subunit RPC82-related, helix-turn-helix	domain	IPR013197	RNA_pol_III_RPC82-rel_HTH	RNA polymerase III subunit RPC82-related, helix-turn-helix	domain
+IPR013223	RNase_B_OB_dom	Ribonuclease B, N-terminal OB domain	domain	IPR013223	RNase_B_OB_dom	Ribonuclease B, N-terminal OB domain	domain
+IPR013238	RNA_pol_III_Rbc25	RNA polymerase III, subunit Rpc25	domain	IPR013238	RNA_pol_III_Rbc25	RNA polymerase III, subunit Rpc25	domain
+IPR013520	Ribonucl_H	Ribonuclease H-like domain	domain	IPR013520	Ribonucl_H	Ribonuclease H-like domain	domain
+IPR013579	FAST_2	FAST kinase-like protein, subdomain 2	domain	IPR013579	FAST_2	FAST kinase-like protein, subdomain 2	domain
+IPR013584	RAP	RAP domain	domain	IPR013584	RAP	RAP domain	domain
+IPR013598	Exportin-1/Importin-b-like	Exportin-1/Importin-beta-like	domain	IPR013598	Exportin-1/Importin-b-like	Exportin-1/Importin-beta-like	domain
+IPR013699	Signal_recog_part_SRP72_RNA-bd	Signal recognition particle, SRP72 subunit, RNA-binding	domain	IPR013699	Signal_recog_part_SRP72_RNA-bd	Signal recognition particle, SRP72 subunit, RNA-binding	domain
+IPR013735	TF_NusA_N	Transcription factor NusA, N-terminal	domain	IPR013735	TF_NusA_N	Transcription factor NusA, N-terminal	domain
+IPR013766	Thioredoxin_domain	Thioredoxin domain	domain	IPR013766	Thioredoxin_domain	Thioredoxin domain	domain
+IPR013791	RNA3'-term_phos_cycl_insert	RNA 3'-terminal phosphate cyclase, insert domain	domain	IPR013791	RNA3'-term_phos_cycl_insert	RNA 3'-terminal phosphate cyclase, insert domain	domain
+IPR013810	Ribosomal_uS5_N	Small ribosomal subunit protein uS5, N-terminal	domain	IPR013810	Ribosomal_uS5_N	Small ribosomal subunit protein uS5, N-terminal	domain
+IPR013822	Signal_recog_particl_SRP54_hlx	Signal recognition particle SRP54, helical bundle	domain	IPR013822	Signal_recog_particl_SRP54_hlx	Signal recognition particle SRP54, helical bundle	domain
+IPR013823	Ribosomal_bL12_C	Large ribosomal subunit protein bL12, C-terminal	domain	IPR013823	Ribosomal_bL12_C	Large ribosomal subunit protein bL12, C-terminal	domain
+IPR013843	Ribosomal_eS4_N	Small ribosomal subunit protein eS4, N-terminal	domain	IPR013843	Ribosomal_eS4_N	Small ribosomal subunit protein eS4, N-terminal	domain
+IPR013845	Ribosomal_eS4_central_region	Small ribosomal subunit protein eS4, central region	domain	IPR013845	Ribosomal_eS4_central_region	Small ribosomal subunit protein eS4, central region	domain
+IPR013846	mRNA_cap_enzyme_C	mRNA capping enzyme, C-terminal domain	domain	IPR013846	mRNA_cap_enzyme_C	mRNA capping enzyme, C-terminal domain	domain
+IPR013881	Pre-mRNA_splic_Prp3_dom	Pre-mRNA-splicing factor 3 domain	domain	IPR013881	Pre-mRNA_splic_Prp3_dom	Pre-mRNA-splicing factor 3 domain	domain
+IPR013909	NuBaID_C	NuBaID, C-terminal domain	domain	IPR013909	NuBaID_C	NuBaID, C-terminal domain	domain
+IPR013915	Prp19_cc	Prp19, coiled-coil region	domain	IPR013915	Prp19_cc	Prp19, coiled-coil region	domain
+IPR013934	Utp13_C	U3 small nucleolar RNA-associated protein 13, C-terminal	domain	IPR013934	Utp13_C	U3 small nucleolar RNA-associated protein 13, C-terminal	domain
+IPR013953	FACT_SPT16_M	FACT complex subunit SPT16, middle domain	domain	IPR013953	FACT_SPT16_M	FACT complex subunit SPT16, middle domain	domain
+IPR013961	RAI1	RAI1-like	domain	IPR013961	RAI1	RAI1-like	domain
+IPR013979	TIF_beta_prop-like	Translation initiation factor, beta propellor-like domain	domain	IPR013979	TIF_beta_prop-like	Translation initiation factor, beta propellor-like domain	domain
+IPR014014	RNA_helicase_DEAD_Q_motif	RNA helicase, DEAD-box type, Q motif	conserved_site	IPR014014	RNA_helicase_DEAD_Q_motif	RNA helicase, DEAD-box type, Q motif	conserved_site
+IPR014038	EF1B_bsu/dsu_GNE	Translation elongation factor EF1B, beta/delta subunit, guanine nucleotide exchange domain	domain	IPR014038	EF1B_bsu/dsu_GNE	Translation elongation factor EF1B, beta/delta subunit, guanine nucleotide exchange domain	domain
+IPR014039	Transl_elong_EFTs/EF1B_dimer	Translation elongation factor EFTs/EF1B, dimerisation	domain	IPR014039	Transl_elong_EFTs/EF1B_dimer	Translation elongation factor EFTs/EF1B, dimerisation	domain
+IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR014744	Nuc_rcpt_coact_CREBbp	Nuclear receptor coactivator, CREB-bp-like, interlocking	domain	IPR014744	Nuc_rcpt_coact_CREBbp	Nuclear receptor coactivator, CREB-bp-like, interlocking	domain
+IPR014789	PolyA-riboNase_RNA-binding	Poly(A)-specific ribonuclease, RNA-binding	domain	IPR014789	PolyA-riboNase_RNA-binding	Poly(A)-specific ribonuclease, RNA-binding	domain
+IPR014810	Fcf2_C	Fcf2 pre-rRNA processing, C-terminal	domain	IPR014810	Fcf2_C	Fcf2 pre-rRNA processing, C-terminal	domain
+IPR014813	Gnl3_N_dom	Guanine nucleotide-binding protein-like 3, N-terminal domain	domain	IPR014813	Gnl3_N_dom	Guanine nucleotide-binding protein-like 3, N-terminal domain	domain
+IPR014877	XPO1_C_dom	Exportin-1, C-terminal	domain	IPR014877	XPO1_C_dom	Exportin-1, C-terminal	domain
+IPR014881	NOB1_Zn-bd	Nin one binding (NOB1), Zn-ribbon-like domain	domain	IPR014881	NOB1_Zn-bd	Nin one binding (NOB1), Zn-ribbon-like domain	domain
+IPR014886	La_xRRM	La protein, xRRM domain	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR014898	Znf_C2H2_LYAR	Zinc finger, C2H2, LYAR-type	domain	IPR014898	Znf_C2H2_LYAR	Zinc finger, C2H2, LYAR-type	domain
+IPR014906	PRP4-like	Pre-mRNA processing factor 4 (PRP4)-like	domain	IPR014906	PRP4-like	Pre-mRNA processing factor 4 (PRP4)-like	domain
+IPR015016	SF3b_su1	Splicing factor 3B subunit 1	domain	IPR015016	SF3b_su1	Splicing factor 3B subunit 1	domain
+IPR015047	SYNJ1/2_RRM	Synaptojanin-1/2, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR015088	Znf_DNA-dir_DNA_pol_B_alpha	Zinc finger, DNA-directed DNA polymerase, family B, alpha	domain	IPR015088	Znf_DNA-dir_DNA_pol_B_alpha	Zinc finger, DNA-directed DNA polymerase, family B, alpha	domain
+IPR015096	FUBP_C	Far upstream element-binding protein, C-terminal	domain	IPR015096	FUBP_C	Far upstream element-binding protein, C-terminal	domain
+IPR015158	Bud22_dom	Bud22 domain	domain	IPR015158	Bud22_dom	Bud22 domain	domain
+IPR015172	MIF4G-like_typ-1	MIF4G-like, type 1	domain	IPR015172	MIF4G-like_typ-1	MIF4G-like, type 1	domain
+IPR015174	MIF4G-like_typ-2	MIF4G-like, type 2	domain	IPR015174	MIF4G-like_typ-2	MIF4G-like, type 2	domain
+IPR015190	Elong_fac_SelB-wing-hlx_typ-2	Translation elongation factor SelB, winged helix, type 2	domain	IPR015190	Elong_fac_SelB-wing-hlx_typ-2	Translation elongation factor SelB, winged helix, type 2	domain
+IPR015191	SelB_WHD4	Elongation factor SelB, fourth winged-helix domain	domain	IPR015191	SelB_WHD4	Elongation factor SelB, fourth winged-helix domain	domain
+IPR015240	tRNA_sdUridine_synth_fam1_C	tRNA pseudouridine synthase II, TruB, subfamily 1, C-terminal	domain	IPR015240	tRNA_sdUridine_synth_fam1_C	tRNA pseudouridine synthase II, TruB, subfamily 1, C-terminal	domain
+IPR015245	Tap_RNA-bd	Nuclear RNA export factor Tap, RNA-binding domain	domain	IPR015245	Tap_RNA-bd	Nuclear RNA export factor Tap, RNA-binding domain	domain
+IPR015256	eIF2g_C	Initiation factor eIF2 gamma, C-terminal	domain	IPR015256	eIF2g_C	Initiation factor eIF2 gamma, C-terminal	domain
+IPR015262	tRNA_Ile_lys_synt_subst-bd	tRNA(Ile)-lysidine synthase, substrate-binding domain	domain	IPR015262	tRNA_Ile_lys_synt_subst-bd	tRNA(Ile)-lysidine synthase, substrate-binding domain	domain
+IPR015327	PHAT_dom	Smaug, PHAT analogous topology	domain	IPR015327	PHAT_dom	Smaug, PHAT analogous topology	domain
+IPR015362	WIBG_mago-bd	WIBG, Mago-binding	domain	IPR015362	WIBG_mago-bd	WIBG, Mago-binding	domain
+IPR015408	Znf_Mcm10/DnaG	Zinc finger, Mcm10/DnaG-type	domain	IPR015408	Znf_Mcm10/DnaG	Zinc finger, Mcm10/DnaG-type	domain
+IPR015413	Methionyl/Leucyl_tRNA_Synth	Methionyl/Leucyl tRNA synthetase	domain	IPR015413	Methionyl/Leucyl_tRNA_Synth	Methionyl/Leucyl tRNA synthetase	domain
+IPR015590	Aldehyde_DH_dom	Aldehyde dehydrogenase domain	domain	IPR015590	Aldehyde_DH_dom	Aldehyde dehydrogenase domain	domain
+IPR015847	ExoRNase_PH_dom2	Exoribonuclease, phosphorolytic domain 2	domain	IPR015847	ExoRNase_PH_dom2	Exoribonuclease, phosphorolytic domain 2	domain
+IPR015848	PNPase_PH_RNA-bd_bac/org-type	Polyribonucleotide nucleotidyltransferase, RNA-binding domain	domain	IPR015848	PNPase_PH_RNA-bd_bac/org-type	Polyribonucleotide nucleotidyltransferase, RNA-binding domain	domain
+IPR015866	Ser-tRNA-synth_1_N	Serine-tRNA synthetase, type1, N-terminal	domain	IPR015866	Ser-tRNA-synth_1_N	Serine-tRNA synthetase, type1, N-terminal	domain
+IPR015929	Aconitase_B_swivel	Aconitase B, swivel	domain	IPR015929	Aconitase_B_swivel	Aconitase B, swivel	domain
+IPR015933	Aconitase_B_HEAT-like_dom	Aconitase B, HEAT-like domain	domain	IPR015933	Aconitase_B_HEAT-like_dom	Aconitase B, HEAT-like domain	domain
+IPR015965	tRNA_lig_PDEase	tRNA ligase, phosphodiesterase	domain	IPR015965	tRNA_lig_PDEase	tRNA ligase, phosphodiesterase	domain
+IPR015966	tRNA_lig_kin_fungi	tRNA ligase, kinase domain, fungi	domain	IPR015966	tRNA_lig_kin_fungi	tRNA ligase, kinase domain, fungi	domain
+IPR016009	tRNA_MeTrfase_TRMD/TRM10	tRNA methyltransferase TRMD/TRM10-type domain	domain	IPR016009	tRNA_MeTrfase_TRMD/TRM10	tRNA methyltransferase TRMD/TRM10-type domain	domain
+IPR016061	Pro-tRNA_ligase_II_C	Proline-tRNA ligase, class II, C-terminal	domain	IPR016061	Pro-tRNA_ligase_II_C	Proline-tRNA ligase, class II, C-terminal	domain
+IPR016071	Staphylococal_nuclease_OB-fold	Staphylococcal nuclease (SNase-like), OB-fold	domain	IPR016071	Staphylococal_nuclease_OB-fold	Staphylococcal nuclease (SNase-like), OB-fold	domain
+IPR016082	Ribosomal_uL30_ferredoxin-like	Large ribosomal subunit protein uL30-like, ferredoxin-like fold domain	domain	IPR016082	Ribosomal_uL30_ferredoxin-like	Large ribosomal subunit protein uL30-like, ferredoxin-like fold domain	domain
+IPR016180	Ribosomal_uL16_dom	Large ribosomal subunit protein uL16 domain	domain	IPR016180	Ribosomal_uL16_dom	Large ribosomal subunit protein uL16 domain	domain
+IPR017879	PotA_ATP-bd	PotA, ATP-binding domain	domain	IPR003593	AAA+_ATPase	AAA+ ATPase domain	domain
+IPR003593	AAA+_ATPase	AAA+ ATPase domain	domain	IPR003593	AAA+_ATPase	AAA+ ATPase domain	domain
+IPR017919	TFIIE/TFIIEa_HTH	Transcription factor TFE/TFIIEalpha HTH domain	domain	IPR024550	TFIIEa/SarR/Rpc3_HTH_dom	TFIIEalpha/SarR/Rpc3 HTH domain	domain
+IPR024550	TFIIEa/SarR/Rpc3_HTH_dom	TFIIEalpha/SarR/Rpc3 HTH domain	domain	IPR024550	TFIIEa/SarR/Rpc3_HTH_dom	TFIIEalpha/SarR/Rpc3 HTH domain	domain
+IPR018027	Asn/Gln_amidotransferase	Asn/Gln amidotransferase	domain	IPR018027	Asn/Gln_amidotransferase	Asn/Gln amidotransferase	domain
+IPR018149	Lys-tRNA-synth_II_C	Lysyl-tRNA synthetase, class II, C-terminal	domain	IPR006195	aa-tRNA-synth_II	Aminoacyl-tRNA synthetase, class II	domain
+IPR018164	Ala-tRNA-synth_IIc_N	Alanyl-tRNA synthetase, class IIc, N-terminal	domain	IPR018164	Ala-tRNA-synth_IIc_N	Alanyl-tRNA synthetase, class IIc, N-terminal	domain
+IPR018165	Ala-tRNA-synth_IIc_core	Alanyl-tRNA synthetase, class IIc, core domain	domain	IPR018165	Ala-tRNA-synth_IIc_core	Alanyl-tRNA synthetase, class IIc, core domain	domain
+IPR018285	Met-tRNA-synth_N	Methionyl-tRNA synthetase, N-terminal heteromerisation domain	domain	IPR018285	Met-tRNA-synth_N	Methionyl-tRNA synthetase, N-terminal heteromerisation domain	domain
+IPR018515	Tuberin-type_domain	Tuberin-type domain	domain	IPR018515	Tuberin-type_domain	Tuberin-type domain	domain
+IPR018545	Btz_dom	Btz domain	domain	IPR018545	Btz_dom	Btz domain	domain
+IPR018593	tRNA-endonuc_su_Sen15	tRNA-splicing endonuclease subunit Sen15	domain	IPR018593	tRNA-endonuc_su_Sen15	tRNA-splicing endonuclease subunit Sen15	domain
+IPR018612	NSRP1_N	Nuclear speckle splicing regulatory protein 1, N-terminal	domain	IPR018612	NSRP1_N	Nuclear speckle splicing regulatory protein 1, N-terminal	domain
+IPR018834	DNA/RNA-bd_Est1-type	DNA/RNA-binding domain, Est1-type	domain	IPR018834	DNA/RNA-bd_Est1-type	DNA/RNA-binding domain, Est1-type	domain
+IPR018835	RNA-binding_domain_put	RNA-binding domain, putative	domain	IPR018835	RNA-binding_domain_put	RNA-binding domain, putative	domain
+IPR018846	Beta-prop_RSE1/DDB1/CPSF1_1st	RSE1/DDB1/CPSF1, first beta-propeller	domain	IPR018846	Beta-prop_RSE1/DDB1/CPSF1_1st	RSE1/DDB1/CPSF1, first beta-propeller	domain
+IPR018849	Urb2/Npa2_C	Nucleolar 27S pre-rRNA processing, Urb2/Npa2, C-terminal	domain	IPR018849	Urb2/Npa2_C	Nucleolar 27S pre-rRNA processing, Urb2/Npa2, C-terminal	domain
+IPR018850	Mt_escape_2_C	Mitochondrial escape protein 2, C-terminal	domain	IPR018850	Mt_escape_2_C	Mitochondrial escape protein 2, C-terminal	domain
+IPR018885	mRNA-bd_dom	mRNA-binding domain	domain	IPR018885	mRNA-bd_dom	mRNA-binding domain	domain
+IPR018952	2-5-oligoAdlate_synth_1_dom2/C	2'-5'-oligoadenylate synthetase 1, domain 2/C-terminal	domain	IPR018952	2-5-oligoAdlate_synth_1_dom2/C	2'-5'-oligoadenylate synthetase 1, domain 2/C-terminal	domain
+IPR018974	Tex-like_N	Tex-like protein, N-terminal	domain	IPR018974	Tex-like_N	Tex-like protein, N-terminal	domain
+IPR018983	U3_snoRNA-assocProt_15_C	U3 small nucleolar RNA-associated protein 15, C-terminal	domain	IPR018983	U3_snoRNA-assocProt_15_C	U3 small nucleolar RNA-associated protein 15, C-terminal	domain
+IPR018998	EndoU_C	EndoU ribonuclease, C-terminal	domain	IPR018998	EndoU_C	EndoU ribonuclease, C-terminal	domain
+IPR018999	UPF1_CH/ZBD	RNA helicase UPF1, Cys/His rich zinc-binding domain	domain	IPR018999	UPF1_CH/ZBD	RNA helicase UPF1, Cys/His rich zinc-binding domain	domain
+IPR019010	eIF3e_N	Eukaryotic translation initiation factor 3 subunit E, N-terminal	domain	IPR019010	eIF3e_N	Eukaryotic translation initiation factor 3 subunit E, N-terminal	domain
+IPR019024	RNase_H2_suB_wHTH	Ribonuclease H2 subunit B, wHTH domain	domain	IPR019024	RNase_H2_suB_wHTH	Ribonuclease H2 subunit B, wHTH domain	domain
+IPR019039	T4-Rnl1-like_N	T4 RNA ligase 1-like, N-terminal	domain	IPR019039	T4-Rnl1-like_N	T4 RNA ligase 1-like, N-terminal	domain
+IPR019050	FDF_dom	FDF domain	domain	IPR019050	FDF_dom	FDF domain	domain
+IPR019084	STM1-like_N	STM1-like, N-terminal	domain	IPR019084	STM1-like_N	STM1-like, N-terminal	domain
+IPR019136	TF_IIIC_su-5_HTH	Transcription factor IIIC subunit 5, HTH domain	domain	IPR019136	TF_IIIC_su-5_HTH	Transcription factor IIIC subunit 5, HTH domain	domain
+IPR019147	SWAP_N_domain	Suppressor of white apricot, N-terminal domain	domain	IPR019147	SWAP_N_domain	Suppressor of white apricot, N-terminal domain	domain
+IPR019167	PAT1_dom	mRNA decay factor PAT1 domain	domain	IPR019167	PAT1_dom	mRNA decay factor PAT1 domain	domain
+IPR019175	Prp31_C	Prp31 C-terminal	domain	IPR019175	Prp31_C	Prp31 C-terminal	domain
+IPR019181	LSM12_ABD	LSM12, anticodon-binding domain	domain	IPR047574	AD	AD domain	domain
+IPR047574	AD	AD domain	domain	IPR047574	AD	AD domain	domain
+IPR019194	Tscrpt_elong_fac_Eaf_N	Transcription elongation factor Eaf, N-terminal	domain	IPR019194	Tscrpt_elong_fac_Eaf_N	Transcription elongation factor Eaf, N-terminal	domain
+IPR019333	INTS3_N	Integrator complex subunit 3, N-terminal	domain	IPR019333	INTS3_N	Integrator complex subunit 3, N-terminal	domain
+IPR019349	Ribosomal_mS35_mit	Small ribosomal subunit protein mS35, mitochondrial, conserved domain	domain	IPR019349	Ribosomal_mS35_mit	Small ribosomal subunit protein mS35, mitochondrial, conserved domain	domain
+IPR019385	PHAX_RNA-binding_domain	Phosphorylated adapter RNA export protein, RNA-binding domain	domain	IPR019385	PHAX_RNA-binding_domain	Phosphorylated adapter RNA export protein, RNA-binding domain	domain
+IPR019401	Znf_CHCC	Zinc finger, CHCC-type	domain	IPR019401	Znf_CHCC	Zinc finger, CHCC-type	domain
+IPR019447	DNA/RNA-bd_Kin17_WH-like_dom	DNA/RNA-binding protein Kin17, WH-like domain	domain	IPR019447	DNA/RNA-bd_Kin17_WH-like_dom	DNA/RNA-binding protein Kin17, WH-like domain	domain
+IPR019458	Est1-like_N	Telomerase activating protein Est1-like, N-terminal	domain	IPR019458	Est1-like_N	Telomerase activating protein Est1-like, N-terminal	domain
+IPR019462	DNA-dir_RNA_pol_bsu_external_1	DNA-directed RNA polymerase, beta subunit, external 1 domain	domain	IPR019462	DNA-dir_RNA_pol_bsu_external_1	DNA-directed RNA polymerase, beta subunit, external 1 domain	domain
+IPR019475	DNA_primase_DnaB-bd	DNA primase, DnaB-helicase binding domain	domain	IPR019475	DNA_primase_DnaB-bd	DNA primase, DnaB-helicase binding domain	domain
+IPR019486	Argonaute_hook_dom	Argonaute hook domain	domain	IPR019486	Argonaute_hook_dom	Argonaute hook domain	domain
+IPR019495	EXOSC1_C	Exosome complex component CSL4, C-terminal	domain	IPR019495	EXOSC1_C	Exosome complex component CSL4, C-terminal	domain
+IPR019496	NUFIP1_cons_dom	FMR1-interacting protein 1, conserved domain	domain	IPR019496	NUFIP1_cons_dom	FMR1-interacting protein 1, conserved domain	domain
+IPR019510	AKAP7-like_phosphoesterase	A-kinase anchor protein 7-like, phosphoesterase domain	domain	IPR019510	AKAP7-like_phosphoesterase	A-kinase anchor protein 7-like, phosphoesterase domain	domain
+IPR019580	Prp8_U6-snRNA-bd	Pre-mRNA-processing-splicing factor 8, U6-snRNA-binding	domain	IPR019580	Prp8_U6-snRNA-bd	Pre-mRNA-processing-splicing factor 8, U6-snRNA-binding	domain
+IPR019581	Prp8_U5-snRNA-bd	Pre-mRNA-processing-splicing factor 8, U5-snRNA-binding	domain	IPR019581	Prp8_U5-snRNA-bd	Pre-mRNA-processing-splicing factor 8, U5-snRNA-binding	domain
+IPR019582	RRM_spliceosomal_PrP8	RNA recognition motif, spliceosomal PrP8	domain	IPR019582	RRM_spliceosomal_PrP8	RNA recognition motif, spliceosomal PrP8	domain
+IPR019607	Putative_zinc-finger_domain	Putative zinc-finger domain	domain	IPR019607	Putative_zinc-finger_domain	Putative zinc-finger domain	domain
+IPR019783	SDO1/SBDS_N	Ribosome maturation protein SDO1/SBDS, N-terminal	domain	IPR019783	SDO1/SBDS_N	Ribosome maturation protein SDO1/SBDS, N-terminal	domain
+IPR019787	Znf_PHD-finger	Zinc finger, PHD-finger	domain	IPR001965	Znf_PHD	Zinc finger, PHD-type	domain
+IPR019814	Translation_initiation_fac_3_N	Translation initiation factor 3, N-terminal	domain	IPR019814	Translation_initiation_fac_3_N	Translation initiation factor 3, N-terminal	domain
+IPR019815	Translation_initiation_fac_3_C	Translation initiation factor 3, C-terminal	domain	IPR019815	Translation_initiation_fac_3_C	Translation initiation factor 3, C-terminal	domain
+IPR019844	CSD_CS	Cold-shock domain, conserved site	conserved_site	IPR019844	CSD_CS	Cold-shock domain, conserved site	conserved_site
+IPR020040	Ribosomal_uL6_a/b-dom	Large ribosomal subunit protein uL6, alpha-beta domain	domain	IPR020040	Ribosomal_uL6_a/b-dom	Large ribosomal subunit protein uL6, alpha-beta domain	domain
+IPR020057	Ribosomal_bL25_b-dom	Large ribosomal subunit protein bL25, beta domain	domain	IPR020057	Ribosomal_bL25_b-dom	Large ribosomal subunit protein bL25, beta domain	domain
+IPR020058	Glu/Gln-tRNA-synth_Ib_cat-dom	Glutamyl/glutaminyl-tRNA synthetase, class Ib, catalytic domain	domain	IPR020058	Glu/Gln-tRNA-synth_Ib_cat-dom	Glutamyl/glutaminyl-tRNA synthetase, class Ib, catalytic domain	domain
+IPR020059	Glu/Gln-tRNA-synth_Ib_codon-bd	Glutamyl/glutaminyl-tRNA synthetase, class Ib, anti-codon binding domain	domain	IPR020059	Glu/Gln-tRNA-synth_Ib_codon-bd	Glutamyl/glutaminyl-tRNA synthetase, class Ib, anti-codon binding domain	domain
+IPR020069	Ribosomal_bL9_C	Large ribosomal subunit protein bL9, C-terminal	domain	IPR020069	Ribosomal_bL9_C	Large ribosomal subunit protein bL9, C-terminal	domain
+IPR020070	Ribosomal_bL9_N	Large ribosomal subunit protein bL9, N-terminal	domain	IPR020070	Ribosomal_bL9_N	Large ribosomal subunit protein bL9, N-terminal	domain
+IPR020097	PsdUridine_synth_TruA_a/b_dom	Pseudouridine synthase I, TruA, alpha/beta domain	domain	IPR020097	PsdUridine_synth_TruA_a/b_dom	Pseudouridine synthase I, TruA, alpha/beta domain	domain
+IPR020189	IF5A_C	Translation initiation factor 5A, C-terminal	domain	IPR020189	IF5A_C	Translation initiation factor 5A, C-terminal	domain
+IPR020598	rRNA_Ade_methylase_Trfase_N	Ribosomal RNA adenine methylase transferase, N-terminal	domain	IPR020598	rRNA_Ade_methylase_Trfase_N	Ribosomal RNA adenine methylase transferase, N-terminal	domain
+IPR020783	Ribosomal_uL11_C	Large ribosomal subunit protein uL11, C-terminal	domain	IPR020783	Ribosomal_uL11_C	Large ribosomal subunit protein uL11, C-terminal	domain
+IPR020784	Ribosomal_uL11_N	Large ribosomal subunit protein uL11, N-terminal	domain	IPR020784	Ribosomal_uL11_N	Large ribosomal subunit protein uL11, N-terminal	domain
+IPR020838	DBINO	DBINO domain	domain	IPR020838	DBINO	DBINO domain	domain
+IPR021083	Nab2_N	Nuclear abundant poly(A) RNA-binding protein Nab2, N-terminal	domain	IPR021083	Nab2_N	Nuclear abundant poly(A) RNA-binding protein Nab2, N-terminal	domain
+IPR021131	Ribosomal_uL15/eL18	Large ribosomal subunit protein uL15/eL18	domain	IPR021131	Ribosomal_uL15/eL18	Large ribosomal subunit protein uL15/eL18	domain
+IPR021418	THO_THOC2_C	THO complex, subunitTHOC2, C-terminal	domain	IPR021418	THO_THOC2_C	THO complex, subunitTHOC2, C-terminal	domain
+IPR021673	RLR_CTR	RIG-I-like receptor, C-terminal regulatory domain	domain	IPR021673	RLR_CTR	RIG-I-like receptor, C-terminal regulatory domain	domain
+IPR021714	URB1_N	URB1, N-terminal	domain	IPR021714	URB1_N	URB1, N-terminal	domain
+IPR021715	Slu7_dom	Pre-mRNA-splicing factor SLU7 domain	domain	IPR021715	Slu7_dom	Pre-mRNA-splicing factor SLU7 domain	domain
+IPR021718	CPSF73-100_C	Pre-mRNA 3'-end-processing endonuclease polyadenylation factor C-term	domain	IPR021718	CPSF73-100_C	Pre-mRNA 3'-end-processing endonuclease polyadenylation factor C-term	domain
+IPR021721	Znf_CCCH-type_TRM13	Zinc finger, CCCH-type, TRM13	domain	IPR021721	Znf_CCCH-type_TRM13	Zinc finger, CCCH-type, TRM13	domain
+IPR021726	THO_THOC2_N	THO complex, subunitTHOC2, N-terminal	domain	IPR021726	THO_THOC2_N	THO complex, subunitTHOC2, N-terminal	domain
+IPR021752	TF_Rrn7_Zf	Transcription initiation factor Rrn7, Zinc-finger	domain	IPR021752	TF_Rrn7_Zf	Transcription initiation factor Rrn7, Zinc-finger	domain
+IPR021757	Ribosomal_mL46_N	Large ribosomal subunit protein mL46, N-terminal	domain	IPR021757	Ribosomal_mL46_N	Large ribosomal subunit protein mL46, N-terminal	domain
+IPR021786	Cdc5p/Cef1_C	Pre-mRNA splicing factor component Cdc5p/Cef1, C-terminal	domain	IPR021786	Cdc5p/Cef1_C	Pre-mRNA splicing factor component Cdc5p/Cef1, C-terminal	domain
+IPR021790	PTBP1-like_RRM2	PTBP1-like, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR021869	RNase_Zc3h12_NYN	Ribonuclease Zc3h12a-like, NYN domain	domain	IPR021869	RNase_Zc3h12_NYN	Ribonuclease Zc3h12a-like, NYN domain	domain
+IPR021891	Telomerase_RBD	Telomerase ribonucleoprotein complex - RNA-binding domain	domain	IPR021891	Telomerase_RBD	Telomerase ribonucleoprotein complex - RNA-binding domain	domain
+IPR021933	SERRATE/Ars2_N	SERRATE/Ars2, N-terminal	domain	IPR021933	SERRATE/Ars2_N	SERRATE/Ars2, N-terminal	domain
+IPR021966	SF3a60_bindingd	Splicing factor SF3a60 binding domain	domain	IPR021966	SF3a60_bindingd	Splicing factor SF3a60 binding domain	domain
+IPR021968	PNPase_C	Polyribonucleotide phosphorylase, C-terminal	domain	IPR021968	PNPase_C	Polyribonucleotide phosphorylase, C-terminal	domain
+IPR021983	PRP8_domainIV	PRP8 domain IV core	domain	IPR021983	PRP8_domainIV	PRP8 domain IV core	domain
+IPR022023	U1snRNP70_N	U1 small nuclear ribonucleoprotein of 70kDa N-terminal	domain	IPR022023	U1snRNP70_N	U1 small nuclear ribonucleoprotein of 70kDa N-terminal	domain
+IPR022030	SF3A1_dom	Splicing factor 3A subunit 1, conserved domain	domain	IPR022030	SF3A1_dom	Splicing factor 3A subunit 1, conserved domain	domain
+IPR022031	Rif1_N	Telomere-associated protein Rif1, N-terminal	domain	IPR022031	Rif1_N	Telomere-associated protein Rif1, N-terminal	domain
+IPR022034	FMR1-like_C_core	Fragile X messenger ribonucleoprotein 1-like, C-terminal core	domain	IPR022034	FMR1-like_C_core	Fragile X messenger ribonucleoprotein 1-like, C-terminal core	domain
+IPR022039	MKT1_C	Post-transcriptional regulator MKT1, C-terminal	domain	IPR022039	MKT1_C	Post-transcriptional regulator MKT1, C-terminal	domain
+IPR022040	MKT1_N	Post-transcriptional regulator MKT1, N-terminal	domain	IPR022040	MKT1_N	Post-transcriptional regulator MKT1, N-terminal	domain
+IPR022070	Caprin-1_C	Cytoplasmic activation/proliferation-associated protein-1 C term	domain	IPR022070	Caprin-1_C	Cytoplasmic activation/proliferation-associated protein-1 C term	domain
+IPR022075	Symplekin_C	Symplekin C-terminal	domain	IPR022075	Symplekin_C	Symplekin C-terminal	domain
+IPR022091	Golgin_TMF_C	Golgin TMF1, C-terminal	domain	IPR022091	Golgin_TMF_C	Golgin TMF1, C-terminal	domain
+IPR022125	U3snoRNP10_N	U3 small nucleolar RNA-associated protein 10, N-terminal	domain	IPR022125	U3snoRNP10_N	U3 small nucleolar RNA-associated protein 10, N-terminal	domain
+IPR022192	SUV3_C	ATP-dependent RNA helicase SUV3, C-terminal domain	domain	IPR022192	SUV3_C	ATP-dependent RNA helicase SUV3, C-terminal domain	domain
+IPR022383	Lactate/malate_DH_C	Lactate/malate dehydrogenase, C-terminal	domain	IPR022383	Lactate/malate_DH_C	Lactate/malate dehydrogenase, C-terminal	domain
+IPR022581	Spt5_N	Spt5 transcription elongation factor, N-terminal	domain	IPR022581	Spt5_N	Spt5 transcription elongation factor, N-terminal	domain
+IPR022666	Ribosomal_uL2_RNA-bd_dom	Large ribosomal subunit protein uL2, RNA-binding domain	domain	IPR022666	Ribosomal_uL2_RNA-bd_dom	Large ribosomal subunit protein uL2, RNA-binding domain	domain
+IPR022669	Ribosomal_uL2_C	Large ribosomal subunit protein uL2, C-terminal	domain	IPR022669	Ribosomal_uL2_C	Large ribosomal subunit protein uL2, C-terminal	domain
+IPR022712	Beta_Casp	Beta-Casp domain	domain	IPR022712	Beta_Casp	Beta-Casp domain	domain
+IPR022724	rRNA_MeTrfase_SpoU_C	RNA methyltransferase, SpoU/TrmH type, C-terminal domain	domain	IPR022724	rRNA_MeTrfase_SpoU_C	RNA methyltransferase, SpoU/TrmH type, C-terminal domain	domain
+IPR022745	eIF4G1_eIF4E-bd	Eukaryotic translation initiation factor 4G1, eIF4E-binding domain	domain	IPR022745	eIF4G1_eIF4E-bd	Eukaryotic translation initiation factor 4G1, eIF4E-binding domain	domain
+IPR022755	Znf_C2H2_jaz	Zinc finger, double-stranded RNA binding	domain	IPR013087	Zf-C2H2_type	Zinc finger C2H2-type	domain
+IPR022776	TRM13/UPF0224_CHHC_Znf_dom	TRM13/UPF0224 family, U11-48K-like CHHC zinc finger domain	domain	IPR022776	TRM13/UPF0224_CHHC_Znf_dom	TRM13/UPF0224 family, U11-48K-like CHHC zinc finger domain	domain
+IPR022800	Spt4/RpoE2_Znf	Spt4/RpoE2 zinc finger	domain	IPR022800	Spt4/RpoE2_Znf	Spt4/RpoE2 zinc finger	domain
+IPR023115	TIF_IF2_dom3	Translation initiation factor IF- 2, domain 3	domain	IPR023115	TIF_IF2_dom3	Translation initiation factor IF- 2, domain 3	domain
+IPR023342	APO_dom	APO domain	domain	IPR023342	APO_dom	APO domain	domain
+IPR023412	RNaseA_domain	Ribonuclease A-domain	domain	IPR023412	RNaseA_domain	Ribonuclease A-domain	domain
+IPR023451	Thymidate_synth/dCMP_Mease_dom	Thymidylate synthase/dCMP hydroxymethylase domain	domain	IPR023451	Thymidate_synth/dCMP_Mease_dom	Thymidylate synthase/dCMP hydroxymethylase domain	domain
+IPR023573	Ribosomal_eL20_dom	Large ribosomal subunit protein eL20 domain	domain	IPR023573	Ribosomal_eL20_dom	Large ribosomal subunit protein eL20 domain	domain
+IPR023584	Ribosome_recyc_fac_dom	Ribosome recycling factor domain	domain	IPR023584	Ribosome_recyc_fac_dom	Ribosome recycling factor domain	domain
+IPR023611	mS23_dom_met	Small ribosomal subunit protein mS23, conserved domain, metazoa	domain	IPR059242	mS23_dom	Small ribosomal subunit protein mS23, conserved domain	domain
+IPR023780	Chromo_domain	Chromo domain	domain	IPR000953	Chromo/chromo_shadow_dom	Chromo/chromo shadow domain	domain
+IPR023797	RNA3'_phos_cyclase_dom	RNA 3'-terminal phosphate cyclase domain	domain	IPR023797	RNA3'_phos_cyclase_dom	RNA 3'-terminal phosphate cyclase domain	domain
+IPR023798	Ribosomal_uS7_dom	Small ribosomal subunit protein uS7 domain	domain	IPR023798	Ribosomal_uS7_dom	Small ribosomal subunit protein uS7 domain	domain
+IPR024057	Nucleoplasmin_core_dom	Nucleoplasmin core domain	domain	IPR024057	Nucleoplasmin_core_dom	Nucleoplasmin core domain	domain
+IPR024161	Znf_nanos-typ	Zinc finger, nanos-type	domain	IPR024161	Znf_nanos-typ	Zinc finger, nanos-type	domain
+IPR024261	RNA-bd_She2	RNA binding protein She2	domain	IPR024261	RNA-bd_She2	RNA binding protein She2	domain
+IPR024336	tRNA_splic_suSen54_N	tRNA-splicing endonuclease, subunit Sen54, N-terminal	domain	IPR024336	tRNA_splic_suSen54_N	tRNA-splicing endonuclease, subunit Sen54, N-terminal	domain
+IPR024366	FTO_C	Alpha-ketoglutarate-dependent dioxygenase FTO, C-terminal	domain	IPR024366	FTO_C	Alpha-ketoglutarate-dependent dioxygenase FTO, C-terminal	domain
+IPR024367	FTO_cat_dom	Alpha-ketoglutarate-dependent dioxygenase FTO, catalytic domain	domain	IPR024367	FTO_cat_dom	Alpha-ketoglutarate-dependent dioxygenase FTO, catalytic domain	domain
+IPR024435	HisRS-related_dom	Histidyl tRNA synthetase-related domain	domain	IPR024435	HisRS-related_dom	Histidyl tRNA synthetase-related domain	domain
+IPR024481	Helicase_Sen1_N	Helicase Sen1, N-terminal	domain	IPR024481	Helicase_Sen1_N	Helicase Sen1, N-terminal	domain
+IPR024567	RNase_HII/HIII_dom	Ribonuclease HII/HIII domain	domain	IPR024567	RNase_HII/HIII_dom	Ribonuclease HII/HIII domain	domain
+IPR024598	SF3a60/Prp9_C	Splicing factor SF3a60 /Prp9 subunit, C-terminal	domain	IPR024598	SF3a60/Prp9_C	Splicing factor SF3a60 /Prp9 subunit, C-terminal	domain
+IPR024642	SUZ-C	SUZ-C domain	domain	IPR024642	SUZ-C	SUZ-C domain	domain
+IPR024657	COMPASS_Set1_N-SET	COMPASS complex Set1 subunit, N-SET domain	domain	IPR024657	COMPASS_Set1_N-SET	COMPASS complex Set1 subunit, N-SET domain	domain
+IPR024666	HnRNP_M_PY-NLS	HnRNP M, nuclear localisation signal	domain	IPR024666	HnRNP_M_PY-NLS	HnRNP M, nuclear localisation signal	domain
+IPR024675	eIF3g_N	Eukaryotic translation initiation factor 3 subunit G, N-terminal	domain	IPR024675	eIF3g_N	Eukaryotic translation initiation factor 3 subunit G, N-terminal	domain
+IPR024721	Snurportin-1_N	Snurportin-1, N-terminal	domain	IPR002652	Importin-a_IBB	Importin-alpha, importin-beta-binding domain	domain
+IPR002652	Importin-a_IBB	Importin-alpha, importin-beta-binding domain	domain	IPR002652	Importin-a_IBB	Importin-alpha, importin-beta-binding domain	domain
+IPR024766	Znf_RING_H2	Zinc finger, RING-H2-type	domain	IPR001841	Znf_RING	Zinc finger, RING-type	domain
+IPR001841	Znf_RING	Zinc finger, RING-type	domain	IPR001841	Znf_RING	Zinc finger, RING-type	domain
+IPR024771	SUZ	SUZ domain	domain	IPR024771	SUZ	SUZ domain	domain
+IPR024945	Spt5_C_dom	Spt5 C-terminal domain	domain	IPR024945	Spt5_C_dom	Spt5 C-terminal domain	domain
+IPR024956	tRNAHis_GuaTrfase_cat	tRNAHis guanylyltransferase catalytic domain	domain	IPR024956	tRNAHis_GuaTrfase_cat	tRNAHis guanylyltransferase catalytic domain	domain
+IPR024970	Maelstrom	Maelstrom domain	domain	IPR024970	Maelstrom	Maelstrom domain	domain
+IPR025223	S1-like_RNA-bd_dom	S1-like RNA binding domain	domain	IPR025223	S1-like_RNA-bd_dom	S1-like RNA binding domain	domain
+IPR025249	TF_NusA_KH_1st	Transcription factor NusA, first KH domain	domain	IPR025249	TF_NusA_KH_1st	Transcription factor NusA, first KH domain	domain
+IPR025605	OST-HTH/LOTUS_dom	OST-HTH/LOTUS domain	domain	IPR025605	OST-HTH/LOTUS_dom	OST-HTH/LOTUS domain	domain
+IPR025609	Lsm14-like_N	Lsm14-like, N-terminal	domain	IPR025609	Lsm14-like_N	Lsm14-like, N-terminal	domain
+IPR025670	Fox-1_C_dom	Fox-1 C-terminal domain	domain	IPR025670	Fox-1_C_dom	Fox-1 C-terminal domain	domain
+IPR025696	Beta-barrel_MTR4	Exosome RNA helicase MTR4-like, beta-barrel domain	domain	IPR025696	Beta-barrel_MTR4	Exosome RNA helicase MTR4-like, beta-barrel domain	domain
+IPR025715	YRA2_C	RNA annealing protein YRA2, C-terminal	domain	IPR025715	YRA2_C	RNA annealing protein YRA2, C-terminal	domain
+IPR025721	Exosome_cplx_N_dom	Exosome complex component, N-terminal domain	domain	IPR025721	Exosome_cplx_N_dom	Exosome complex component, N-terminal domain	domain
+IPR025761	FFD_box	FFD box	domain	IPR025761	FFD_box	FFD box	domain
+IPR025762	DFDF	DFDF domain	domain	IPR025762	DFDF	DFDF domain	domain
+IPR025768	TFG_box	TFG box	domain	IPR025768	TFG_box	TFG box	domain
+IPR025777	GMPS_ATP_PPase_dom	GMP synthetase ATP pyrophosphatase domain	domain	IPR022310	NAD/GMP_synthase	NAD/GMP synthase	domain
+IPR022310	NAD/GMP_synthase	NAD/GMP synthase	domain	IPR022310	NAD/GMP_synthase	NAD/GMP synthase	domain
+IPR025829	Zn_knuckle_CX2CX3GHX4C	Zinc knuckle CX2CX3GHX4C	domain	IPR001878	Znf_CCHC	Zinc finger, CCHC-type	domain
+IPR025852	SM_dom_ATX	Ataxin 2, SM domain	domain	IPR025852	SM_dom_ATX	Ataxin 2, SM domain	domain
+IPR025862	SelA_trans_N_dom	L-seryl-tRNA selenium transferase N-terminal domain	domain	IPR025862	SelA_trans_N_dom	L-seryl-tRNA selenium transferase N-terminal domain	domain
+IPR025995	Tudor-knot	RNA binding activity-knot of a chromodomain	domain	IPR025995	Tudor-knot	RNA binding activity-knot of a chromodomain	domain
+IPR026000	Apc5_dom	Anaphase-promoting complex subunit 5 domain	domain	IPR026000	Apc5_dom	Anaphase-promoting complex subunit 5 domain	domain
+IPR026904	MnmG_C	tRNA uridine 5-carboxymethylaminomethyl modification enzyme MnmG, C-terminal	domain	IPR026904	MnmG_C	tRNA uridine 5-carboxymethylaminomethyl modification enzyme MnmG, C-terminal	domain
+IPR027391	Nol1_Nop2_Fmu_2	rRNA small subunit methyltransferase F, RNA-binding PUA-like domain	domain	IPR027391	Nol1_Nop2_Fmu_2	rRNA small subunit methyltransferase F, RNA-binding PUA-like domain	domain
+IPR027450	AlkB-like	Alpha-ketoglutarate-dependent dioxygenase AlkB-like	domain	IPR027450	AlkB-like	Alpha-ketoglutarate-dependent dioxygenase AlkB-like	domain
+IPR027486	Ribosomal_uS10_dom	Small ribosomal subunit protein uS10 domain	domain	IPR027486	Ribosomal_uS10_dom	Small ribosomal subunit protein uS10 domain	domain
+IPR027794	tRNase_Z_dom	tRNase Z endonuclease	domain	IPR027794	tRNase_Z_dom	tRNase Z endonuclease	domain
+IPR027815	CSC1/OSCA1-like_cyt	CSC1/OSCA1-like, cytosolic domain	domain	IPR027815	CSC1/OSCA1-like_cyt	CSC1/OSCA1-like, cytosolic domain	domain
+IPR027992	tRNA_bind_dom	Possible tRNA binding domain	domain	IPR027992	tRNA_bind_dom	Possible tRNA binding domain	domain
+IPR028564	MT_TRM10-typ	tRNA methyltransferase TRM10-type domain	domain	IPR028564	MT_TRM10-typ	tRNA methyltransferase TRM10-type domain	domain
+IPR029004	Ribosomal_eL28/Mak16	Ribosomal eL28/Mak16	domain	IPR029004	Ribosomal_eL28/Mak16	Ribosomal eL28/Mak16	domain
+IPR029190	Rrp14/SURF6_C	Ribosomal RNA-processing protein 14/surfeit locus protein 6, C-terminal domain	domain	IPR029190	Rrp14/SURF6_C	Ribosomal RNA-processing protein 14/surfeit locus protein 6, C-terminal domain	domain
+IPR029262	RPOL_N	DNA-directed RNA polymerase, N-terminal	domain	IPR029262	RPOL_N	DNA-directed RNA polymerase, N-terminal	domain
+IPR029344	SLBP_RNA_bind	Histone RNA hairpin-binding protein, RNA-binding domain	domain	IPR029344	SLBP_RNA_bind	Histone RNA hairpin-binding protein, RNA-binding domain	domain
+IPR029351	GAD_dom	GAD domain	domain	IPR029351	GAD_dom	GAD domain	domain
+IPR029360	SRRM_C	Serine/arginine repetitive matrix protein, C-terminal	domain	IPR029360	SRRM_C	Serine/arginine repetitive matrix protein, C-terminal	domain
+IPR029444	INTS5_C	Integrator complex subunit 5, C-terminal	domain	IPR029444	INTS5_C	Integrator complex subunit 5, C-terminal	domain
+IPR029445	INTS5_N	Integrator complex subunit 5, N-terminal	domain	IPR029445	INTS5_N	Integrator complex subunit 5, N-terminal	domain
+IPR030378	G_CP_dom	Circularly permuted (CP)-type guanine nucleotide-binding (G) domain	domain	IPR030378	G_CP_dom	Circularly permuted (CP)-type guanine nucleotide-binding (G) domain	domain
+IPR030382	MeTrfase_TRM5/TYW2	SAM-dependent methyltransferase TRM5/TYW2-type	domain	IPR030382	MeTrfase_TRM5/TYW2	SAM-dependent methyltransferase TRM5/TYW2-type	domain
+IPR030388	G_ERA_dom	Era-type guanine nucleotide-binding (G) domain	domain	IPR030388	G_ERA_dom	Era-type guanine nucleotide-binding (G) domain	domain
+IPR031162	CBP_P300_HAT	CBP/p300-type histone acetyltransferase domain	domain	IPR064044	CBP/p300/RT109_HAT	CBP/p300/RT109, histone acetyltransferase domain	domain
+IPR031167	G_OBG	OBG-type guanine nucleotide-binding (G) domain	domain	IPR006073	GTP-bd	GTP binding domain	domain
+IPR031309	Ribosomal_uL5_C	Large ribosomal subunit protein uL5, C-terminal	domain	IPR031309	Ribosomal_uL5_C	Large ribosomal subunit protein uL5, C-terminal	domain
+IPR031310	Ribosomal_uL5_N	Large ribosomal subunit protein uL5, N-terminal	domain	IPR031310	Ribosomal_uL5_N	Large ribosomal subunit protein uL5, N-terminal	domain
+IPR031336	CDC73_C	Cell division control protein 73, C-terminal	domain	IPR031336	CDC73_C	Cell division control protein 73, C-terminal	domain
+IPR031615	Zfn-C6H2	MYND-like zinc finger	domain	IPR031615	Zfn-C6H2	MYND-like zinc finger	domain
+IPR031766	RRM_occluded	Occluded RNA-recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR031952	MOEP19_KH-like	KH-like RNA-binding domain	domain	IPR031952	MOEP19_KH-like	KH-like RNA-binding domain	domain
+IPR032226	TNRC6_PABC-bd	TNRC6, PABC binding domain	domain	IPR032226	TNRC6_PABC-bd	TNRC6, PABC binding domain	domain
+IPR032292	CEBP1_N	Cytoplasmic polyadenylation element-binding protein 1, N-terminal	domain	IPR032292	CEBP1_N	Cytoplasmic polyadenylation element-binding protein 1, N-terminal	domain
+IPR032335	Sam68-YY	Sam68, tyrosine-rich domain	domain	IPR032335	Sam68-YY	Sam68, tyrosine-rich domain	domain
+IPR032367	Quaking_NLS	Protein quaking, putative nuclear localisation signal	domain	IPR032367	Quaking_NLS	Protein quaking, putative nuclear localisation signal	domain
+IPR032377	STAR_dimer	STAR protein, homodimerisation region	domain	IPR032377	STAR_dimer	STAR protein, homodimerisation region	domain
+IPR032473	Argonaute_Mid_dom	Protein argonaute, Mid domain	domain	IPR032473	Argonaute_Mid_dom	Protein argonaute, Mid domain	domain
+IPR032478	Staufen_C	Staufen, C-terminal	domain	IPR032478	Staufen_C	Staufen, C-terminal	domain
+IPR032570	SF1-HH	Splicing factor 1, helix-hairpin domain	domain	IPR032570	SF1-HH	Splicing factor 1, helix-hairpin domain	domain
+IPR032571	Qua1_dom	KHDRBS, Qua1 domain	domain	IPR032571	Qua1_dom	KHDRBS, Qua1 domain	domain
+IPR032678	tRNA-synt_1_cat_dom	tRNA synthetases class I, catalytic domain	domain	IPR032678	tRNA-synt_1_cat_dom	tRNA synthetases class I, catalytic domain	domain
+IPR032680	SUN1_N	SUN domain-containing protein 1, N-terminal	domain	IPR032680	SUN1_N	SUN domain-containing protein 1, N-terminal	domain
+IPR032828	PolyA_RNA-bd	tRNA nucleotidyltransferase/poly(A) polymerase, RNA and SrmB- binding domain	domain	IPR032828	PolyA_RNA-bd	tRNA nucleotidyltransferase/poly(A) polymerase, RNA and SrmB- binding domain	domain
+IPR033110	PTBP3_RRM4	ROD1, RNA recognition motif 4	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR033133	PUM-HD	Pumilio homology domain	domain	IPR033133	PUM-HD	Pumilio homology domain	domain
+IPR033411	Ribonuclease_PIN	Ribonuclease, PIN domain	domain	IPR033411	Ribonuclease_PIN	Ribonuclease, PIN domain	domain
+IPR033461	WRNPLPNID	Putative WW-binding domain and destruction box	domain	IPR033461	WRNPLPNID	Putative WW-binding domain and destruction box	domain
+IPR033646	CLU-central	CLU central domain	domain	IPR033646	CLU-central	CLU central domain	domain
+IPR033647	Aar2_N	AAR2, N-terminal	domain	IPR033647	Aar2_N	AAR2, N-terminal	domain
+IPR033648	AAR2_C	AAR2, C-terminal domain	domain	IPR033648	AAR2_C	AAR2, C-terminal domain	domain
+IPR033712	Pumilio_RNA-bd	Pumilio, RNA binding domain	domain	IPR033133	PUM-HD	Pumilio homology domain	domain
+IPR033744	RRM_RBM8	RBM8, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR033910	GluRS_core	Glutamyl-tRNA synthetase	domain	IPR020058	Glu/Gln-tRNA-synth_Ib_cat-dom	Glutamyl/glutaminyl-tRNA synthetase, class Ib, catalytic domain	domain
+IPR033911	MetRS_core	Methioninyl-tRNA synthetase core domain	domain	IPR015413	Methionyl/Leucyl_tRNA_Synth	Methionyl/Leucyl tRNA synthetase	domain
+IPR034012	Zn_ribbon_RPB9_C	Pol II subunit B9, C-terminal zinc ribbon	domain	IPR001222	Znf_TFIIS	Zinc finger, TFIIS-type	domain
+IPR001222	Znf_TFIIS	Zinc finger, TFIIS-type	domain	IPR001222	Znf_TFIIS	Zinc finger, TFIIS-type	domain
+IPR034014	Zn_ribbon_RPC11_C	Pol III subunit C11, C-terminal zinc ribbon	domain	IPR001222	Znf_TFIIS	Zinc finger, TFIIS-type	domain
+IPR034068	R3H_sperm-antigen	Sperm-associated antigen 7, R3H domain	domain	IPR001374	R3H_dom	R3H domain	domain
+IPR034069	R3H_Cip2	R3H domain, Cip2-type	domain	IPR001374	R3H_dom	R3H domain	domain
+IPR034071	R3H_NRF	NF-kappaB-repression factor, R3H domain	domain	IPR001374	R3H_dom	R3H domain	domain
+IPR034072	R3H_Smubp-2	DNA-binding protein SMUBP-2, R3H domain	domain	IPR001374	R3H_dom	R3H domain	domain
+IPR034076	R3H_NF-X1	Transcriptional repressor NF-X1, R3H domain	domain	IPR001374	R3H_dom	R3H domain	domain
+IPR034077	R3H_FAP1	FKBP12-associated protein 1, R3H domain	domain	IPR001374	R3H_dom	R3H domain	domain
+IPR034082	R3H_G-patch	Protein SQS1, R3H domain	domain	IPR001374	R3H_dom	R3H domain	domain
+IPR034083	R3H_DEXH_helicase	DExH-box ATP-dependent RNA helicase, R3H domain	domain	IPR001374	R3H_dom	R3H domain	domain
+IPR034085	TOG	TOG domain	domain	IPR034085	TOG	TOG domain	domain
+IPR034105	Lsm3	Sm-like protein Lsm3	domain	IPR047575	Sm	Sm domain	domain
+IPR034123	RBM6_RRM1	RBM6, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034125	RBM6_RRM2	RBM6, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034126	MSI_RRM2	RNA-binding protein Musashi homologue, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034131	DAZAP1_RRM2	DAZ-associated protein 1, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034134	DAZAP1_RRM1	DAZ-associated protein 1, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034138	NOP8_RRM	Nucleolar protein 8, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034140	ENOX_RRM	Ecto-NOX disulfide-thiol exchanger, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034143	snRNP70_RRM	snRNP70, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034146	snRNP35_RRM	snRNP35, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034147	RBM40_RRM1	RBM40, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034148	NCBP2_RRM	NCBP2, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034150	SF3B6_RRM	SF3B6, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034152	SLIRP_RRM	SLIRP, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034156	Hrp1_RRM1	HRP1, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034158	SF3B4_RRM1	SF3B4, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034159	SF3B4_RRM2	SF3B4, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034166	Npl3_RRM1	Npl3, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034167	Nab3_RRM	Nab3, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034168	PPIE_RRM	Peptidyl-prolyl cis-trans isomerase E, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034172	SHARP_RRM1	SHARP, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034173	SHARP_RRM2	SHARP, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034174	SHARP_RRM3	SHARP, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034175	SHARP_RRM4	SHARP, RNA recognition motif 4	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034177	PPARGC1B_RRM	PPARGC1B, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034181	Cwc2_RRM	Pre-mRNA-splicing factor Cwc2, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034186	PIN4-like_RRM	Pin4-like, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034189	MARF1_RRM1	MARF1, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034191	MARF1_RRM2	MARF1, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034192	SREK1_RRM2	SREK1, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034195	Mrn1_RRM1	Mrn1, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034196	CELF1/2_RRM1	CELF1/2, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034198	CELF1/2_RRM2	CELF1/2, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034199	CELF1/2_RRM3	CELF1/2, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034200	RDM1_RRM	RDM1, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034201	RNPS1_RRM	RNPS1, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034203	RBM45_RRM1	RBM45, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034206	RBM45_RRM2	RBM45, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034207	RBM45_RRM3	RBM45, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034208	RBM45_RRM4	RBM45, RNA recognition motif 4	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034209	PUF60_RRM1	PUF60, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034211	PUF60_RRM2	PUF60, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034212	PUF60_RRM3	PUF60, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034215	RBM42_RRM	RBM42, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034217	SART3_RRM1	SART3, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034218	SART3_RRM2	SART3, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034219	ZCRB1_RRM	ZCRB1, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034221	RBM34_RRM2	RBM34, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034225	Nop13/Rnp24_RRM1	Nop13/Rnp24, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034226	Nop13/Rnp24_RRM2	Nop13/Rnp24, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034228	Nop6_RRM	Nop6, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034229	eIF4H_RRM	eIF4H, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034230	Nucleolin_RRM1	Nucleolin, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034233	Nucleolin_RRM2	Nucleolin, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034234	Nucleolin_RRM3	Nucleolin, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034235	Nucleolin_RRM4	Nucleolin, RNA recognition motif 4	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034237	FOX1_RRM	FOX1, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034240	eIF3G_RRM	eIF3G, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034244	Rrt5_RRM1	Rrt5, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034254	DNAJC17_RRM	DNAJC17, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034256	ALKBH8_RRM	ALKBH8, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034257	Acinus_RRM	Acinus, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034260	Yme2_RRM	Yme2, RNA recognition motif	domain	IPR034260	Yme2_RRM	Yme2, RNA recognition motif	domain
+IPR034261	CNOT4_RRM	CNOT4, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034262	TRMT2A_RRM	TRMT2A, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034264	RBM48_RRM	RBM48, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034265	MCM3AP_RRM	MCM3AP, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034268	RBM25_RRM	RBM25, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034276	Gar2_RRM2	Gar2, RNA recognition motif 2	domain	IPR034276	Gar2_RRM2	Gar2, RNA recognition motif 2	domain
+IPR034278	RBM3/CIRBP_RRM	RBM3/CIRBP, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034326	ROD1_RRM1	ROD1, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034349	NUCL_RRM1	NUCL, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034350	NUCL_RRM2	NUCL, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034351	CsdA-like_RRM	CsdA-like, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034352	Rim4_RRM1	Rim4/Msa1, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034353	ABT1/ESF2_RRM	ABT1/ESF2, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034356	Slt11_RRM	Slt11, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034357	Yra1/Mlo3_RRM	Yra1/Mlo3, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034359	MTHFSD_RRM	MTHFSD, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034361	PHIP1_RRM1	PHIP1, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034362	PHIP1_RRM2	PHIP1, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034363	eIF3B_RRM	eIF3B, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034369	SCAF4_RRM	SCAF4, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034370	SCAF8_RRM	SCAF8, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034371	UHMK1_RRM	UHMK1, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034374	G3BP1_RRM	G3BP1, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034376	G3BP2_RRM	G3BP2, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034388	Star-PAP_RRM	Star-PAP, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034392	TatSF1-like_RRM1	TatSF1-like, RNA recognition motif 1	domain	IPR034392	TatSF1-like_RRM1	TatSF1-like, RNA recognition motif 1	domain
+IPR034394	Man1_RRM	MAN1, RNA recognition motif	domain	IPR034394	Man1_RRM	MAN1, RNA recognition motif	domain
+IPR034396	Yra2_RRM	Yra2, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034397	Prp24_RRM1	Prp24, RNA recognition motif1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034398	Prp24_RRM2	Prp24, RNA recognition motif2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034404	MSSP1_RRM1	MSSP-1, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034406	RBMS3_RRM2	RBMS3, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034407	U1A_RRM1	U1 small nuclear ribonucleoprotein A, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034409	U1A_RRM2	U1 small nuclear ribonucleoprotein A, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034411	hnRNPR_RRM2	Heterogeneous nuclear ribonucleoprotein R, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034414	DND1_RRM1	Dead end protein 1, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034415	CsdA_RRM	CsdA, RNA recognition motif	domain	IPR005580	DbpA/CsdA_RNA-bd_dom	DEAD box helicase DbpA/CsdA, RNA-binding domain	domain
+IPR005580	DbpA/CsdA_RNA-bd_dom	DEAD box helicase DbpA/CsdA, RNA-binding domain	domain	IPR005580	DbpA/CsdA_RNA-bd_dom	DEAD box helicase DbpA/CsdA, RNA-binding domain	domain
+IPR034417	RMB19_RRM2	Probable RNA-binding protein 19, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034418	RMB19_RRM1	Probable RNA-binding protein 19, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034419	RBM19_RRM3	Probable RNA-binding protein 19, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034420	RBM19_RRM4	Probable RNA-binding protein 19, RNA recognition motif 4	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034421	RBM19_RRM6	Probable RNA-binding protein 19, RNA recognition motif 6	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034423	RBM19_RRM5	Probable RNA-binding protein 19, RNA recognition motif 5	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034424	GRSF-1_RRM2	GRSF-1, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034425	GRSF1_RRM1	GRSF-1, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034426	GRSF1_RRM3	GRSF-1, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034427	ESRP1_RRM1	ESRP1, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034434	RBM46_RRM1	Probable RNA-binding protein 46, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034435	RBM46_RRM2	Probable RNA-binding protein 46, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034440	RBM47_RRM2	RNA-binding protein 47, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034445	RBM47_RRM3	RNA-binding protein 47, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034451	RBM27_RRM	RNA-binding protein 27, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034453	MEI2-like_RRM1	MEI2-like, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034454	MEI2-like_RRM3	MEI2-like, RNA recognition motif 3	domain	IPR007201	Mei2-like_Rrm_C	Mei2-like, C-terminal RNA recognition motif	domain
+IPR034458	EAR1-like_RRM3	Terminal EAR1-like, RNA recognition motif 3	domain	IPR007201	Mei2-like_Rrm_C	Mei2-like, C-terminal RNA recognition motif	domain
+IPR034467	Set1A_RRM	Set1A, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034468	Set1B_RRM	Set1B, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034469	Nop15_RRM	Ribosome biogenesis protein 15, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034470	RBM15_RRM1	RBM15, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034472	RBM15_RRM2	RBM15, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034473	RBM15_RRM3	RBM15, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034475	RBM15B_RRM1	RBM15B, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034482	Mrd1_RRM3	Mrd1, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034486	hnRNPA2B1_RRM1	hnRNP A2/B1, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034500	RBM7_RRM	RBM7, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034501	RBM11_RRM	RBM11, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034502	RALY_RRM	Raly, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034503	SRSF9_RRM1	SRSF9, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034506	RBM14_RRM1	RBM14, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034507	RBM14_RRM2	RBM14, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034510	SECp43_RRM2	SECp43, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034511	SRSF6_RRM1	SRSF6, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034516	hnRNPA1/3_RRM2	hnRNP A1/3, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034517	PAR14_RRM2	PARP-14, RNA recognition motif 2	domain	IPR034517	PAR14_RRM2	PARP-14, RNA recognition motif 2	domain
+IPR034520	SRSF1_RRM1	SRSF1, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034522	PSP1_RRM1	PSP1, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034523	PSP1_RRM2	PSP1, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034525	PSF_RRM1	PSF, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034526	PSF_NOPS	PSF, NOPS domain	domain	IPR034526	PSF_NOPS	PSF, NOPS domain	domain
+IPR034535	RBM15B_RRM2	RBM15B, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034536	RBM15B_RRM3	RBM15B, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034538	ACF_RRM1	ACF, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034544	hnRNPQ_RRM1	Heterogeneous nuclear ribonucleoprotein Q, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034548	hnRNPQ_RRM2	Heterogeneous nuclear ribonucleoprotein Q, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034552	p54nrb_RRM1	p54nrb, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034562	U2B''_RRM2	U2 small nuclear ribonucleoprotein B'', RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034564	U2B''_RRM1	U2 small nuclear ribonucleoprotein B'', RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034588	RBM12B_RRM2	RBM12B, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034591	RBM12_RRM1	RBM12, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034594	RBM12_RRM2	RBM12, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034630	MYEF2_RRM1	MEF-2, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034631	MYEF2_RRM3	MEF-2, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034633	RAVER1_RRM1	Ribonucleoprotein PTB-binding 1, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034637	NELFE_RRM	Negative elongation factor E, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034648	CELF3/4/5/6_RRM1	CELF-3/4/5/6, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034651	SRSF7_RRM	SRSF7, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034652	SRP68-RBD	Signal recognition particle subunit SRP68, RNA-binding domain	domain	IPR034652	SRP68-RBD	Signal recognition particle subunit SRP68, RNA-binding domain	domain
+IPR034653	SPF45_RRM	SPF45, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034773	CPSF7_RRM	CPSF7, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034775	Elav_RRM1	Protein elav, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034784	PDIP3_RRM	PDIP3, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034787	RBPMS2_RRM	RBPMS2, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034790	RBM20_RRM	RBM20, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034792	PTBPH1/PTBPH2_RRM1	PTBPH1/PTBPH2, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034793	PTBPH1/PTBPH2_RRM2	PTBPH1/PTBPH2, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034794	PTBPH1/PTBPH2_RRM3	PTBPH1/PTBPH2, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034795	PTBPH3_RRM1	PTBPH3, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034796	PTBPH3_RRM2	PTBPH3, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034797	PTBPH3_RRM3	PTBPH3, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034799	PTBP2_RRM3	PTBP2, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034800	PTBP2_RRM4	PTBP2, RNA recognition motif 4	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034801	hnRNPA0_RRM1	hnRNP A0, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034803	hnRNPA1_RRM2	hnRNP A1, RNA recognition motif 2	domain	IPR034803	hnRNPA1_RRM2	hnRNP A1, RNA recognition motif 2	domain
+IPR034806	Nop4_RRM2	Nop4, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034808	Nop4p_RRM3	Nop4, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034816	hnRNP-L_RRM3	hnRNP-L, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034817	hnRNPL_RRM4	hnRNP-L, RNA recognition motif 4	domain	IPR055204	HNRNPL_RRM	Heterogeneous nuclear ribonucleoprotein L, RRM domain	domain
+IPR055204	HNRNPL_RRM	Heterogeneous nuclear ribonucleoprotein L, RRM domain	domain	IPR055204	HNRNPL_RRM	Heterogeneous nuclear ribonucleoprotein L, RRM domain	domain
+IPR034827	TIA-1_RRM1	TIA-1, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034830	TIA1_RRM2	TIA-1, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034833	PPARGC1A_RRM	PGC-1alpha, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034834	PRC_RRM	PGC-1-related coactivator, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034837	IGF2BP1_RRM1	IGF2BP1, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034842	IGF2BP1_RRM2	IGF2BP1, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034843	IGF2BP2_RRM1	IGF2BP2, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034845	hnRNPA1_RRM1	hnRNP A1, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034846	hnRNPAB_RRM1	hnRNPAB, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034847	hnRPDL_RRM1	hnRNP DL, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034854	RBM12_RRM5	RBM12, RNA recognition motif 5	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034855	RBM12_RRM3	RBM12, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034856	RBM12_RRM4	RBM12, RNA recognition motif 4	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034858	RBM12B_RRM3	RBM12B, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034859	RBM26_RRM1	RBM26, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034869	EWS_RRM	EWS, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034878	La-rel_plant_RRM	Plant La-related protein, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034880	LARP6_RRM	La-related protein 6, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034887	LARP7_RRM1	LARP7, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034890	Rrp7A_RRM	Rrp7A, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034894	Nrd1/Seb1_RRM	Nrd1/Seb1, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034897	RBM4_RRM1	RBM4, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034898	RBM4_RRM2	RBM4, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034900	LARP4B_RRM	LARP4B, RNA recognition motif	domain	IPR058699	RRM_LARP4/4B	LARP4/4B, RNA recognition motif	domain
+IPR034903	LARP4_RRM	LARP4, RNA recognition motif	domain	IPR058699	RRM_LARP4/4B	LARP4/4B, RNA recognition motif	domain
+IPR034910	LARP7_RRM2	LARP7, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034914	HuB_RRM3	HuB, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034915	HuC_RRM3	HuC, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034918	HuD_RRM3	HuD, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034919	RCAN2_RRM	Calcipressin-2, RNA recognition motif	domain	IPR034919	RCAN2_RRM	Calcipressin-2, RNA recognition motif	domain
+IPR034924	TNRC6A_RRM	TNRC6A, RNA recognition motif	domain	IPR034924	TNRC6A_RRM	TNRC6A, RNA recognition motif	domain
+IPR034925	TNRC6B_RRM	TNRC6B, RNA recognition motif	domain	IPR034925	TNRC6B_RRM	TNRC6B, RNA recognition motif	domain
+IPR034927	TNRC6C_RRM	TNRC6C, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034928	MATR3_RRM1	Matrin-3, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034930	MATR3_RRM2	Matrin-3, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034932	BRAP2_RRM	BRAP2, RNA recognition motif	domain	IPR011422	BRAP2/ETP1_RRM	BRCA1-associated 2/ETP1, RRM	domain
+IPR011422	BRAP2/ETP1_RRM	BRCA1-associated 2/ETP1, RRM	domain	IPR011422	BRAP2/ETP1_RRM	BRCA1-associated 2/ETP1, RRM	domain
+IPR034967	Deadenylase_CCR4b	CCR4-NOT transcription complex subunit 6-like	domain	IPR005135	Endo/exonuclease/phosphatase	Endonuclease/exonuclease/phosphatase	domain
+IPR005135	Endo/exonuclease/phosphatase	Endonuclease/exonuclease/phosphatase	domain	IPR005135	Endo/exonuclease/phosphatase	Endonuclease/exonuclease/phosphatase	domain
+IPR034969	hnRNPH3_RRM3	hnRNPH3, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034970	hnRNPH3_RRM2	hnRNPH3, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034971	SYNJ1_RRM	Synaptojanin-1, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034973	SYNJ2_RRM	Synaptojanin-2, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034977	CPEB1_RRM1	CPEB-1, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034979	UPF3B_RRM-like	UPF3B, RNA recognition motif-like domain	domain	IPR034979	UPF3B_RRM-like	UPF3B, RNA recognition motif-like domain	domain
+IPR034983	hnRPLL_RRM3	hnRPLL, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034985	hnRPLL_RRM1	hnRPLL, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034986	hnRPLL_RRM2	hnRPLL, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034987	hnRPLL_RRM4	hnRPLL, RNA recognition motif 4	domain	IPR034987	hnRPLL_RRM4	hnRPLL, RNA recognition motif 4	domain
+IPR034990	hnRNPM_RRM3	hnRNPM, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034991	RBM5_RRM1	RNA-binding protein 5, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034992	RBM10_RRM2	RNA-binding protein 10, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034993	RBM5_RRM2	RNA-binding protein 5, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034995	SRSF9_RRM2	SRSF9, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034996	HuR_RRM2	HuR, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR034999	HuB_RRM2	HuB, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR035000	PTBP1_RRM1	PTBP1, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR035001	PTBP1_RRM3	PTBP1, RNA recognition motif 3	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR035002	PTBP2_RRM1	PTBP2, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR035005	hnRNPL_RRM1	hnRNP-L, RNA recognition motif 1	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR035008	hnRNPL_RRM2	hnRNP-L, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR035009	SR140_RRM	SR140, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR035018	Spt6_SH2_C	Spt6, SH2 domain, C terminus	domain	IPR035420	Spt6_SH2	Spt6, SH2 domain	domain
+IPR035420	Spt6_SH2	Spt6, SH2 domain	domain	IPR035420	Spt6_SH2	Spt6, SH2 domain	domain
+IPR035019	Spt6_SH2_N	Spt6, SH2 domain, N terminus	domain	IPR035420	Spt6_SH2	Spt6, SH2 domain	domain
+IPR035082	Nrap_D1	Nrap protein domain 1	domain	IPR035082	Nrap_D1	Nrap protein domain 1	domain
+IPR035236	ProQ_C	RNA chaperone ProQ, C-terminal	domain	IPR035236	ProQ_C	RNA chaperone ProQ, C-terminal	domain
+IPR035300	L1_dsRBD	L1 transposable element, dsRBD-like domain	domain	IPR035300	L1_dsRBD	L1 transposable element, dsRBD-like domain	domain
+IPR035467	YLR419W-like_UBA	Putative ATP-dependent RNA helicase YLR419W-like, UBA domain	domain	IPR015940	UBA	Ubiquitin-associated domain	domain
+IPR015940	UBA	Ubiquitin-associated domain	domain	IPR015940	UBA	Ubiquitin-associated domain	domain
+IPR035587	DUS-like_FMN-bd	DUS-like, FMN-binding domain	domain	IPR035587	DUS-like_FMN-bd	DUS-like, FMN-binding domain	domain
+IPR035617	RBM6_OCRE	RBM6, OCRE domain	domain	IPR041591	OCRE	OCRE domain	domain
+IPR041591	OCRE	OCRE domain	domain	IPR041591	OCRE	OCRE domain	domain
+IPR035618	RBM10_OCRE	RBM10, OCRE domain	domain	IPR041591	OCRE	OCRE domain	domain
+IPR035622	ZOP1_OCRE	ZOP1, OCRE domain	domain	IPR041591	OCRE	OCRE domain	domain
+IPR035623	SUA-like_OCRE	SUA-like, OCRE domain	domain	IPR041591	OCRE	OCRE domain	domain
+IPR035625	Tfc3-like_eWH	Tfc3-like, extended winged-helix domain	domain	IPR035625	Tfc3-like_eWH	Tfc3-like, extended winged-helix domain	domain
+IPR035684	ArgRS_core	Arginyl-tRNA synthetase, catalytic core domain	domain	IPR035684	ArgRS_core	Arginyl-tRNA synthetase, catalytic core domain	domain
+IPR035778	SPRY_hnRNP_U	Heterogeneous nuclear ribonucleoprotein U, SPRY domain	domain	IPR001870	B30.2/SPRY	B30.2/SPRY domain	domain
+IPR001870	B30.2/SPRY	B30.2/SPRY domain	domain	IPR001870	B30.2/SPRY	B30.2/SPRY domain	domain
+IPR035782	SPRY_RanBP9/10	Ran binding protein 9/10, SPRY domain	domain	IPR003877	SPRY_dom	SPRY domain	domain
+IPR003877	SPRY_dom	SPRY domain	domain	IPR003877	SPRY_dom	SPRY domain	domain
+IPR037314	MKT1_H3TH	Post-transcriptional regulator MKT1, H3TH domain	domain	IPR037314	MKT1_H3TH	Post-transcriptional regulator MKT1, H3TH domain	domain
+IPR037319	Rrp40_S1	Rrp40, S1 domain	domain	IPR037319	Rrp40_S1	Rrp40, S1 domain	domain
+IPR037406	MetR_PBP2	HTH-type transcriptional regulator MetR, PBP2 domain	domain	IPR005119	LysR_subst-bd	LysR, substrate-binding	domain
+IPR005119	LysR_subst-bd	LysR, substrate-binding	domain	IPR005119	LysR_subst-bd	LysR, substrate-binding	domain
+IPR037503	Fcf1_PIN	rRNA-processing protein Fcf1, PIN domain	domain	IPR002716	PIN_dom	PIN domain	domain
+IPR037517	HDAG_dom	Hepatitis delta antigen (HDAg) domain	domain	IPR037517	HDAG_dom	Hepatitis delta antigen (HDAg) domain	domain
+IPR037551	DAZ_RRM_vert	DAZ, RNA recognition motif, vertebrates	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR037632	ZCCH14_SAM	ZCCH14, SAM domain	domain	IPR037632	ZCCH14_SAM	ZCCH14, SAM domain	domain
+IPR037634	Smaug_SAM	Protein Smaug, SAM domain	domain	IPR001660	SAM	Sterile alpha motif domain	domain
+IPR001660	SAM	Sterile alpha motif domain	domain	IPR001660	SAM	Sterile alpha motif domain	domain
+IPR037635	VTS1_SAM	VTS1, SAM domain	domain	IPR001660	SAM	Sterile alpha motif domain	domain
+IPR037875	Bms1_N	Ribosome biogenesis protein Bms1, N-terminal	domain	IPR037875	Bms1_N	Ribosome biogenesis protein Bms1, N-terminal	domain
+IPR037974	BICC1_SAM_dom	BICC1, SAM domain	domain	IPR001660	SAM	Sterile alpha motif domain	domain
+IPR039054	Int12_PHD	Int12, PHD finger	domain	IPR001965	Znf_PHD	Zinc finger, PHD-type	domain
+IPR039157	RBM18_RRM	RNA-binding protein 18, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR039432	SRP9_dom	SRP9 domain	domain	IPR039432	SRP9_dom	SRP9 domain	domain
+IPR039467	TFIIIB_B''_Myb	Transcription factor TFIIIB component B'', Myb domain	domain	IPR001005	SANT/Myb	SANT/Myb domain	domain
+IPR001005	SANT/Myb	SANT/Myb domain	domain	IPR001005	SANT/Myb	SANT/Myb domain	domain
+IPR039511	RBM26-like_RRM2	RBM26-like, RNA recognition motif 2	domain	IPR039511	RBM26-like_RRM2	RBM26-like, RNA recognition motif 2	domain
+IPR040447	RRM_Rrp7	Rrp7, RRM-like N-terminal domain	domain	IPR040447	RRM_Rrp7	Rrp7, RRM-like N-terminal domain	domain
+IPR040472	FMRP_KH0	Synaptic functional regulator FMRP, KH0 domain	domain	IPR040472	FMRP_KH0	Synaptic functional regulator FMRP, KH0 domain	domain
+IPR040476	CSD2	RNase II/RNase R, cold shock domain	domain	IPR040476	CSD2	RNase II/RNase R, cold shock domain	domain
+IPR040594	UNK_Znf_1	Unkempt, zinc finger domain 1	domain	IPR040594	UNK_Znf_1	Unkempt, zinc finger domain 1	domain
+IPR040598	NIP7_N	60S ribosome subunit biogenesis protein NIP7, pre-PUA domain	domain	IPR040598	NIP7_N	60S ribosome subunit biogenesis protein NIP7, pre-PUA domain	domain
+IPR040724	PheRS_DBD1	PheRS, DNA binding domain 1	domain	IPR040724	PheRS_DBD1	PheRS, DNA binding domain 1	domain
+IPR040725	PheRS_DBD3	PheRS, DNA binding domain 3	domain	IPR040725	PheRS_DBD3	PheRS, DNA binding domain 3	domain
+IPR040746	THO1_MOS11_C	THO1_MOS11, C-terminal domain	domain	IPR040746	THO1_MOS11_C	THO1_MOS11, C-terminal domain	domain
+IPR040812	UPF1_1B_dom	RNA helicase UPF1, 1B domain	domain	IPR040812	UPF1_1B_dom	RNA helicase UPF1, 1B domain	domain
+IPR040941	SAM_Exu	Exuperantia, SAM-like domain	domain	IPR040941	SAM_Exu	Exuperantia, SAM-like domain	domain
+IPR040992	XRN1_D1	5'-3' exoribonuclease 1, D1 domain	domain	IPR040992	XRN1_D1	5'-3' exoribonuclease 1, D1 domain	domain
+IPR041044	Nab2p_Zf1	Nuclear polyadenylated RNA-binding 2 protein, CCCH zinc finger 1	domain	IPR041044	Nab2p_Zf1	Nuclear polyadenylated RNA-binding 2 protein, CCCH zinc finger 1	domain
+IPR041095	EFG_II	Elongation Factor G, domain II	domain	IPR041095	EFG_II	Elongation Factor G, domain II	domain
+IPR041105	TDP-43_N	TAR DNA-binding protein 43, N-terminal	domain	IPR041105	TDP-43_N	TAR DNA-binding protein 43, N-terminal	domain
+IPR041139	MVP_rep_dom	Major vault protein repeat domain	domain	IPR041139	MVP_rep_dom	Major vault protein repeat domain	domain
+IPR041174	KRR1-like_KH1	KRR1 small subunit processome component, first KH domain	domain	IPR041174	KRR1-like_KH1	KRR1 small subunit processome component, first KH domain	domain
+IPR041204	RIG-I-like_C	RIG-I-like receptor, C-terminal	domain	IPR041204	RIG-I-like_C	RIG-I-like receptor, C-terminal	domain
+IPR041249	HEPN_DZIP3	DZIP3-like HEPN domain	domain	IPR041249	HEPN_DZIP3	DZIP3-like HEPN domain	domain
+IPR041385	SH3_12	5'-3' exoribonuclease 1, SH3-like domain	domain	IPR041385	SH3_12	5'-3' exoribonuclease 1, SH3-like domain	domain
+IPR041499	Tfc1/Sfc1_N	Transcription factor IIIC subunit Tfc1/Sfc1, triple barrel domain	domain	IPR041499	Tfc1/Sfc1_N	Transcription factor IIIC subunit Tfc1/Sfc1, triple barrel domain	domain
+IPR041631	Alpha_DG1_N2	Alpha-dystroglycan N-terminal domain 2	domain	IPR041631	Alpha_DG1_N2	Alpha-dystroglycan N-terminal domain 2	domain
+IPR041677	DNA2/NAM7_AAA_11	DNA2/NAM7 helicase, helicase domain	domain	IPR041677	DNA2/NAM7_AAA_11	DNA2/NAM7 helicase, helicase domain	domain
+IPR041686	Znf-CCCH_3	Zinc-finger CCCH domain	domain	IPR041686	Znf-CCCH_3	Zinc-finger CCCH domain	domain
+IPR041703	Rho_factor_ATP-bd	Transcription termination factor Rho, ATP binding domain	domain	IPR000194	ATPase_F1/V1/A1_a/bsu_nucl-bd	ATPase, F1/V1/A1 complex, alpha/beta subunit, nucleotide-binding domain	domain
+IPR000194	ATPase_F1/V1/A1_a/bsu_nucl-bd	ATPase, F1/V1/A1 complex, alpha/beta subunit, nucleotide-binding domain	domain	IPR000194	ATPase_F1/V1/A1_a/bsu_nucl-bd	ATPase, F1/V1/A1 complex, alpha/beta subunit, nucleotide-binding domain	domain
+IPR041706	YchF_N	YchF, N-terminal	domain	IPR006073	GTP-bd	GTP binding domain	domain
+IPR041709	EF-Tu_GTP-bd	Elongation factor Tu (EF-Tu), GTP-binding domain	domain	IPR000795	T_Tr_GTP-bd_dom	Translational (tr)-type GTP-binding domain	domain
+IPR041715	HisRS-like_core	Class II Histidinyl-tRNA synthetase (HisRS)-like catalytic core domain	domain	IPR006195	aa-tRNA-synth_II	Aminoacyl-tRNA synthetase, class II	domain
+IPR041801	N4BP2_CUE	NEDD4-binding protein 2, CUE domain	domain	IPR003892	CUE	Ubiquitin system component CUE	domain
+IPR003892	CUE	Ubiquitin system component CUE	domain	IPR003892	CUE	Ubiquitin system component CUE	domain
+IPR041803	DEF1_CUE	RNA polymerase II degradation factor 1, CUE domain	domain	IPR003892	CUE	Ubiquitin system component CUE	domain
+IPR041901	RNAP_I_Rpa43_N	Rpa43, N-terminal ribonucleoprotein (RNP) domain	domain	IPR005576	Rpb7-like_N	RNA polymerase Rpb7-like , N-terminal	domain
+IPR041915	UBA_TDRD3	Tudor domain-containing protein 3, UBA domain	domain	IPR015940	UBA	Ubiquitin-associated domain	domain
+IPR041917	TNR6C_UBA	Trinucleotide repeat-containing gene 6C protein, UBA domain	domain	IPR015940	UBA	Ubiquitin-associated domain	domain
+IPR041973	KOW_Spt5_1	Spt5, KOW domain repeat 1	domain	IPR041973	KOW_Spt5_1	Spt5, KOW domain repeat 1	domain
+IPR041975	KOW_Spt5_2	Spt5, KOW domain repeat 2	domain	IPR041975	KOW_Spt5_2	Spt5, KOW domain repeat 2	domain
+IPR041976	KOW_Spt5_3	Spt5, KOW domain repeat 3	domain	IPR041976	KOW_Spt5_3	Spt5, KOW domain repeat 3	domain
+IPR041977	KOW_Spt5_4	Spt5, KOW domain repeat 4	domain	IPR041977	KOW_Spt5_4	Spt5, KOW domain repeat 4	domain
+IPR041978	KOW_Spt5_5	Spt5, KOW domain repeat 5	domain	IPR041978	KOW_Spt5_5	Spt5, KOW domain repeat 5	domain
+IPR041980	KOW_Spt5_6_metazoa	Spt5, KOW domain repeat 6, metazoa	domain	IPR041980	KOW_Spt5_6_metazoa	Spt5, KOW domain repeat 6, metazoa	domain
+IPR041982	Ribosomal_eS4_KOW	Small ribosomal subunit protein eS4, KOW domain	domain	IPR041982	Ribosomal_eS4_KOW	Small ribosomal subunit protein eS4, KOW domain	domain
+IPR041985	Ribosomal_eL14_KOW	Large ribosomal subunit protein eL14, KOW motif	domain	IPR041985	Ribosomal_eL14_KOW	Large ribosomal subunit protein eL14, KOW motif	domain
+IPR041988	Ribosomal_uL24_KOW	Large ribosomal subunit protein uL24, KOW domain	domain	IPR041988	Ribosomal_uL24_KOW	Large ribosomal subunit protein uL24, KOW domain	domain
+IPR041991	Ribosomal_eL27_KOW	Large ribosomal subunit protein eL27, KOW domain	domain	IPR041991	Ribosomal_eL27_KOW	Large ribosomal subunit protein eL27, KOW domain	domain
+IPR041993	GPKOW_KOW1	G-patch domain and KOW motifs-containing protein, KOW 1	domain	IPR041993	GPKOW_KOW1	G-patch domain and KOW motifs-containing protein, KOW 1	domain
+IPR041994	GPKOW_KOW2	G-patch domain and KOW motifs-containing protein, KOW 2	domain	IPR041994	GPKOW_KOW2	G-patch domain and KOW motifs-containing protein, KOW 2	domain
+IPR041995	KOW_KIN17	Kin17, KOW domain	domain	IPR041995	KOW_KIN17	Kin17, KOW domain	domain
+IPR041997	Ribosomal_eL6_KOW	Large ribosomal subunit protein eL6, KOW domain	domain	IPR041997	Ribosomal_eL6_KOW	Large ribosomal subunit protein eL6, KOW domain	domain
+IPR043628	DAZ_dom	DAZ domain	domain	IPR043628	DAZ_dom	DAZ domain	domain
+IPR043636	L1_RRM_dom	L1 transposable element, RRM domain	domain	IPR043636	L1_RRM_dom	L1 transposable element, RRM domain	domain
+IPR043866	TTC3/DZIP3_dom	E3 ubiquitin-protein ligase TTC3/DZIP3 domain	domain	IPR043866	TTC3/DZIP3_dom	E3 ubiquitin-protein ligase TTC3/DZIP3 domain	domain
+IPR044113	DEADc_DDX41	DDX41, DEAD-box helicase domain	domain	IPR014001	Helicase_ATP-bd	Helicase superfamily 1/2, ATP-binding domain	domain
+IPR044126	S1_IF2_alpha	IF2a, S1-like domain	domain	IPR003029	S1_domain	S1 domain	domain
+IPR044136	Lys-tRNA-ligase_II_N	Lysine-tRNA ligase, class II, N-terminal	domain	IPR004365	NA-bd_OB_tRNA	OB-fold nucleic acid binding domain, AA-tRNA synthetase-type	domain
+IPR044140	ProRS_anticodon_short	Proline--tRNA ligase, anticodon binding domain	domain	IPR004154	Anticodon-bd	Anticodon-binding	domain
+IPR044146	S1_Tex	Tex, S1 domain	domain	IPR003029	S1_domain	S1 domain	domain
+IPR044340	Helicase_Sen1_1B_dom	Helicase Sen1, 1B domain	domain	IPR044340	Helicase_Sen1_1B_dom	Helicase Sen1, 1B domain	domain
+IPR044441	DICER_DSRM	Dicer, double-stranded RNA-binding domain	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044442	RNAse_III_DSRM__animal	RNase III, double-stranded RNA binding domain, animal	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044443	Ribosomal_mL44_DSRM_fung	Large ribosomal subunit protein mL44, dsRNA binding domain, fungi	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044444	Ribosomal_mL44_DSRM_metazoa	Large ribosomal subunit protein mL44, dsRNA binding domain, metazoa	domain	IPR044444	Ribosomal_mL44_DSRM_metazoa	Large ribosomal subunit protein mL44, dsRNA binding domain, metazoa	domain
+IPR044445	DHX9_DSRM_1	DHX9, first double-stranded RNA binding domain	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044446	DHX9_DSRM_2	DHX9, second double-stranded RNA binding domain	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044447	DHX9_DEXHc	DHX9, DEXH-box helicase domain	domain	IPR014001	Helicase_ATP-bd	Helicase superfamily 1/2, ATP-binding domain	domain
+IPR044448	DND1_DSRM	DND1, double-stranded RNA binding domain	domain	IPR044448	DND1_DSRM	DND1, double-stranded RNA binding domain	domain
+IPR044449	Rnt1/Pac1_DSRM_fungi	Rnt1/Pac1, double-stranded RNA binding domain, fungi	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044450	AtDRB-like_DSRM_1	AtDRB-like, first double-stranded RNA binding domain, plant	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044451	AtDRB-like_DSRM_2	AtDRB-like, second double-stranded RNA binding domain, plant	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044452	EIF2AK2_DSRM_1	EIF2AK2, first double-stranded RNA binding domain	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044453	EIF2AK2_DSRM_2	EIF2AK2, second double-stranded RNA binding domain	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044454	ADAD2_DSRM	ADAD2, double-stranded RNA binding domain	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044455	ADAD1_DSRM	ADAD1, double-stranded RNA binding domain	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044456	ADAR1_DSRM_1	ADAR1, first double-stranded RNA binding domain	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044457	ADAR1_DSRM_3	ADAR1, third double-stranded RNA binding domain	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044458	ADAR2_DSRM_1	ADAR2, first double-stranded RNA binding domain	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044459	ADAR2_DSRM_2	ADAR2, second double-stranded RNA binding domain	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044460	ADAR3_DSRM_1	ADAR3, first double-stranded RNA binding domain	domain	IPR044460	ADAR3_DSRM_1	ADAR3, first double-stranded RNA binding domain	domain
+IPR044461	A1CF_DSRM	A1CF, double-stranded RNA binding domain	domain	IPR044461	A1CF_DSRM	A1CF, double-stranded RNA binding domain	domain
+IPR044462	RBM46_DSR	RBM46, double-stranded RNA binding domain	domain	IPR044462	RBM46_DSR	RBM46, double-stranded RNA binding domain	domain
+IPR044463	DUS2_DSRM	DUS2, double-stranded RNA binding domain	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044464	STAU2_DSRM_2	Staufen 2, second double-stranded RNA binding domain	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044465	PRKRA_DSRM_1	PRKRA, first double-stranded RNA binding domain	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044466	PRKRA_DSRM_2	PRKRA, second double-stranded RNA binding domain	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044467	PRKRA_DSRM_3	PRKRA, third double-stranded RNA binding domain	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044469	TRBP2_DSRM_1	TRBP2 , first double-stranded RNA binding domain	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044470	TRBP2_DSRM_2	TRBP2 , second double-stranded RNA binding domain	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044471	TRBP2_DSRM_3	TRBP2 , third double-stranded RNA binding domain	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044472	STRBP_DSRM_1	STRBP, first double-stranded RNA binding domain	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044473	STAU2_DSRM_3	Staufen 2, third double-stranded RNA binding domain	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044474	STAU2_DSRM_4	Staufen 2, fourth double-stranded RNA binding domain	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044475	STAU1_DSRM_3	Staufen 1, third double-stranded RNA binding domain	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044476	STAU2_DSRM_1	Staufen 2, first double-stranded RNA binding domain	domain	IPR014720	dsRBD_dom	Double-stranded RNA-binding domain	domain
+IPR044728	EIF4A_DEADc	ATP-dependent RNA helicase eIF4A, DEAD-box helicase domain	domain	IPR014001	Helicase_ATP-bd	Helicase superfamily 1/2, ATP-binding domain	domain
+IPR044748	Trm3/TARBP1_C	Trm3/ TARBP1, C-terminal	domain	IPR001537	SpoU_MeTrfase	tRNA/rRNA methyltransferase, SpoU type	domain
+IPR044749	FANCM_DEXDc	FANCM, DEAH-box helicase domain	domain	IPR014001	Helicase_ATP-bd	Helicase superfamily 1/2, ATP-binding domain	domain
+IPR044753	HELLS_N	HELLS, N-terminal	domain	IPR014001	Helicase_ATP-bd	Helicase superfamily 1/2, ATP-binding domain	domain
+IPR044755	SMARCA1_N	SMARCA1, N-terminal	domain	IPR014001	Helicase_ATP-bd	Helicase superfamily 1/2, ATP-binding domain	domain
+IPR044756	DHX15_DEXHc	DHX15, DEXH-box helicase domain	domain	IPR014001	Helicase_ATP-bd	Helicase superfamily 1/2, ATP-binding domain	domain
+IPR044763	Ded1/Dbp1_DEADc	Ded1/Dbp1, DEAD-box helicase domain	domain	IPR014001	Helicase_ATP-bd	Helicase superfamily 1/2, ATP-binding domain	domain
+IPR044764	DDX52/Rok1_DEADc	DDX52/Rok1, DEAD-box helicase domain	domain	IPR014001	Helicase_ATP-bd	Helicase superfamily 1/2, ATP-binding domain	domain
+IPR044765	DDX47/Rrp3_DEADc	DDX47/Rrp3, DEAD-box helicase domain	domain	IPR014001	Helicase_ATP-bd	Helicase superfamily 1/2, ATP-binding domain	domain
+IPR044773	DDX18/Has1_DEADc	DDX18/Has1, DEAD-box helicase domain	domain	IPR014001	Helicase_ATP-bd	Helicase superfamily 1/2, ATP-binding domain	domain
+IPR044861	IPNS-like_FE2OG_OXY	Isopenicillin N synthase-like, Fe(2+) 2OG dioxygenase domain	domain	IPR005123	Oxoglu/Fe-dep_dioxygenase_dom	Oxoglutarate/iron-dependent dioxygenase domain	domain
+IPR005123	Oxoglu/Fe-dep_dioxygenase_dom	Oxoglutarate/iron-dependent dioxygenase domain	domain	IPR005123	Oxoglu/Fe-dep_dioxygenase_dom	Oxoglutarate/iron-dependent dioxygenase domain	domain
+IPR045305	RRM2_I_PABPs	PABP, RNA recognition motif 2	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR045462	aa-tRNA-synth_I_cd-bd	Aminoacyl-tRNA synthetase, class I, anticodon-binding	domain	IPR045462	aa-tRNA-synth_I_cd-bd	Aminoacyl-tRNA synthetase, class I, anticodon-binding	domain
+IPR045478	Exportin-5_C	Exportin-5, C-terminal domain	domain	IPR045478	Exportin-5_C	Exportin-5, C-terminal domain	domain
+IPR045602	MARF1_LOTUS	MARF1, first and second LOTUS domain	domain	IPR045602	MARF1_LOTUS	MARF1, first and second LOTUS domain	domain
+IPR045844	RRM_Ist3-like	Ist3-like, RNA recognition motif	domain	IPR000504	RRM_dom	RNA recognition motif domain	domain
+IPR000225	Armadillo	Armadillo	repeat	IPR000225	Armadillo	Armadillo	repeat
+IPR001680	WD40_rpt	WD40 repeat	repeat	IPR001680	WD40_rpt	WD40 repeat	repeat
+IPR001715	CH_dom	Calponin homology domain	domain	IPR001715	CH_dom	Calponin homology domain	domain
+IPR002017	Spectrin_repeat	Spectrin repeat	repeat	IPR002017	Spectrin_repeat	Spectrin repeat	repeat
+IPR002125	CMP_dCMP_dom	Cytidine and deoxycytidylate deaminase domain	domain	IPR002125	CMP_dCMP_dom	Cytidine and deoxycytidylate deaminase domain	domain
+IPR002130	Cyclophilin-type_PPIase_dom	Cyclophilin-type peptidyl-prolyl cis-trans isomerase domain	domain	IPR002130	Cyclophilin-type_PPIase_dom	Cyclophilin-type peptidyl-prolyl cis-trans isomerase domain	domain
+IPR003594	HATPase_dom	Histidine kinase/HSP90-like ATPase domain	domain	IPR003594	HATPase_dom	Histidine kinase/HSP90-like ATPase domain	domain
+IPR003959	ATPase_AAA_core	ATPase, AAA-type, core	domain	IPR003959	ATPase_AAA_core	ATPase, AAA-type, core	domain
+IPR007052	CS_dom	CS domain	domain	IPR007052	CS_dom	CS domain	domain
+IPR018159	Spectrin/alpha-actinin	Spectrin/alpha-actinin	repeat	IPR018159	Spectrin/alpha-actinin	Spectrin/alpha-actinin	repeat
+IPR018502	Annexin_repeat	Annexin repeat	repeat	IPR018502	Annexin_repeat	Annexin repeat	repeat
+IPR019734	TPR_rpt	Tetratricopeptide repeat	repeat	IPR019734	TPR_rpt	Tetratricopeptide repeat	repeat
+IPR020472	WD40_PAC1	PAC1/LIS1-like, WD-40 repeat	repeat	IPR020472	WD40_PAC1	PAC1/LIS1-like, WD-40 repeat	repeat
+IPR032413	Arm_3	Atypical Arm repeat	repeat	IPR032413	Arm_3	Atypical Arm repeat	repeat

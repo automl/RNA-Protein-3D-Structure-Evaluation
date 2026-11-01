@@ -1,0 +1,62 @@
+% Decision-tree figure (variant 16b: tree only, no callouts).
+% Requires decision_tree_styles.tex to be \input in the main preamble.
+% Drop this in via \input inside a figure/figure* float.
+{\sffamily
+\begin{tikzpicture}[x=1cm,y=1cm]
+
+\def\sx{7.8}\def\lx{5.2}
+\def\ix{14.6}\def\jx{12.0}
+
+\node[root, text width=8.2cm] (h) at (11.2,17.8) {AF3 RNA / RNA--protein prediction\\[-1pt]\footnotesize\mdseries(unknown structure)};
+\node[split, fill=cRoot!12] (ro) at (\sx,16.2) {RNA-ONLY};
+\node[split, fill=cRoot!12] (cxn) at (\ix,16.2) {RNA--PROTEIN COMPLEX};
+\draw[ed] (h) -- (ro); \draw[ed] (h) -- (cxn);
+
+\node[colhead, text width=4.9cm] (fh) at (\sx,14.0) {RNA FOLD\\[-1pt]\scriptsize\mdseries single-chain RNA, or the complex RNA chain};
+\node[colhead, text width=4.9cm] (ih) at (\ix,14.0) {INTERFACE\\[-1pt]\scriptsize\mdseries complex only; decoupled from fold};
+\draw[ed] (ro) -- (fh);
+\draw[ed] (cxn) -- (ih);
+\draw[ed] (cxn.south) to[out=245,in=20] (fh.north east);
+
+% ===================== LEFT: RNA FOLD =====================
+\node[qbox, text width=4.6cm] (q1) at (\sx,11.8) {Conserved RNA family? \\[-1pt]\scriptsize\mdseries tRNA, rRNA, ribozyme vs synthetic};
+\node[qbox, text width=4.6cm] (q2) at (\sx,9.1)  {Deep RNA MSA? \\[-1pt]\scriptsize\mdseries $>$10$^3$ aligned seqs (esp.\ long RNA)};
+\node[qbox, text width=4.6cm] (q3) at (\sx,6.4)  {Canonical fold? \\[-1pt]\scriptsize\mdseries Watson--Crick; not PK / stacking};
+\node[qbox, text width=4.6cm] (q4) at (\sx,3.7)  {AF3: high pLDDT \& low PAE? \\[-1pt]\scriptsize\mdseries RNA pLDDT $\ge$0.78, global PAE low};
+\node[leafL,  text width=2.0cm] (Lo)  at (\lx,10.45){WEAK};
+\node[leafLM, text width=2.0cm] (LoM) at (\lx,7.75) {LOW--MOD};
+\node[leafM,  text width=2.0cm] (Mo)  at (\lx,5.05) {MODERATE};
+\node[leafMH, text width=2.0cm] (MoH) at (\lx,2.8)  {MOD--HIGH};
+\node[leafH,  text width=2.0cm] (Hi)  at (\sx,1.8)  {STRONG};
+\draw[ed] (fh) -- (q1);
+\draw[ortho](q1)--(\sx,10.45);\draw[orthoA](\sx,10.45)--(Lo.east);\draw[orthoA](\sx,10.45)--(q2.north);
+\node[nbr] at (7.1,10.67){no \dn}; \node[ybr] at (8.25,9.95){yes \up};
+\draw[ortho](q2)--(\sx,7.75);\draw[orthoA](\sx,7.75)--(LoM.east);\draw[orthoA](\sx,7.75)--(q3.north);
+\node[nbr] at (7.1,7.97){no \dn}; \node[ybr] at (8.25,7.25){yes \up};
+\draw[ortho](q3)--(\sx,5.05);\draw[orthoA](\sx,5.05)--(Mo.east);\draw[orthoA](\sx,5.05)--(q4.north);
+\node[nbr] at (7.15,5.27){tertiary \dn}; \node[ybr] at (8.7,4.5){canonical \up};
+\draw[ortho](q4)--(\sx,2.8);\draw[orthoA](\sx,2.8)--(MoH.east);\draw[orthoA](\sx,2.8)--(Hi.north);
+\node[nbr] at (7.1,3.02){no \dn}; \node[ybr] at (8.25,2.5){yes \up};
+
+% ===================== RIGHT: INTERFACE =====================
+\node[qbox, text width=4.6cm] (p1) at (\ix,11.8) {Each Chain well-folded? \\[-1pt]\scriptsize\mdseries protein pTM high \& RNA pLDDT $\ge$0.78};
+\node[qbox, text width=4.6cm] (p2) at (\ix,9.1)  {RBP protein--RNA template? \\[-1pt]\scriptsize\mdseries homologous complex in the PDB};
+\node[qbox, text width=4.6cm] (p3) at (\ix,6.4)  {Compact RBP domain? \\[-1pt]\scriptsize\mdseries RRM / PUM / Piwi vs dsRBD / RNase III};
+\node[qbox, text width=4.6cm] (p4) at (\ix,3.7)  {AF3 interface confident? \\[-1pt]\scriptsize\mdseries ipTM$_r$ $\gtrsim$0.5, chain-pair PAE $\lesssim$8};
+\node[leafL,  text width=2.0cm] (iU)  at (\jx,10.45){UNRELIABLE};
+\node[leafLM, text width=2.0cm] (iP)  at (\jx,7.75) {CAUTION};
+\node[leafM,  text width=2.0cm] (iM)  at (\jx,5.05) {MODERATE};
+\node[leafMH, text width=2.0cm] (iL)  at (\jx,2.8)  {LIKELY OK};
+\node[leafH,  text width=2.0cm] (iR)  at (\ix,1.8)  {RELIABLE};
+\draw[ed] (ih) -- (p1);
+\draw[ortho](p1)--(\ix,10.45);\draw[orthoA](\ix,10.45)--(iU.east);\draw[orthoA](\ix,10.45)--(p2.north);
+\node[nbr] at (13.85,10.67){no \dn}; \node[ybr] at (15.05,9.95){yes \up};
+\draw[ortho](p2)--(\ix,7.75);\draw[orthoA](\ix,7.75)--(iP.east);\draw[orthoA](\ix,7.75)--(p3.north);
+\node[nbr] at (13.85,7.97){no \dn}; \node[ybr] at (15.05,7.25){yes \up};
+\draw[ortho](p3)--(\ix,5.05);\draw[orthoA](\ix,5.05)--(iM.east);\draw[orthoA](\ix,5.05)--(p4.north);
+\node[nbr] at (13.85,5.27){large \dn}; \node[ybr] at (15.4,4.5){compact \up};
+\draw[ortho](p4)--(\ix,2.8);\draw[orthoA](\ix,2.8)--(iL.east);\draw[orthoA](\ix,2.8)--(iR.north);
+\node[nbr] at (13.85,3.02){no \dn}; \node[ybr] at (15.05,2.5){yes \up};
+
+\end{tikzpicture}%
+}
