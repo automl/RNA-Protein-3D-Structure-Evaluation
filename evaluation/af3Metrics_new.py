@@ -416,6 +416,59 @@ def get_pae_value_for_chain_pair(chain_pair, pae_matrix):
         return None
 
 
+def _parse_chain_ids(raw):
+    """Chain-id column -> list of single chain ids, tolerating a list repr ("['A', 'B']"), a
+    comma/space-separated string ("A, B") or a bare single id ("A")."""
+    if raw is None:
+        return []
+    if isinstance(raw, (list, tuple)):
+        return [str(x) for x in raw]
+    s = str(raw).strip()
+    if not s:
+        return []
+    if s.startswith('['):
+        try:
+            return [str(x) for x in ast.literal_eval(s)]
+        except (ValueError, SyntaxError):
+            pass
+    return [tok for tok in s.replace(',', ' ').split() if tok]
+
+
+def _chain_pair_most_rna_contacts(model_cif_path, rna_chain_ids, protein_chain_ids, cutoff=3.9):
+    """Fallback chain-pair selector for af3_chain_pair_pae_min on multi-chain complexes whose RNA
+    motif has not been computed yet: the (protein, RNA) chain pair with the most RNA nucleotides in
+    heavy-atom contact (<= cutoff A -- the vdW cutoff of extractInteractions.py, the same definition
+    the RNA motif uses). Returns [protein_chain, rna_chain], or None on no contact / parse failure."""
+    rna_set, prot_set = set(rna_chain_ids), set(protein_chain_ids)
+    if not rna_set or not prot_set:
+        return None
+    try:
+        from Bio.PDB import MMCIFParser, NeighborSearch
+        structure = MMCIFParser(QUIET=True).get_structure("m", model_cif_path)
+        model = next(structure.get_models())
+        atoms = [a for a in model.get_atoms() if a.element != "H"]
+        if not atoms:
+            return None
+        contacts = {}  # (protein_chain, rna_chain) -> set of RNA residue ids in contact
+        for a, b in NeighborSearch(atoms).search_all(cutoff, level="A"):
+            ca = a.get_parent().get_parent().id
+            cb = b.get_parent().get_parent().id
+            if ca in prot_set and cb in rna_set:
+                pc, rc, rres = ca, cb, b.get_parent().id
+            elif cb in prot_set and ca in rna_set:
+                pc, rc, rres = cb, ca, a.get_parent().id
+            else:
+                continue
+            contacts.setdefault((pc, rc), set()).add(rres)
+        if not contacts:
+            return None
+        (pc, rc), _ = max(contacts.items(), key=lambda kv: len(kv[1]))
+        return [pc, rc]
+    except Exception as e:
+        print(f"Chain-pair contact fallback failed for {os.path.basename(model_cif_path)}: {e}")
+        return None
+
+
 def get_af3Metrics_paths_pae(cif_name, json_file_path, iptm_metrics):
     """Process PAE metrics from JSON file"""
     # try:
@@ -480,6 +533,15 @@ def get_af3Metrics_paths_pae(cif_name, json_file_path, iptm_metrics):
         chain_pair_pae = get_pae_value_for_chain_pair(chain_pair, chain_pair_pae_min)
     else:
         chain_pair = rna.get_chain_pair_with_longest_motif()
+        if not chain_pair:
+            # No RNA motif yet (the af3 step can run before the interaction step that fills it):
+            # pick the protein-RNA chain pair with the most RNA nucleotides in heavy-atom contact
+            # in the model -- the same contact definition the motif uses.
+            model_cif_path = os.path.join(os.path.dirname(json_file_path), cif_name)
+            chain_pair = _chain_pair_most_rna_contacts(
+                model_cif_path,
+                _parse_chain_ids(rna.get_rna_chain_IDs()),
+                _parse_chain_ids(protein.get_protein_chain_IDs()))
         # print("%%%%chain_pair", chain_pair)
         chain_pair_pae = get_pae_value_for_chain_pair(chain_pair, chain_pair_pae_min)
         # print("£££££££££chain_pair_pae", chain_pair_pae)

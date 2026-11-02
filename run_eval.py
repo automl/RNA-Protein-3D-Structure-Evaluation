@@ -287,7 +287,10 @@ def detect_capabilities(args, has_gt, dssr_dir):
     caps = {}
     usalign = EVAL_DIR / "USalign" / ("USalign.exe" if os.name == "nt" else "USalign")
     caps["usalign"] = usalign.exists()
-    caps["ost"] = conda_has_env(args.ost_env)
+    # OST env given by name (conda env list) or by prefix path (-p); accept either.
+    caps["ost"] = conda_has_env(args.ost_env) or (
+        (os.sep in str(args.ost_env) or Path(args.ost_env).exists())
+        and (Path(args.ost_env) / "bin").is_dir())
     # The eval scripts do `from pymol import cmd`, so they need the importable Python module in
     # the ambient env -- a pymol launcher on PATH is not enough (don't fall back to which()).
     caps["pymol"] = module_importable("pymol")
@@ -714,10 +717,19 @@ def run_ambient(script_rel, script_args, cwd=None):
     return res.returncode == 0
 
 
+def _conda_env_flag(ost_env):
+    """conda run selector for an env given by name or by prefix path: '-p <path>' when ost_env
+    looks like a path (contains a separator or exists on disk), else '-n <name>'."""
+    if os.sep in str(ost_env) or Path(ost_env).exists():
+        return ["-p", str(ost_env)]
+    return ["-n", ost_env]
+
+
 def run_ost(script_rel, script_args, ost_env):
-    """Run an OST script inside the 'ost' conda env (mirrors mainExecution.run_ost)."""
+    """Run an OST script inside the OST conda env (mirrors mainExecution.run_ost). ost_env may be a
+    conda env name or a prefix path (-p)."""
     conda = shutil.which("conda") or "conda"
-    cmd = [conda, "run", "--no-capture-output", "-n", ost_env,
+    cmd = [conda, "run", "--no-capture-output", *_conda_env_flag(ost_env),
            "python", str(REPO_ROOT / script_rel), *script_args]
     # redact any secret (e.g. SWISS-MODEL --token) before logging so keys never land in logs
     safe = ["***REDACTED***" if i > 0 and cmd[i - 1] == "--token" else c
@@ -731,6 +743,20 @@ def run_ost(script_rel, script_args, ost_env):
                                   if os.path.normpath(p) != os.path.normpath(own_bin))
     res = subprocess.run(cmd, cwd=str(REPO_ROOT), env=env, check=False)
     return res.returncode == 0
+
+
+def _interface_fallback(af_dir, ost_env):
+    """Exact-residue-mapping fallback of interface_own_dockq.py on this run (files in <out>/interface_fallback)."""
+    workdir, root = af_dir.parents[2], af_dir.parent
+    script = "evaluation/interface_own_dockq.py"
+    own = ["--tag", "run", "--outdir", str(workdir / "interface_fallback")]
+    src = ["--db", str(workdir / "run.db"), "--root", str(root), "--ost-root", str(root / "lddt"), "--check-alignment",
+           "--fill-missing"]
+    return (run_ambient(script, ["export", *src, *own])
+            and run_ost(script, ["score", *own], ost_env)
+            and run_ambient(script, ["export-complex", *src, *own])
+            and run_ost(script, ["score-complex", *own], ost_env)
+            and run_ambient(script, ["write-run", "--db", str(workdir / "run.db"), *own]))
 
 
 # --------------------------------------------------------------------------------------
@@ -763,17 +789,25 @@ def build_steps(args, classification, caps, af_path, pdb_path, dssr_dir, preset_
         lambda: run_ambient("database/parseAFcif2DB.py", [af_path]))
 
     # ---- AF3 confidence (pred-only, no GT needed) ----
-    add("af3", "confidence", 1,
-        lambda: run_ambient("evaluation/af3Metrics_new.py", [af_path, "--no-plots"]),
-        note="AF3 *_summary_confidences_/_full_data_ JSONs")
+    # af3_chain_pair_pae_min of a multi-chain complex is taken for the chain pair with the longest RNA motif, which
+    # the interaction step fills; when that step is part of the run, the confidence step follows it (otherwise the
+    # pair is chosen by counting contacts in the model).
+    def add_af3():
+        add("af3", "confidence", 1,
+            lambda: run_ambient("evaluation/af3Metrics_new.py", [af_path, "--no-plots"]),
+            note="AF3 *_summary_confidences_/_full_data_ JSONs")
+    late_af3 = (preset_rank >= PRESET_RANK["full"] if selected_names is None
+                else "interactions_af" in selected_names)
+    if not late_af3:
+        add_af3()
 
     # ---- structural accuracy (US-align) ----
-    # quick preset: extractEvalMetrics computes its own LDDT (no OST). Otherwise pass -lddt so
-    # LDDT comes from the OST scripts (basic/full), matching mainExecution.
-    quick_only = selected_names is None and preset_rank <= PRESET_RANK["quick"]
-    eval_args = [] if quick_only else ["-lddt"]
+    # extractEvalMetrics always computes the backbone (C3'/CA) LDDT columns Protein_LDDT /
+    # RNA_LDDT / Complex_LDDT; the all-atom LDDT comes from the OST scripts (basic+). The backbone
+    # RNA_LDDT is the fold label of the decision tree, so it is computed at every preset (never
+    # pass -lddt) -- this mirrors mainExecution, which also never skips the backbone LDDT.
     add("eval_metrics", "accuracy", 1,
-        lambda: run_ambient("evaluation/extractEvalMetrics.py", eval_args, cwd=EVAL_DIR),
+        lambda: run_ambient("evaluation/extractEvalMetrics.py", [], cwd=EVAL_DIR),
         requires=["usalign", "gt"], note="US-align + ground truth")
 
     # ---- OST scoring (basic+) ----
@@ -791,6 +825,8 @@ def build_steps(args, classification, caps, af_path, pdb_path, dssr_dir, preset_
     add("interactions_af", "interface", 3,
         lambda: run_ambient("evaluation/extractInteractions.py", [af_path]),
         requires=["pymol"], note="PyMOL")
+    if late_af3:
+        add_af3()
     if is_pr:
         add("interface_area_af", "interface", 3,
             lambda: run_ambient("evaluation/extractInterfaceArea.py", [af_path]),
@@ -810,11 +846,20 @@ def build_steps(args, classification, caps, af_path, pdb_path, dssr_dir, preset_
                 lambda: run_ambient("evaluation/estimateBindingAffinity.py",
                                     [f"exp_{classification}"]), requires=["gt"])
     if is_pr and not args.no_rbp:
+        # With a SWISS-MODEL token the interfaces are scored by the SWISS-MODEL OpenStructure
+        # service (as for the paper); without one, by the same OpenStructure action run locally in
+        # the 'ost' env (--local). Mirrors mainExecution; no token is needed to get DockQ/QS.
+        rbp_args = ["--token", token] if token else ["--local"]
         add("ost_rbp", "ost", 3,
-            lambda: run_ost("evaluation/ost_RBPinterfaces.py",
-                            ["--token", token], args.ost_env),
-            requires=["ost", "gt", "token"],
-            note="'ost' env + ground truth + SWISS-MODEL token (or pass -noRBP to skip)")
+            lambda: run_ost("evaluation/ost_RBPinterfaces.py", rbp_args, args.ost_env),
+            requires=["ost", "gt"],
+            note="'ost' conda env + ground truth (pass -noRBP to skip)")
+    if is_pr and caps.get("gt"):
+        # Interfaces OpenStructure left without a DockQ and complexes with chains it could not map (or a failed
+        # comparison, OST_unmapped_chains) are scored on the exact residue mapping, as in the paper
+        # (evaluation/interface_own_dockq.py); Interface_score_source / Fallback_interfaces record where.
+        add("interface_fallback", "ost", 3, lambda: _interface_fallback(Path(af_path), args.ost_env),
+            requires=["ost", "gt"], note="'ost' conda env + ground truth")
 
     # ---- metadata add-ons (opt-in flags, rank 99 so presets never auto-include) ----
     if args.msa:
@@ -924,16 +969,43 @@ def execute_pipeline(steps, caps, args):
     return ran, skipped, failed
 
 
+def _existing_tables(db_path):
+    """Set of table names in an SQLite DB (empty if the DB is absent/unreadable)."""
+    if not Path(db_path).exists():
+        return set()
+    try:
+        conn = sqlite3.connect(str(db_path))
+        try:
+            rows = conn.execute(
+                "SELECT name FROM sqlite_master WHERE type='table'").fetchall()
+        finally:
+            conn.close()
+    except sqlite3.Error:
+        return set()
+    return {r[0] for r in rows}
+
+
 def export_csvs(classification, workdir):
+    """Export the run's tables to CSV. Only tables that exist are exported (a confidence-only run
+    has no exp_<classification> table), and a failed export is reported so it counts as a failure
+    rather than a silent success. Returns True iff every attempted export succeeded."""
     log("=" * 60)
     log("exporting DB tables to CSV")
-    run_ambient("database/exportDB2CSV.py", [f"pred_{classification}"])
-    run_ambient("database/exportDB2CSV.py", [f"exp_{classification}"])
+    present = _existing_tables(workdir / "run.db")
     results_dir = REPO_ROOT / "results"
+    ok = True
     for tbl in (f"pred_{classification}", f"exp_{classification}"):
+        if tbl not in present:
+            log(f"skip CSV export of {tbl}: table not present in run.db")
+            continue
+        if not run_ambient("database/exportDB2CSV.py", [tbl]):
+            warn(f"CSV export of {tbl} failed.")
+            ok = False
+            continue
         src = results_dir / f"{tbl}.csv"
         if src.exists():
             shutil.copyfile(src, workdir / f"{tbl}.csv")
+    return ok
 
 
 # --------------------------------------------------------------------------------------
@@ -1129,7 +1201,8 @@ def main():
         log(f"pipeline ({len(steps)} steps): " + ", ".join(s.sid for s in steps))
         ran, skipped, failed = execute_pipeline(steps, caps, args)
         if not args.dry_run:
-            export_csvs(classification, workdir)
+            if not export_csvs(classification, workdir):
+                failed.append("export_csvs")
             outputs = []
             if args.era_split and has_gt:
                 outputs = era_split(workdir / "run.db", workdir, staged, classification)

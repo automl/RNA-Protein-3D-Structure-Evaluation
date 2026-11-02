@@ -641,11 +641,19 @@ def run_local_compare_structures(
             proc = subprocess.run(cmd, capture_output=True, text=True, timeout=max_wait_sec)
         except subprocess.TimeoutExpired:
             return None, f"TIMEOUT({max_wait_sec:.0f}s)"
-        if not os.path.isfile(out_json):
-            logger.warning("ost compare-structures rc=%s: %s", proc.returncode, proc.stderr[-800:])
-            return None, "FAILED"
-        with open(out_json) as fh:
-            data = json.load(fh)
+        data = json.load(open(out_json)) if os.path.isfile(out_json) else {"status": "FAILURE"}
+        if data.get("status") == "FAILURE":
+            # the same comparison without the reference SEQRES (avoids OpenStructure 2.12's chain-mapping
+            # IndexError on a few complexes, see ost_compare_noseqres.py)
+            logger.warning("ost compare-structures rc=%s: %s -- retrying without the reference SEQRES",
+                           proc.returncode, proc.stderr[-800:])
+            noseqres = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ost_compare_noseqres.py")
+            try:
+                subprocess.run([sys.executable, noseqres, *cmd[2:]], capture_output=True, text=True,
+                               timeout=max_wait_sec)
+            except subprocess.TimeoutExpired:
+                return None, f"TIMEOUT({max_wait_sec:.0f}s)"
+            data = json.load(open(out_json)) if os.path.isfile(out_json) else {"status": "FAILURE"}
     if data.get("status") == "FAILURE":
         return None, "FAILED"
     return data, "COMPLETED"
@@ -699,8 +707,9 @@ def process_rows(
         file_name = row["FileName"]
         pdb_id = _pdb_id_from_af_filename(file_name)
         ref_path = os.path.join(pdb_folder, f"{pdb_id}.cif")
-        if not os.path.isfile(ref_path):  # case-sensitive file systems: pdb/ files are usually lower case
-            ref_path = os.path.join(pdb_folder, f"{pdb_id.lower()}.cif")
+        for name in (f"{pdb_id.lower()}.cif", f"{pdb_id.upper()}.cif"):  # case-sensitive file systems: the paper's
+            if not os.path.isfile(ref_path):                               # pdb/ is lower case, run_eval stages
+                ref_path = os.path.join(pdb_folder, name)                  # upper case
         model_path = os.path.join(af_folder, file_name)
 
         if not os.path.isfile(ref_path):

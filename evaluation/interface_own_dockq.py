@@ -51,6 +51,19 @@ def _scorer(mod, ref, mapping):
     return Scorer(mod, ref, resnum_alignments=True, min_nuc_length=3, custom_mapping=mapping)
 
 
+def _scores(sc, names):
+    """({name: rounded value} of the Scorer metrics OpenStructure computes, error text of the others). The LDDT-based
+    metrics fail on their own when OpenStructure discards a chain for them (e.g. an RNA of four nucleotides), while
+    DockQ, QS and ICS of the same complex are still defined."""
+    out, errors = {}, []
+    for n in names:
+        try:
+            out[n] = _r(getattr(sc, n))
+        except Exception as e:
+            errors.append(f"{n}: {type(e).__name__}: {e}")
+    return out, "; ".join(errors)[:200]
+
+
 def _r(v, nd=4):
     return "" if v is None else round(float(v), nd)
 
@@ -246,7 +259,8 @@ def score(validate=False):
                 rec.update(dockq="", error="no native contact among mapped residues")
             else:                             # interface lDDT, contact similarity and QS of the same two chains
                 sc = _scorer(mod, ref, {P["native_chain"]: P["model_chain"], R["native_chain"]: R["model_chain"]})
-                rec.update(ilddt=_r(sc.ilddt), ics=_r(sc.ics), qs=_r(sc.qs_global))
+                vals, err = _scores(sc, ("ilddt", "ics", "qs_global"))
+                rec.update(ilddt=vals.get("ilddt", ""), ics=vals.get("ics", ""), qs=vals.get("qs_global", ""), error=err)
         except Exception as e:
             rec["error"] = f"{type(e).__name__}: {e}"[:200]
         out.append(rec)
@@ -287,7 +301,6 @@ def export_complex(validate=False):
     (with --validate: an eighth of the complexes that OpenStructure scored completely), with the residue correspondence
     of the exact mapping."""
     import sqlite3
-    from Bio.PDB.MMCIF2Dict import MMCIF2Dict
     from evaluation.interface_rna_pose import (PERIODS, INPUT_ROOTS, ComplexMapping, locate_inputs, _locate_model, read_model,
                                                drop_inconsistent_ost_chains, interface_scores)
     own = {(r["period"], r["pdb"].upper()) for r in csv.DictReader(open(OWN_TSV), delimiter="\t")}
@@ -320,50 +333,57 @@ def export_complex(validate=False):
             interface_scores(dict(ChainIDpairList_proteinRNA=row["p_pairs"], AAMotif=row["p_aa"], RNAMotif=row["p_rna"]),
                              dict(ChainIDpairList_proteinRNA=row["e_pairs"], AAMotif=row["e_aa"], RNAMotif=row["e_rna"]),
                              mapping)
-            m = MMCIF2Dict(cif)
-            ins = m.get("_atom_site.pdbx_PDB_ins_code", ["?"] * len(m["_atom_site.label_asym_id"]))
-            lseq = {(la, au, "" if ic in ("?", ".") else ic): ls for la, au, ic, ls in
-                    zip(m["_atom_site.label_asym_id"], m["_atom_site.auth_seq_id"], ins, m["_atom_site.label_seq_id"])}
-            auth_of = {la: au for au, la in mapping.auth_to_label.items()}
-            chains, used = [], set()
-            for la, res in mapping.label_residues.items():
-                au = auth_of.get(la)
-                mc = mapping.pred_chain(au) if au is not None else None
-                if mc is None or mc in used:
-                    continue
-                fwd = mapping._model_index(la)
-                pairs = []
-                for k in range(len(res)):
-                    ls = lseq.get((la, str(res[k][0]), str(res[k][1] or "").strip()))
-                    if k in fwd and ls not in (None, ".", "?"):
-                        pairs.append([int(ls), int(fwd[k]) + 1])
-                if pairs:
-                    used.add(mc)
-                    chains.append(dict(native_chain=la, model_chain=mc, pairs=pairs))
-            out.append(dict(period=period, pdb=pid, file=os.path.basename(af), cif=cif, model=af, chains=chains,
-                            n_native_chains=len(mapping.label_residues)))
+            out.append(dict(period=period, pdb=pid, file=os.path.basename(af), cif=cif, model=af,
+                            chains=_complex_chains(cif, mapping), n_native_chains=len(mapping.label_residues)))
     os.makedirs(OUTDIR, exist_ok=True)
     json.dump(out, open(_complex_maps_path(validate), "w"))
     print(f"{len(out)} complexes ({len(need)} requested) -> {_complex_maps_path(validate)}")
 
 
-def score_complex(validate=False):
+def _complex_chains(cif, mapping):
+    """Every mapped polymer chain of the complex with its residue correspondence ([label_seq_id, model index]) from
+    the exact mapping."""
+    from Bio.PDB.MMCIF2Dict import MMCIF2Dict
+    m = MMCIF2Dict(cif)
+    ins = m.get("_atom_site.pdbx_PDB_ins_code", ["?"] * len(m["_atom_site.label_asym_id"]))
+    lseq = {(la, au, "" if ic in ("?", ".") else ic): ls for la, au, ic, ls in
+            zip(m["_atom_site.label_asym_id"], m["_atom_site.auth_seq_id"], ins, m["_atom_site.label_seq_id"])}
+    auth_of = {la: au for au, la in mapping.auth_to_label.items()}
+    chains, used = [], set()
+    for la, res in mapping.label_residues.items():
+        au = auth_of.get(la)
+        mc = mapping.pred_chain(au) if au is not None else None
+        if mc is None or mc in used:
+            continue
+        fwd = mapping._model_index(la)
+        pairs = []
+        for k in range(len(res)):
+            ls = lseq.get((la, str(res[k][0]), str(res[k][1] or "").strip()))
+            if k in fwd and ls not in (None, ".", "?"):
+                pairs.append([int(ls), int(fwd[k]) + 1])
+        if pairs:
+            used.add(mc)
+            chains.append(dict(native_chain=la, model_chain=mc, pairs=pairs))
+    return chains
+
+
+def score_complex(validate=False, maps=None, path=None):
     cache, out = {}, []
-    for it in json.load(open(_complex_maps_path(validate))):
+    for it in json.load(open(maps or _complex_maps_path(validate))):
         rec = {k: it.get(k, "") for k in ("period", "pdb", "file", "n_native_chains")}
         rec["n_mapped_chains"] = len(it["chains"])
         try:
             ref = _cut(_load(it["cif"], cache), [(c["native_chain"], [a for a, _ in c["pairs"]]) for c in it["chains"]])
             mod = _cut(_load(it["model"], cache), [(c["model_chain"], [b for _, b in c["pairs"]]) for c in it["chains"]])
             sc = _scorer(mod, ref, {c["native_chain"]: c["model_chain"] for c in it["chains"]})
-            rec.update(lddt=_r(sc.lddt), ilddt=_r(sc.ilddt), ics=_r(sc.ics), qs_global=_r(sc.qs_global),
-                       dockq_wave=_r(sc.dockq_wave))
+            vals, err = _scores(sc, ("lddt", "ilddt", "ics", "qs_global", "dockq_wave"))
+            rec.update(vals, error=err)
         except Exception as e:
             rec["error"] = f"{type(e).__name__}: {e}"[:200]
         out.append(rec)
         for k in [k for k in cache if k not in (it["cif"], it["model"])]:
             del cache[k]                       # keep memory bounded on large assemblies
-    path = COMPLEX_VALIDATION_TSV if validate else COMPLEX_TSV
+    path = path or (COMPLEX_VALIDATION_TSV if validate else COMPLEX_TSV)
     with open(path, "w") as fh:
         w = csv.DictWriter(fh, COMPLEX_FIELDS, delimiter="\t", extrasaction="ignore")
         w.writeheader()
@@ -613,13 +633,53 @@ def _tag_paths(tag):
     return (os.path.join(OUTDIR, f"own_dockq_maps_{tag}.json"), os.path.join(OUTDIR, f"own_dockq_{tag}.tsv"))
 
 
-def export_db(db, root, tag, validate=False, ost_root=None):
+def _complex_tag_paths(tag):
+    return (os.path.join(OUTDIR, f"own_complex_maps_{tag}.json"), os.path.join(OUTDIR, f"own_complex_{tag}.tsv"))
+
+
+def _columns(con, table="pred_protein_rna"):
+    return {c[1] for c in con.execute(f"PRAGMA table_info({table})")}
+
+
+def drop_misaligned_ost_chains(mapping, model_seqs, min_ratio=0.8):
+    """Remove OST chain assignments whose alignment pairs clearly fewer identical residues than the exact global
+    alignment of the two chain sequences (OpenStructure 2.11 aligns some poly-U RNAs to a single residue); the
+    removed chains are re-mapped by the sequence fallback. -> removed label chains."""
+    bad = []
+    for la, mc in list(mapping.chain_mapping.items()):
+        if la not in mapping._aln or mc not in model_seqs:
+            continue
+        n_seq = len(mapping._exact_alignment(mapping._seq(la), model_seqs[mc]))
+        if n_seq and len(mapping._model_index(la)) < min_ratio * n_seq:
+            bad.append(la)
+    for la in bad:
+        del mapping.chain_mapping[la]
+        mapping.source.pop(la, None)
+        mapping._index.pop(la, None)
+    return bad
+
+
+def _structure_file(folder, name):
+    """Path of `name` in `folder`, matched without regard to case (PDB ids are staged in either case), or None."""
+    exact = os.path.join(folder, name)
+    if os.path.isfile(exact):
+        return exact
+    if os.path.isdir(folder):
+        for fn_ in os.listdir(folder):
+            if fn_.lower() == name.lower():
+                return os.path.join(folder, fn_)
+    return None
+
+
+def export_db(db, root, tag, validate=False, ost_root=None, check_alignment=False, fill_missing=False):
     """Native protein-RNA interfaces of `db` whose predicted pair has no RBP_DockQ value (with --validate: those that
     have one). Models from root/af, references from root/pdb; the chain mapping comes from sequence alone, because the
     OpenStructure JSONs of the default predictions do not describe these models. With `ost_root` (a folder holding the
     OpenStructure JSONs of exactly these models, *_lddt.json) OpenStructure's chain assignment is used where it fits the
-    model file, as for the default predictions. The predicted pair is written in the model's chain names, which are the
-    database's (ChainIDpairList_proteinRNA, RBP_DockQ)."""
+    model file, as for the default predictions; with `check_alignment` also only where its alignment is complete
+    (drop_misaligned_ost_chains). With `fill_missing` an interface also counts as unscored when it has no
+    RNA_iLDDT_AllChains value (OpenStructure's whole-complex LDDT can fail where its DockQ does not). The predicted
+    pair is written in the model's chain names, which are the database's (ChainIDpairList_proteinRNA, RBP_DockQ)."""
     import sqlite3
     from Bio.PDB.MMCIF2Dict import MMCIF2Dict
     from evaluation.interface_rna_pose import (ComplexMapping, read_model, interface_scores, interfaces_of,
@@ -633,8 +693,11 @@ def export_db(db, root, tag, validate=False, ost_root=None):
                     ost.setdefault(fn_[:-len("_lddt.json")].lower(), os.path.join(dp, fn_))
     con = sqlite3.connect(f"file:{db}?mode=ro", uri=True)
     con.row_factory = sqlite3.Row
-    rows = con.execute("""
-        SELECT p.exp_db_id AS id, p.FileName AS fn, p.RBP_DockQ AS rbp, p.AAMotif AS p_aa, p.RNAMotif AS p_rna,
+    cols = _columns(con)
+    rbp = "p.RBP_DockQ" if "RBP_DockQ" in cols else "NULL"   # a run without interface scoring has none
+    allc = "p.RNA_iLDDT_AllChains" if fill_missing and "RNA_iLDDT_AllChains" in cols else "NULL"
+    rows = con.execute(f"""
+        SELECT p.exp_db_id AS id, p.FileName AS fn, {rbp} AS rbp, {allc} AS allc, p.AAMotif AS p_aa, p.RNAMotif AS p_rna,
                p.ChainIDpairList_proteinRNA AS p_pairs, e.AAMotif AS e_aa, e.RNAMotif AS e_rna,
                e.ChainIDpairList_proteinRNA AS e_pairs
         FROM pred_protein_rna p JOIN exp_protein_rna e ON UPPER(TRIM(p.exp_db_id)) = UPPER(TRIM(e.PDBId))""").fetchall()
@@ -646,18 +709,22 @@ def export_db(db, root, tag, validate=False, ost_root=None):
     out, skipped = [], []
     for row in rows:
         pid = str(row["id"]).strip().upper()
-        cif = os.path.join(root, "pdb", f"{pid.lower()}.cif")
-        af = os.path.join(root, "af", os.path.basename(str(row["fn"])))
-        if not (os.path.isfile(cif) and os.path.isfile(af)):
+        cif = _structure_file(os.path.join(root, "pdb"), f"{pid}.cif")
+        af = _structure_file(os.path.join(root, "af"), os.path.basename(str(row["fn"])))
+        if not (cif and af):
             skipped.append(pid)
             continue
         have = {frozenset(k.split(":")) for d in _rbp_list(row["rbp"]) for k, v in d.items() if v is not None
                 and (pid, os.path.basename(af), frozenset(k.split(":"))) not in written}
+        if fill_missing:
+            have &= {frozenset(k.split(":")) for d in _keyed_cell(row["allc"]) for k, v in d.items() if v is not None}
         mdl, mseqs = read_model(af)
         js = ost.get(os.path.splitext(os.path.basename(af))[0].lower())
         mapping = ComplexMapping(cif, js, pred_seqs=mseqs)
         if js:
             drop_inconsistent_ost_chains(mapping, mseqs)
+            if check_alignment:
+                drop_misaligned_ost_chains(mapping, mseqs)
         interface_scores(dict(ChainIDpairList_proteinRNA=row["p_pairs"], AAMotif=row["p_aa"], RNAMotif=row["p_rna"]),
                          dict(ChainIDpairList_proteinRNA=row["e_pairs"], AAMotif=row["e_aa"], RNAMotif=row["e_rna"]),
                          mapping)
@@ -739,6 +806,125 @@ def write_db_tag(db, tag, dry_run=False):
         con.commit()
     con.close()
     print(f"  {tag}: {n_pairs} interfaces in {n_cx} complexes {'would be ' if dry_run else ''}written -> {db}")
+
+
+def _unmapped(cell):
+    """OST_unmapped_chains cell -> True when OpenStructure left model chains unmapped or the comparison failed."""
+    return str(cell or "").strip() not in ("", "0", "None", "[]")
+
+
+def export_complex_db(db, root, tag, ost_root=None, check_alignment=False):
+    """Whole-complex residue correspondences (exact mapping) for the complexes of `db` whose OpenStructure comparison
+    is incomplete: model chains left unmapped or a failed comparison (OST_unmapped_chains), or a protein-RNA interface
+    scored by the fallback (own_dockq_<tag>.tsv). Files as in export_db."""
+    import sqlite3
+    from evaluation.interface_rna_pose import ComplexMapping, read_model, interface_scores, drop_inconsistent_ost_chains
+    root = os.path.abspath(root)
+    ost = {}
+    if ost_root:
+        for dp, _dn, fns in os.walk(ost_root):
+            for fn_ in fns:
+                if fn_.endswith("_lddt.json"):
+                    ost.setdefault(fn_[:-len("_lddt.json")].lower(), os.path.join(dp, fn_))
+    _, own_tsv = _tag_paths(tag)
+    own = {(r["pdb"].upper(), r["file"]) for r in csv.DictReader(open(own_tsv), delimiter="\t")
+           if not _missing(r["dockq"])} if os.path.isfile(own_tsv) else set()
+    con = sqlite3.connect(f"file:{db}?mode=ro", uri=True)
+    con.row_factory = sqlite3.Row
+    unm = "p.OST_unmapped_chains" if "OST_unmapped_chains" in _columns(con) else "NULL"
+    rows = con.execute(f"""
+        SELECT p.exp_db_id AS id, p.FileName AS fn, {unm} AS unmapped, p.AAMotif AS p_aa, p.RNAMotif AS p_rna,
+               p.ChainIDpairList_proteinRNA AS p_pairs, e.AAMotif AS e_aa, e.RNAMotif AS e_rna,
+               e.ChainIDpairList_proteinRNA AS e_pairs
+        FROM pred_protein_rna p JOIN exp_protein_rna e ON UPPER(TRIM(p.exp_db_id)) = UPPER(TRIM(e.PDBId))""").fetchall()
+    con.close()
+    out = []
+    for row in rows:
+        pid = str(row["id"]).strip().upper()
+        if not (_unmapped(row["unmapped"]) or (pid, os.path.basename(str(row["fn"]))) in own):
+            continue
+        cif = _structure_file(os.path.join(root, "pdb"), f"{pid}.cif")
+        af = _structure_file(os.path.join(root, "af"), os.path.basename(str(row["fn"])))
+        if not (cif and af):
+            continue
+        mdl, mseqs = read_model(af)
+        js = ost.get(os.path.splitext(os.path.basename(af))[0].lower())
+        mapping = ComplexMapping(cif, js, pred_seqs=mseqs)
+        if js:
+            drop_inconsistent_ost_chains(mapping, mseqs)
+            if check_alignment:
+                drop_misaligned_ost_chains(mapping, mseqs)
+        interface_scores(dict(ChainIDpairList_proteinRNA=row["p_pairs"], AAMotif=row["p_aa"], RNAMotif=row["p_rna"]),
+                         dict(ChainIDpairList_proteinRNA=row["e_pairs"], AAMotif=row["e_aa"], RNAMotif=row["e_rna"]),
+                         mapping)
+        out.append(dict(period=tag, pdb=pid, file=os.path.basename(af), cif=cif, model=af,
+                        chains=_complex_chains(cif, mapping), n_native_chains=len(mapping.label_residues)))
+    maps, _ = _complex_tag_paths(tag)
+    os.makedirs(OUTDIR, exist_ok=True)
+    json.dump(out, open(maps, "w"))
+    print(f"{tag}: {len(out)} complexes -> {maps}")
+
+
+# per-interface columns of the fallback (own_dockq_<tag>.tsv field) and whole-complex columns (own_complex_<tag>.tsv)
+RUN_INTERFACE_COLUMNS = (("RBP_DockQ", "dockq"), ("RBP_QS", "qs"), ("RBP_fnat", "fnat"), ("RBP_irmsd", "irmsd"),
+                         ("RNA_iLDDT_AllChains", "ilddt"), ("RNA_ICS_AllChains", "ics"))
+
+
+def write_run_db(db, tag, dry_run=False):
+    """Write the fallback values of one run into `db`: per interface (own_dockq_<tag>.tsv, keyed by the model pair) the
+    RUN_INTERFACE_COLUMNS OpenStructure gave no value for; per complex (own_complex_<tag>.tsv) iLDDT, ICS, QS_global,
+    Dockq and Complex_LDDT_allAtom where OpenStructure left chains unmapped or missed an interface (a fallback
+    DockQ; its values then cover only part of the complex, as in the paper) or gave no value. Every row gets Interface_score_source ("ost", or "exact_mapping" when complex values
+    are the fallback's) and Fallback_interfaces (the model pairs whose DockQ is the fallback's)."""
+    import sqlite3
+    _, own_tsv = _tag_paths(tag)
+    _, cx_tsv = _complex_tag_paths(tag)
+    iface = {}
+    if os.path.isfile(own_tsv):
+        for r in csv.DictReader(open(own_tsv), delimiter="\t"):
+            if not _missing(r["dockq"]):
+                iface.setdefault((r["pdb"].upper(), r["file"]), {})[r["model_pair"]] = r
+    cx = {(r["pdb"].upper(), r["file"]): r for r in csv.DictReader(open(cx_tsv), delimiter="\t")
+          if any(not _missing(r.get(k)) for _, k in COMPLEX_COLUMNS)} if os.path.isfile(cx_tsv) else {}
+    con = sqlite3.connect(db)
+    for c in [c for c, _ in RUN_INTERFACE_COLUMNS] + ["Interface_score_source", "Fallback_interfaces"]:
+        if c not in _columns(con):
+            con.execute(f"ALTER TABLE pred_protein_rna ADD COLUMN {c} TEXT")
+    cols = _columns(con)
+    cx_cols = [c for c, _ in COMPLEX_COLUMNS] + ["Complex_LDDT_allAtom"]
+    names = ["exp_db_id", "FileName", "OST_unmapped_chains"] + [c for c, _ in RUN_INTERFACE_COLUMNS] + cx_cols
+    sel = [c if c in cols else "NULL" for c in names]
+    n_if = n_cx = 0
+    for row in con.execute(f"SELECT {', '.join(sel)} FROM pred_protein_rna").fetchall():
+        row = dict(zip(["id", "fn", "unmapped"] + names[3:], row))
+        key = (str(row["id"]).strip().upper(), os.path.basename(str(row["fn"])))
+        own_ifs, c_row = iface.get(key, {}), cx.get(key)
+        sets, vals, fallback_pairs = [], [], []
+        for c, k in RUN_INTERFACE_COLUMNS:
+            items = _keyed_cell(row[c])
+            have = {frozenset(next(iter(d)).split(":")) for d in items if next(iter(d.values())) is not None}
+            add = {p: round(float(r[k]), 3) for p, r in own_ifs.items()
+                   if not _missing(r.get(k)) and frozenset(p.split(":")) not in have}
+            if add:
+                sets.append(f"{c} = ?"); vals.append(json.dumps(items + [{p: v} for p, v in add.items()]))
+                if c == "RBP_DockQ":
+                    fallback_pairs = sorted(add)
+        n_if += len(own_ifs)
+        rescored = False
+        if c_row:
+            for c, k in list(COMPLEX_COLUMNS) + [("Complex_LDDT_allAtom", "lddt")]:
+                if not _missing(c_row.get(k)) and (_unmapped(row["unmapped"]) or fallback_pairs or _missing(row[c])):
+                    sets.append(f"{c} = ?"); vals.append(round(float(c_row[k]), 3)); rescored = True
+            n_cx += rescored
+        sets += ["Interface_score_source = ?", "Fallback_interfaces = ?"]
+        vals += ["exact_mapping" if rescored else "ost", json.dumps(fallback_pairs)]
+        if not dry_run:
+            con.execute(f"UPDATE pred_protein_rna SET {', '.join(sets)} WHERE exp_db_id = ? AND FileName = ?",
+                        vals + [row["id"], row["fn"]])
+    if not dry_run:
+        con.commit()
+    con.close()
+    print(f"  {tag}: {n_if} interfaces and {n_cx} whole complexes {'would be ' if dry_run else ''}written -> {db}")
 
 
 # --------------------------------------------------------------------------- #
@@ -824,6 +1010,17 @@ def _opt(flags, name):
 if __name__ == "__main__":
     cmd, flags = (sys.argv[1] if len(sys.argv) > 1 else ""), sys.argv[2:]
     db, root, tag, ost_root = _opt(flags, "--db"), _opt(flags, "--root"), _opt(flags, "--tag"), _opt(flags, "--ost-root")
+    if "--outdir" in flags:                       # keep the maps and tables of one run (run_eval.py) with that run
+        OUTDIR = os.path.abspath(_opt(flags, "--outdir"))
+    if cmd == "export-complex" and db:
+        export_complex_db(db, root, tag, ost_root, "--check-alignment" in flags)
+        raise SystemExit
+    if cmd == "score-complex" and tag:
+        score_complex(maps=_complex_tag_paths(tag)[0], path=_complex_tag_paths(tag)[1])
+        raise SystemExit
+    if cmd == "write-run" and db:
+        write_run_db(db, tag, "--dry-run" in flags)
+        raise SystemExit
     if cmd == "write-metrics":
         write_db_metrics("--dry-run" in flags)
         raise SystemExit
@@ -834,7 +1031,7 @@ if __name__ == "__main__":
         write_db("--dry-run" in flags)
         raise SystemExit
     if cmd == "export" and db:
-        export_db(db, root, tag, "--validate" in flags, ost_root)
+        export_db(db, root, tag, "--validate" in flags, ost_root, "--check-alignment" in flags, "--fill-missing" in flags)
         raise SystemExit
     if cmd == "score" and tag:
         _MAPS_OVERRIDE = _tag_paths(tag + ("_validation" if "--validate" in flags else ""))

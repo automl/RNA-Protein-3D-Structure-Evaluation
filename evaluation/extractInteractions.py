@@ -375,9 +375,10 @@ def list_interactions_from_cif(file_path, list_name):
                             if full_rna_sequence.startswith('['):
                                 chain = ast.literal_eval(chain)
                                 index = next((i for i, pair in enumerate(chain) if chain_id in pair.split(',')), None)
-                                full_rna_sequence = ast.literal_eval(full_rna_sequence)
-                                full_rna_sequence = full_rna_sequence[index]
-                            highlighted_sequence = highlight_sequence(full_rna_sequence, rna_motif_indices)
+                                # the database may list the chains under other ids than the structure file
+                                # (label vs author); the highlighted sequence is only written to the text file
+                                full_rna_sequence = ast.literal_eval(full_rna_sequence)[index] if index is not None else ""
+                            highlighted_sequence = highlight_sequence(full_rna_sequence, rna_motif_indices) if full_rna_sequence else ""
                             f.write("Full RNA Sequence with Highlights:\n")
                             f.write(highlighted_sequence + "\n")
                     # elif (entity_types[strand_ids.index(polynucleotide_chain)] == 'polydeoxyribonucleotide'):
@@ -400,10 +401,9 @@ def list_interactions_from_cif(file_path, list_name):
                         if full_na_sequence.startswith('['):
                             chain = ast.literal_eval(chain)
                             index = next((i for i, pair in enumerate(chain) if chain_id in pair.split(',')), None)
-                            full_na_sequence = ast.literal_eval(full_na_sequence)
-                            full_na_sequence = full_na_sequence[index]
-                        full_dna_sequence = transform_dna_sequence(full_na_sequence)
-                        highlighted_sequence = highlight_sequence(full_dna_sequence, dna_motif_indices)
+                            full_na_sequence = ast.literal_eval(full_na_sequence)[index] if index is not None else ""
+                        full_dna_sequence = transform_dna_sequence(full_na_sequence) if full_na_sequence else ""
+                        highlighted_sequence = highlight_sequence(full_dna_sequence, dna_motif_indices) if full_dna_sequence else ""
                         f.write("Full DNA Sequence with Highlights:\n")
                         f.write(highlighted_sequence + "\n")
 

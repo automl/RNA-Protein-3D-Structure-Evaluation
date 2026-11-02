@@ -80,6 +80,16 @@ def ensure_protein_complex_columns(table_name):
                     logger.debug(f"Column {column_name} already exists in {table_name}")
                 else:
                     raise e
+        # OST_unmapped_chains: the model chains OST's full-complex comparison could not map ("0" when
+        # all mapped, "1" when the whole comparison failed, else the unmapped model chain ids). Kept as
+        # a diagnostic so downstream code / the user can tell which complexes' interface scores OST
+        # could not place (these are the ones a short/poly-U RNA chain typically breaks).
+        try:
+            cursor.execute(f"ALTER TABLE {table_name} ADD COLUMN OST_unmapped_chains TEXT")
+            logger.info(f"Added column OST_unmapped_chains to {table_name}")
+        except sqlite3.OperationalError as e:
+            if "duplicate column name" not in str(e):
+                raise e
         db.connection.commit()
     except Exception as e:
         logger.error(f"Error ensuring Protein/Complex columns in {table_name}: {str(e)}")
@@ -510,6 +520,26 @@ import subprocess
 import json
 import os
 import re
+
+NOSEQRES = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ost_compare_noseqres.py")
+
+
+def _run_compare_structures(cmd):
+    """subprocess.run of an `ost compare-structures` command (check=True). When the action fails, the comparison is
+    repeated once without the SEQRES of the reference (ost_compare_noseqres.py, same arguments and JSON), which avoids
+    OpenStructure 2.12's chain-mapping IndexError on a few complexes (7QDY); if that fails too, the first error is
+    raised."""
+    try:
+        return subprocess.run(cmd, check=True, capture_output=True, text=True)
+    except subprocess.CalledProcessError as first:
+        if list(cmd[:2]) != ["ost", "compare-structures"]:
+            raise
+        logger.warning("ost compare-structures failed; retrying without the reference SEQRES")
+        try:
+            return subprocess.run([sys.executable, NOSEQRES, *cmd[2:]], check=True, capture_output=True, text=True)
+        except subprocess.CalledProcessError:
+            raise first
+
 
 def _chain_seqs_from_aln(aln_list):
     """Build ref_chain_to_seq and pred_chain_to_seq from ost compare-structures JSON 'aln'."""
@@ -1110,7 +1140,7 @@ def compute_lddt_with_cli(
         cmd = build_cmd(cmd_chain_mapping)
         if lddt is None:
             logger.info("%sost compare-structures: %s", lp, cmd)
-        result = subprocess.run(cmd, check=True, capture_output=True, text=True)
+        result = _run_compare_structures(cmd)
         stderr_short = _stderr_important_only(result.stderr)
         stdout_short = _stderr_important_only(result.stdout or "")  # OST may print warnings to stdout
         if stdout_short and stderr_short:
@@ -1176,9 +1206,7 @@ def compute_lddt_with_cli(
                     try:
                         cmd_retry = build_cmd(retry_mapping)
                         logger.info("%sost compare-structures (retry with -c from JSON): %s", lp, cmd_retry)
-                        retry = subprocess.run(
-                            cmd_retry, check=True, capture_output=True, text=True
-                        )
+                        retry = _run_compare_structures(cmd_retry)
                         if os.path.exists(output_json):
                             with open(output_json) as f:
                                 data2 = json.load(f)
@@ -1394,14 +1422,18 @@ def update_protein_and_complex_lddt(
         comp_val = ilddt = qs = dockq = ics = None
         os_fail = 0
 
+    # Keep the unmapped-chain diagnostic (os_fail) instead of discarding it: it records which model
+    # chains OST could not place, i.e. which complexes' interface scores are unreliable.
     cursor.execute('''UPDATE pred_protein_rna
                       SET Complex_LDDT_allAtom = ?,
                           iLDDT = ?,
                           QS_global = ?,
                           Dockq = ?,
-                          ICS = ?
+                          ICS = ?,
+                          OST_unmapped_chains = ?
                       WHERE FileName = ?''',
-                   (comp_val, ilddt, qs, dockq, ics, file_name_cif_af))
+                   (comp_val, ilddt, qs, dockq, ics,
+                    _serialize_os_fail_for_db(os_fail), file_name_cif_af))
 
     db.connection.commit()
 

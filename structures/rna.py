@@ -158,7 +158,12 @@ class RNA:
     #     return True
 
     def get_chain_pair_with_longest_motif(self):
-        """Get the chain pair that corresponds to the longest RNA motif"""
+        """Get the chain pair that corresponds to the longest RNA motif, or None when no motif has
+        been computed yet. The motif columns are filled by the interaction step; a caller that runs
+        before it (e.g. af3Metrics_new) must fall back to another chain-pair heuristic, so return
+        None quietly here rather than letting eval('') raise on the empty columns."""
+        if not self.chain_pairs or not self.motif_lengths:
+            return None
         try:
             # print("self.chain_pairs", self.chain_pairs)
             # print("self.motif_lengths", self.motif_lengths)

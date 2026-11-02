@@ -24,14 +24,14 @@ to create the environments by hand.
 ## Quick start
 
 ```bash
-# quick : parse + AF3 confidence + US-align TM/RMSD/LDDT (no OST, no DSSR, no APIs)
+# quick : parse + AF3 confidence + TM-score, RMSD, backbone LDDT (no OST, no DSSR, no APIs)
 conda run -n RNABench python run_eval.py --pred ./preds --gt ./gt --out ./run --metrics quick
 
 # basic : + OpenStructure all-atom LDDT and RNA AllChains scoring
 conda run -n RNABench python run_eval.py --pred ./preds --gt ./gt --out ./run --metrics basic
 
-# full  : + interfaces, binding, and RBP DockQ/QS (needs a SWISS-MODEL token, or pass -noRBP)
-conda run -n RNABench python run_eval.py --pred ./preds --gt ./gt --out ./run --metrics full --token TOKEN
+# full  : + interactions, interface area, binding, and RBP DockQ/QS (no token needed; pass -noRBP to skip RBP)
+conda run -n RNABench python run_eval.py --pred ./preds --gt ./gt --out ./run --metrics full
 
 # no ground truth -> AF3 confidence only (all GT-dependent metrics are skipped)
 conda run -n RNABench python run_eval.py --pred ./preds --out ./run --metrics quick
@@ -43,9 +43,15 @@ unavailable (`--strict` turns a skip into an error). The metric groups and what 
 
 | preset / step | produces | needs |
 |---------------|----------|-------|
-| `quick`  | parse, AF3 `af3_*` confidence, US-align TM/RMSD/LDDT | US-align (built by `install.sh`); GT for TM/RMSD/LDDT; confidence JSONs for `af3_*` |
-| `basic`  | + all-atom LDDT, RNA-AllChains LDDT/interface | the `ost` conda env + GT |
-| `full`   | + interactions, interface area, binding affinity, RBP DockQ/QS | PyMOL + freesasa (interface area); SWISS-MODEL token (RBP; or `-noRBP`) |
+| `quick`  | parse, AF3 `af3_*` confidence, TM-score (US-align), RMSD (PyMOL), backbone (C3'/CA) LDDT | US-align (built by `install.sh`); GT for TM/RMSD/LDDT; confidence JSONs for `af3_*` |
+| `basic`  | + OpenStructure all-atom LDDT, RNA-AllChains LDDT/interface | the `ost` conda env + GT |
+| `full`   | + interactions, interface area, binding affinity, RBP DockQ/QS, interface fallback | PyMOL + freesasa (interface area); the `ost` conda env (RBP; or `-noRBP`) |
+
+The backbone (C3'/CA) `RNA_LDDT` — the fold label of the decision tree — is computed at every preset,
+not only `quick`. `basic` adds the all-atom LDDT columns (`*_allAtom`) on top. A SWISS-MODEL token is
+**not** required for the RBP DockQ/QS interface scores: without one they are scored by the local
+OpenStructure install in the `ost` env (`--local`); a token only routes them to the SWISS-MODEL service
+instead (`--token`), as was done for the paper.
 
 Optional metadata add-ons (off by default, each gated on its input): `--msa` / `--templates`
 (need the AF3 `*_data.json` sidecars), `--db-update` (pH / ions / ligands / GC-MFE / secondary
@@ -80,8 +86,10 @@ infers from the `a`/`b` DB-name prefix). Non-PDB ground truth has no dates → a
 All inputs are optional except the predictions. Absent sidecars/tools only reduce the metric set.
 
 **Predictions (`--pred DIR`).** Predicted structures as mmCIF (`.cif`). Classification
-(`protein_rna` vs `rna_rna`) is auto-detected from chain content (override with
-`--classification`).
+(`protein_rna` vs `rna_rna`) is auto-detected from the `_entity_poly.type` records, so the mmCIF must
+carry them (AF3 and RCSB mmCIF do). PDB-format files are not read directly — convert them to mmCIF first
+(e.g. `gemmi convert in.pdb out.cif`, gemmi is in the `RNABench` env), checking that the result has
+`_entity_poly.type`.
 
 **Ground truth (`--gt DIR`).** Deposited mmCIF per complex. Optional — omit for a
 confidence-only run.
@@ -134,10 +142,58 @@ When `pred_motif` / `interface_area` / `protein_length` are omitted, the values 
 used — so on a `full` run you can supply just the three required columns.
 
 **External tools/resources** (only what your chosen metrics use): US-align (built by `install.sh`),
-the `ost` conda env (OpenStructure scoring), a SWISS-MODEL token (RBP DockQ/QS — free, from your
-[SWISS-MODEL account](https://swissmodel.expasy.org/account); or `-noRBP`), PyMOL + freesasa
-(interface area), and for `--db-update` a DSSR binary, ViennaRNA, forgi and PDB2PQR+APBS. Anything
+the `ost` conda env (OpenStructure scoring, incl. the RBP DockQ/QS interface scores — run locally, no
+token needed), PyMOL + freesasa (interface area), and for `--db-update` a DSSR binary, ViennaRNA, forgi
+and PDB2PQR+APBS. A SWISS-MODEL token (free, from your
+[SWISS-MODEL account](https://swissmodel.expasy.org/account)) is **optional**: with `--token` the RBP
+interfaces are scored by the SWISS-MODEL OpenStructure service instead of the local install. Anything
 absent is skipped and logged.
+
+## What each metric is computed with
+
+| metric (DB columns) | tool |
+|---|---|
+| `*_TM`, `RNAComplex_TM`, `RNA_TM_AllChains`, `Protein_TM_AllChains` | **US-align** 20241108 (`evaluation/USalign/`) |
+| `*_RMSD` | **PyMOL** `align` (the first value of the RMSD list) |
+| backbone `Protein_LDDT` / `RNA_LDDT` / `Complex_LDDT` (C3' for RNA, CA for protein) | own code, `extractEvalMetrics.calculate_complex_lddt` |
+| `*_LDDT_allAtom`, `iLDDT`, `ICS`, `QS_global`, `Dockq`, `RBP_DockQ/QS/fnat/irmsd`, `RNA_iLDDT/ICS_AllChains` | **OpenStructure** `compare-structures` (the `ost` env; version pinned in `env/`, see the README's *Software versions*) |
+| `af3_*` (pTM/ipTM, pLDDT, PAE, ranking score, clash) | parsed from the AF3 confidence JSONs |
+
+### Interface fallback (step `interface_fallback`, preset `full`)
+
+When OpenStructure's `compare-structures` fails on a complex, the OpenStructure steps repeat the comparison
+once without the SEQRES records of the reference (`evaluation/ost_compare_noseqres.py`, the same action and JSON);
+this avoids a chain-mapping error of OpenStructure 2.12 on a few complexes (e.g. 7QDY).
+`ost_extractAllAtomLDDT` records `OST_unmapped_chains`: the model chains OpenStructure dropped from a
+complex, `1` when the whole comparison failed, `0` when every chain was mapped. Interfaces without an
+OpenStructure DockQ or per-chain iLDDT and the complexes flagged there are rescored by `evaluation/interface_own_dockq.py` on the
+exact residue mapping (the paper's fallback): experimental and predicted chains are cut to the residues the
+mapping pairs, renumbered, and scored with OpenStructure's DockQ and scorer with the chain mapping fixed. The
+chain pairing comes from OpenStructure's whole-complex comparison (`<out>/data/protein_rna/lddt/`) where it is
+complete, and from sequence identity otherwise (`--check-alignment`: an OpenStructure alignment that pairs
+clearly fewer residues than the exact sequence alignment is replaced). Its maps and tables are kept in
+`<out>/interface_fallback/`. The results go into the same columns and only where OpenStructure gave no value
+(`RBP_DockQ/QS/fnat/irmsd`, `RNA_iLDDT/ICS_AllChains` per interface); the whole-complex values (`Dockq`,
+`iLDDT`, `ICS`, `QS_global`, `Complex_LDDT_allAtom`) are also replaced for flagged complexes and for
+complexes with an interface whose DockQ is the fallback's, as their OpenStructure values cover only part of the
+complex (the paper's rule). `Interface_score_source` (`ost` / `exact_mapping`, complex
+values from the fallback) and `Fallback_interfaces` (chain pairs whose DockQ is the fallback's) record which
+values are the fallback's. A metric
+OpenStructure cannot compute even on the fixed mapping (the LDDT-based ones when it discards an RNA of a few
+nucleotides) stays empty.
+
+## Messages you can ignore
+
+The pipeline reuses the paper's sub-scripts, which print some messages that are not errors:
+
+- `Parse failed (sequence file sequences.fasta)` — the parse step tries an Rfam family annotation with
+  Infernal; it is skipped when Infernal/Rfam is not installed and does not affect any score.
+- FreeSASA `Found no matches to resn ...` — the interface-area step asks FreeSASA to ignore residue
+  names a given structure does not contain; harmless.
+- OpenStructure `... without_chem_mapping ...` / `no OST JSON returned` — OpenStructure could not map a
+  chain (see `OST_unmapped_chains` above); with `full` the fallback scores it.
+- `Target chain specified in chain_mapping (...) does not exist` in the fallback's log — OpenStructure
+  discarded a very short chain for one metric (usually the LDDT-based ones); that metric stays empty.
 
 ## Output
 
