@@ -176,7 +176,7 @@ def _load_pr(path, label):
     o["PAE_min"] = d["af3_chain_pair_pae_min"].apply(_g)
     o["pLDDT_rna"] = d["af3_rna_pLDDT_avg"].apply(_g)
     o["TM_prot"] = d["Protein_TM"].apply(_g)
-    o["LDDT_prot"] = d["Protein_LDDT"].apply(_g)
+    o["LDDT_prot"] = d["Protein_LDDT_allAtom"].apply(_g)          # all-atom, like LDDT_r and LDDT_c
     o["RMSD_c"] = d["Complex_RMSD"].apply(_g)
     for n, i in (("INF", 0), ("WC", 1), ("nonWC", 2), ("STACK", 3)):
         o[n] = d["RNA_INF"].apply(lambda s, i=i: _inf(s, i))

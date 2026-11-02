@@ -224,7 +224,7 @@ def analyse(post_lens):
             b, bs = best.get((system, pid)), best_same.get((system, pid))
             recs.append(dict(id=pid, len=n, tm=b["tm"] if b else np.nan,
                              tm_same=bs["tm"] if bs else np.nan, twin=bs["pre_id"] if bs else None,
-                             lddt=r["lddt"], tmr=r["tm"], seq_id=seq_id.get(pid, np.nan)))
+                             lddt=r["lddt"], lddt_bb=r.get("lddt_bb"), tmr=r["tm"], seq_id=seq_id.get(pid, np.nan)))
         scored = [x for x in recs if x["len"] is not None and x["len"] >= MIN_NT_TM and np.isfinite(x["tm"])]
         short = [x for x in recs if x["len"] is not None and x["len"] < MIN_NT_TM]
         lines.append(f"\n=== {system}: {len(recs)} post targets, {len(scored)} with an RNA >= {MIN_NT_TM} nt "
@@ -253,8 +253,11 @@ def analyse(post_lens):
                 d = np.array([u - v for u, v in ok])
                 med = float(np.median(d))
                 lo_ci, hi_ci = boot_median_ci(d)
-                good = (f"; well folded {100 * np.mean([v > GOOD_RNA_LDDT for _, v in ok]):.0f}% -> "
-                        f"{100 * np.mean([u > GOOD_RNA_LDDT for u, _ in ok]):.0f}%") if key == "lddt" else ""
+                # well-folded share on the backbone C3' LDDT (lddt_bb), as in the fold classes i-iv
+                okb = [(a["lddt_bb"], b["lddt_bb"]) for a, b in pairs
+                       if a.get("lddt_bb") is not None and b.get("lddt_bb") is not None]
+                good = (f"; well folded (backbone) {100 * np.mean([v > GOOD_RNA_LDDT for _, v in okb]):.0f}% -> "
+                        f"{100 * np.mean([u > GOOD_RNA_LDDT for u, _ in okb]):.0f}%") if key == "lddt" and okb else ""
                 lines.append(f"  B {name:11s} {lab:6s} n={len(ok):3d}: twin {np.median([v for _, v in ok]):.3f}"
                              f" -> post {np.median([u for u, _ in ok]):.3f}, paired diff {med:+.3f} "
                              f"[{lo_ci:+.3f}, {hi_ci:+.3f}]{good}")
@@ -262,16 +265,18 @@ def analyse(post_lens):
                                      n=len(ok), diff_median=med, ci_lo=lo_ci, ci_hi=hi_ci))
         # C: gap without structurally familiar post targets
         pre_l = [r["lddt"] for r in pre_all if r["lddt"] is not None]
+        pre_b = [r["lddt_bb"] for r in pre_all if r.get("lddt_bb") is not None]
         for name, sub in (("all scored post", scored),
                           ("post TM<0.5 (novel fold)", [x for x in scored if x["tm"] < 0.5]),
                           ("post TM<0.7 (Ludaic filter)", [x for x in scored if x["tm"] < 0.7]),
                           ("post TM>=0.7 (redundant)", [x for x in scored if x["tm"] >= 0.7])):
             pl = [x["lddt"] for x in sub if x["lddt"] is not None]
+            pb = [x["lddt_bb"] for x in sub if x.get("lddt_bb") is not None]
             if pl:
                 lines.append(f"  C {name:28s} n={len(pl):3d}: LDDT_r median {np.median(pl):.3f} vs all pre "
-                             f"{np.median(pre_l):.3f} (n={len(pre_l)}), well folded "
-                             f"{100 * np.mean(np.array(pl) > GOOD_RNA_LDDT):.0f}% vs "
-                             f"{100 * np.mean(np.array(pre_l) > GOOD_RNA_LDDT):.0f}%, MWU P={_mwu(pl, pre_l):.1e}")
+                             f"{np.median(pre_l):.3f} (n={len(pre_l)}), well folded (backbone) "
+                             f"{100 * np.mean(np.array(pb) > GOOD_RNA_LDDT):.0f}% vs "
+                             f"{100 * np.mean(np.array(pre_b) > GOOD_RNA_LDDT):.0f}%, MWU P={_mwu(pl, pre_l):.1e}")
         with open(os.path.join(OUTDIR, f"best_structural_twin_{system}.tsv"), "w") as fh:
             w = csv.writer(fh, delimiter="\t")
             w.writerow(["post_id", "rna_len", "best_tm_any_pre", "best_tm_same_system", "structural_twin_same_system",

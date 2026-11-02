@@ -97,7 +97,7 @@ def _panel_well_folded(ax, rows):
            edgecolor="black", linewidth=0.5, label="pre-cutoff twin")
     ax.bar(x + w / 2 + 0.01, [float(r["pct_good_post"]) for r in rows], w, color=POST_C,
            edgecolor="black", linewidth=0.5, label="post-cutoff target")
-    ax.set_ylabel(r"Well-folded RNAs (%, LDDT$_r>0.85$)")
+    ax.set_ylabel(r"Well-folded RNAs (%, LDDT$^{\mathrm{C3}'}_r>0.85$)")     # backbone C3' LDDT, as in the fold classes
     ax.set_ylim(0, 100)
     _xaxis(ax, rows)
     ax.legend(title="", loc="upper center", bbox_to_anchor=(0.5, -0.36), ncol=2,

@@ -44,7 +44,7 @@ from evaluation.secondaryFeatPlots import (extract_motif_indices,
 from rna_descriptors_figure import (_load as _load_desc,
                                     _draw_A as _draw_descA,
                                     _draw_D as _draw_descD)
-from evaluation.rna_structure_classes import GOOD_RNA_LDDT, load_classified
+from evaluation.rna_structure_classes import DATASETS, load_classified
 
 PRE_C, POST_C = "#1f77b4", "#E8743B"   # pre/post-cutoff colours of post_pre_comparison_figure
 C_CLASSES = ["L_shaped", "pseudoknot", "multiway_junction", "internal_loop",
@@ -214,18 +214,28 @@ def _draw_B(ax, pr):
 
 
 def _class_lddt():
-    """{period: {class: [RNA_LDDT, ...]}} for the protein-RNA pre/post-cutoff sets."""
+    """{period: {class: [all-atom LDDT_r, ...]}} for the protein-RNA pre/post-cutoff sets. The classes come from
+    evaluation/rna_structure_classes.py (unchanged); the accuracy shown is the all-atom LDDT_r (RNA_LDDT_allAtom)
+    of the same targets, read from the same databases, instead of the backbone RNA_LDDT of the class records."""
     out = {}
     for period in ("pre", "post"):
         recs, _ = load_classified("protein_rna", period)
-        out[period] = {c: [r["lddt"] for r in recs if r["cls"] == c and r["lddt"] is not None]
+        con = sqlite3.connect(DATASETS[("protein_rna", period)]["db"])
+        aa = {str(i).strip().upper(): v for i, v in con.execute("SELECT exp_db_id, RNA_LDDT_allAtom FROM pred_protein_rna")}
+        con.close()
+        def _aa(pid):
+            try:
+                return float(aa.get(str(pid).strip().upper()))
+            except (TypeError, ValueError):
+                return None
+        out[period] = {c: [v for v in (_aa(r["pdb_id"]) for r in recs if r["cls"] == c) if v is not None]
                        for c in C_CLASSES}
     return out
 
 
 def _draw_C(ax, cls_lddt):
-    # LDDT_r per structural class, pre- vs post-cutoff; dashed line = good-RNA
-    # threshold (classes i+ii). Bottom rows: n, pre (blue) above post (orange).
+    # all-atom LDDT_r per structural class, pre- vs post-cutoff (no well-folded line: its 0.85 threshold
+    # is defined for the backbone C3' LDDT). Bottom rows: n, pre (blue) above post (orange).
     x = np.arange(len(C_CLASSES)); w = 0.36
     small = onpage_to_gen(5.5, 17.5)
     rows = {"n": (0.15, 0.09)}                             # (pre y, post y)
@@ -245,7 +255,6 @@ def _draw_C(ax, cls_lddt):
     lab = ax.get_yaxis_transform()            # x in axes coords, y in data coords
     ax.text(-0.03, sum(rows["n"]) / 2, "n", transform=lab, ha="right",
             va="center", fontsize=small, color="0.25")
-    ax.axhline(GOOD_RNA_LDDT, color="0.35", ls="--", lw=1.2)
     ax.set_xticks(x)
     ax.set_xticklabels([C_SHORT[c] for c in C_CLASSES], rotation=35, ha="right",
                        rotation_mode="anchor")

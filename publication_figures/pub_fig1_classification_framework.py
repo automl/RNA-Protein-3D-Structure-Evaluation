@@ -401,8 +401,8 @@ def plot_five_publication_figures(plot_creator, table_source, audit, rna_metrics
                            label=f"Class {lbl} (n={n})", edgecolors="none")
         ax.axhline(0.85, color="gray", lw=0.8, ls="--")
         ax.axvline(0.85, color="gray", lw=0.8, ls="--")
-        ax.set_xlabel(r"$\mathrm{LDDT}_{r}$")
-        ax.set_ylabel(r"$\mathrm{LDDT}_{p}$")
+        ax.set_xlabel(r"$\mathrm{LDDT}^{\mathrm{C3}'}_{r}$")       # backbone LDDT (RNA_LDDT), as the fold classes
+        ax.set_ylabel(r"$\mathrm{LDDT}^{\mathrm{C}\alpha}_{p}$")   # backbone LDDT (Protein_LDDT)
         ax.legend(fontsize=onpage_to_gen(7, 14), markerscale=2.0, frameon=False)
         _panel_letter(ax, "A", 21)
 

@@ -147,17 +147,19 @@ def _f(x):
 
 
 def load(db, table, protein):
-    cols = "exp_db_id, RNASequence, RNA_TM, RNA_LDDT"
+    # all-atom LDDT_r for the paired differences (columns *_RNA_LDDT below hold it); the backbone C3' LDDT (RNA_LDDT)
+    # only for the well-folded share (> GOOD_RNA_LDDT), as in the fold classes i-iv
+    cols = "exp_db_id, RNASequence, RNA_TM, RNA_LDDT_allAtom, RNA_LDDT"
     if protein:
         cols += ", ProteinSequence, RBP_PDB_Templates"
     out = []
     for row in sqlite3.connect(db).execute(f"SELECT {cols} FROM {table}"):
         rec = dict(id=str(row[0]).strip().upper(),
                    rna=[s for s in (_clean(x, True) for x in _list(row[1])) if s],
-                   tm=_f(row[2]), lddt=_f(row[3]))
+                   tm=_f(row[2]), lddt=_f(row[3]), lddt_bb=_f(row[4]))
         if protein:
-            rec["prot"] = [s for s in (_clean(x, False) for x in _list(row[4])) if s]
-            rec["templates"] = {t.strip().upper()[:4] for t in _list(row[5])}
+            rec["prot"] = [s for s in (_clean(x, False) for x in _list(row[5])) if s]
+            rec["templates"] = {t.strip().upper()[:4] for t in _list(row[6])}
         out.append(rec)
     return out
 
@@ -278,6 +280,12 @@ def boot_median_ci(d):
     return np.percentile(meds, 2.5), np.percentile(meds, 97.5)
 
 
+def _pct_good(sub, side):
+    """share of well-folded RNAs (backbone C3' LDDT_r > GOOD_RNA_LDDT) among pairs with both backbone values"""
+    ok = [x for x in sub if x["post"]["lddt_bb"] is not None and x["pre"]["lddt_bb"] is not None]
+    return 100 * np.mean([x[side]["lddt_bb"] > GOOD_RNA_LDDT for x in ok]) if ok else np.nan
+
+
 def summarize_subset(sub, system, analysis, name):
     rows, lines = [], [f"  [{name:>15s}] n={len(sub):3d}"]
     for key, lab in (("lddt", "LDDT_r"), ("tm", "TM_r")):
@@ -291,16 +299,16 @@ def summarize_subset(sub, system, analysis, name):
         rows.append(dict(system=system, analysis=analysis, subset=name, metric=lab, n=len(ok),
                          pre_median=np.median(b), post_median=np.median(a),
                          diff_median=np.median(d), ci_lo=lo, ci_hi=hi,
-                         pct_good_pre=100 * np.mean(b > GOOD_RNA_LDDT) if key == "lddt" else np.nan,
-                         pct_good_post=100 * np.mean(a > GOOD_RNA_LDDT) if key == "lddt" else np.nan,
+                         pct_good_pre=_pct_good(sub, "pre") if key == "lddt" else np.nan,
+                         pct_good_post=_pct_good(sub, "post") if key == "lddt" else np.nan,
                          median_rna_id=np.median([x["rna_id"] for x in sub]),
                          median_prot_id=(np.median([x["prot_id"] for x in sub])
                                          if sub[0]["prot_id"] is not None else np.nan)))
     print("; ".join(lines))
-    ok = [x for x in sub if x["post"]["lddt"] is not None and x["pre"]["lddt"] is not None]
+    ok = [x for x in sub if x["post"]["lddt_bb"] is not None and x["pre"]["lddt_bb"] is not None]
     if ok:
-        extra = (f"{'':21s}good RNA pre {100 * np.mean([x['pre']['lddt'] > GOOD_RNA_LDDT for x in ok]):.0f}%"
-                 f" -> post {100 * np.mean([x['post']['lddt'] > GOOD_RNA_LDDT for x in ok]):.0f}%"
+        extra = (f"{'':21s}good RNA (backbone LDDT) pre {_pct_good(sub, 'pre'):.0f}%"
+                 f" -> post {_pct_good(sub, 'post'):.0f}%"
                  f"; matched RNA id {np.median([x['rna_id'] for x in sub]):.2f}")
         if sub[0]["prot_id"] is not None:
             extra += (f", protein id {np.median([x['prot_id'] for x in sub]):.2f}"
