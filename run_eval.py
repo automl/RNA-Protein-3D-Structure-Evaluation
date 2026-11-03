@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """run_eval.py -- drop-in evaluation wrapper for AF3InterfaceEval.
 
-Clone -> install -> point this at a folder of AlphaFold3 predictions (and, optionally, a
-folder of deposited ground-truth mmCIFs) and it produces a self-contained SQLite DB that
+Clone -> install -> point this at a folder of predictions (AlphaFold3 or any other method; mmCIF
+or PDB format) and, optionally, a folder of deposited ground-truth structures, and it produces a
+self-contained SQLite DB that
 feeds the regression/plotting pipeline. It orchestrates the existing sub-scripts the exact
 way ``evaluation/mainExecution.py`` does (config.json-driven, PYTHONPATH=<repo>, OST steps
 via ``conda run -n ost``), but adds:
@@ -11,7 +12,7 @@ via ``conda run -n ost``), but adds:
   * per-run isolation (a fresh DB + a temporarily-swapped config.json that is restored),
   * tool/GT capability detection with skip-and-log (``--strict`` turns skips into errors),
   * quick / basic / full metric presets (or an explicit ``--metrics`` list),
-  * era tagging (``--cutoff-date``) from the GT deposition date.
+  * era tagging (``--cutoff-date``) from the GT release date.
 
 Nothing here re-implements a metric: it stages inputs into the layout the sub-scripts expect
 (``<workdir>/data/<classification>/{af,pdb,dssr}``) and drives them. Anything whose input or
@@ -178,6 +179,124 @@ def _unique_index(kv):
     return {k: v for k, v in seen.items() if k not in ambiguous}
 
 
+STRUCTURE_SUFFIXES = (".cif", ".pdb", ".ent")   # inputs; PDB-format files are converted to mmCIF
+
+
+def structure_files(folder):
+    """mmCIF and PDB-format structure files of a folder."""
+    return sorted(p for p in Path(folder).iterdir() if p.suffix.lower() in STRUCTURE_SUFFIXES)
+
+
+def _one_letter(names, rna):
+    import gemmi
+    out = []
+    for n in names:
+        info = gemmi.find_tabulated_residue(n)
+        code = info.one_letter_code.upper() if info is not None else " "
+        out.append(code if code.strip() else ("N" if rna else "X"))
+    return "".join(out)
+
+
+def pdb_to_mmcif(src, dst):
+    """Convert a PDB-format file to mmCIF with gemmi. The file gets the records the pipeline reads
+    from mmCIF files of the PDB: entities with their polymer type, chains and one-letter sequence
+    (``_entity``, ``_entity_poly``, ``_struct_ref``, unknown values as '?'), the resolution and the release
+    date (``REVDAT 1``, as the first revision), and polymer chains keep their chain name as label_asym_id.
+    Without SEQRES records the sequence of each polymer is taken from its residues."""
+    import gemmi
+    st = gemmi.read_structure(str(src))
+    st.remove_empty_chains()
+    st.setup_entities()
+    polymer = gemmi.EntityType.Polymer
+    rename = {res.subchain: ch.name for ch in st[0] for res in ch if res.entity_type == polymer}
+    for model in st:
+        for ch in model:
+            for res in ch:
+                res.subchain = rename.get(res.subchain, res.subchain)
+    for ent in st.entities:
+        ent.subchains = [rename.get(s, s) for s in ent.subchains]
+        if ent.entity_type == polymer and not ent.full_sequence and ent.subchains:
+            ent.full_sequence = [res.name for res in st[0].get_subchain(ent.subchains[0])]
+    st.assign_label_seq_id()
+    doc = st.make_mmcif_document()
+    block = doc.sole_block()
+
+    ents = list(st.entities)
+    block.set_mmcif_category("_entity", {
+        "id": [e.name for e in ents],
+        "type": [{polymer: "polymer", gemmi.EntityType.Water: "water"}.get(e.entity_type, "non-polymer")
+                 for e in ents],
+        "src_method": [None] * len(ents),
+        "pdbx_description": [None] * len(ents)})
+    poly = [e for e in ents if e.entity_type == polymer]
+    types = {gemmi.PolymerType.PeptideL: "polypeptide(L)", gemmi.PolymerType.PeptideD: "polypeptide(D)",
+             gemmi.PolymerType.Rna: "polyribonucleotide", gemmi.PolymerType.Dna: "polydeoxyribonucleotide",
+             gemmi.PolymerType.DnaRnaHybrid: "polydeoxyribonucleotide/polyribonucleotide hybrid"}
+    seqs = [_one_letter(e.full_sequence, e.polymer_type == gemmi.PolymerType.Rna) for e in poly]
+    block.set_mmcif_category("_entity_poly", {
+        "entity_id": [e.name for e in poly],
+        "type": [types.get(e.polymer_type, "other") for e in poly],
+        "pdbx_strand_id": [",".join(e.subchains) for e in poly],
+        "pdbx_seq_one_letter_code": seqs,
+        "pdbx_seq_one_letter_code_can": seqs})
+    block.set_mmcif_category("_struct_ref", {
+        "id": [str(i + 1) for i in range(len(poly))],
+        "entity_id": [e.name for e in poly],
+        "db_name": [None] * len(poly),
+        "db_code": [None] * len(poly),
+        "pdbx_db_accession": [None] * len(poly)})
+    if st.resolution > 0:
+        block.set_mmcif_category("_refine", {"pdbx_refine_id": [None],
+                                             "ls_d_res_high": [f"{st.resolution:g}"]})
+    released = _pdb_release_date(src)
+    if released:
+        block.set_mmcif_category("_pdbx_audit_revision_history", {
+            "ordinal": ["1"], "data_content_type": ["Structure model"], "major_revision": ["1"],
+            "minor_revision": ["0"], "revision_date": [released]})
+    doc.write_file(str(dst))
+
+
+def _pdb_release_date(path):
+    """Release date (YYYY-MM-DD) from the REVDAT record of the first revision of a PDB file."""
+    from datetime import datetime
+    with open(path, errors="ignore") as fh:
+        for line in fh:
+            if line.startswith("REVDAT") and line[7:10].strip() == "1":
+                try:
+                    return datetime.strptime(line[13:22].strip(), "%d-%b-%y").strftime("%Y-%m-%d")
+                except ValueError:
+                    return None
+            if line.startswith(("ATOM", "HETATM")):
+                break
+    return None
+
+
+def convert_pdb_inputs(pairs, workdir):
+    """Replace PDB-format predictions and references by mmCIF copies in <workdir>/converted/."""
+    out_dir = workdir / "converted"
+    done = {}
+    for pr in pairs:
+        for attr in ("pred", "gt"):
+            src = getattr(pr, attr)
+            if not src or Path(src).suffix.lower() not in (".pdb", ".ent"):
+                continue
+            src = Path(src).resolve()
+            if src not in done:
+                dst = out_dir / attr / f"{src.stem}.cif"
+                dst.parent.mkdir(parents=True, exist_ok=True)
+                try:
+                    pdb_to_mmcif(src, dst)
+                except Exception as exc:   # an unreadable file only loses this input
+                    warn(f"cannot convert {src.name} to mmCIF ({exc}); skipping it.")
+                    dst = None
+                done[src] = dst
+            setattr(pr, attr, done[src])
+    n = sum(1 for v in done.values() if v)
+    if n:
+        log(f"converted {n} PDB-format file(s) to mmCIF in {out_dir}")
+    return [pr for pr in pairs if pr.pred]
+
+
 def detect_classification(cif_path):
     """protein_rna vs rna_rna from a predicted CIF, dependency-free.
 
@@ -204,19 +323,20 @@ def detect_classification(cif_path):
 _DATE_RE = re.compile(r"(\d{4}-\d{2}-\d{2})")
 
 
-def read_deposition_date(cif_path):
-    """Best-effort deposition date (YYYY-MM-DD) for era tagging.
+def read_release_date(cif_path):
+    """Best-effort release date (YYYY-MM-DD) for era tagging.
 
-    Prefers ``_pdbx_database_status.recvd_initial_deposition_date``; falls back to the first
-    ``_pdbx_audit_revision_history.revision_date`` (what parsePDBCIF2DB records as the
-    deposited date). Returns ``None`` when neither is parseable.
+    The training cutoff of AF3 refers to the release date, so this prefers the first
+    ``_pdbx_audit_revision_history.revision_date`` (the release; what parsePDBCIF2DB records as
+    Deposited_date) and falls back to ``_pdbx_database_status.recvd_initial_deposition_date``.
+    Returns ``None`` when neither is parseable.
     """
     try:
         lines = Path(cif_path).read_text(errors="ignore").splitlines()
     except OSError:
         return None
-    for key in ("_pdbx_database_status.recvd_initial_deposition_date",
-                "_pdbx_audit_revision_history.revision_date"):
+    for key in ("_pdbx_audit_revision_history.revision_date",
+                "_pdbx_database_status.recvd_initial_deposition_date"):
         for i, line in enumerate(lines):
             if key in line:
                 # key/value on the same line (single datablock form)
@@ -521,7 +641,7 @@ def interactive_resolve(preds, gt_dir, gt_paths, args):
             resolve_gt(preds, gt_paths, args.id_regex)
         elif choice == "4":
             input("    rename files in the GT folder, then press Enter to re-scan...")
-            gt_paths = sorted(Path(gt_dir).glob("*.cif"))
+            gt_paths = structure_files(gt_dir)
             resolve_gt(preds, gt_paths, args.id_regex)
         elif choice == "5":
             die("aborted at ground-truth matching.")
@@ -572,12 +692,12 @@ def build_pairs_from_dirs(args):
     data_dir = Path(args.data_json).resolve() if args.data_json else None
     conf_dir = Path(args.confidence).resolve() if args.confidence else None
 
-    preds = [Pair(p) for p in sorted(pred_dir.glob("*.cif"))]
+    preds = [Pair(p) for p in structure_files(pred_dir)]
     if not preds:
         return preds
-    gt_paths = sorted(gt_dir.glob("*.cif")) if gt_dir and gt_dir.is_dir() else []
+    gt_paths = structure_files(gt_dir) if gt_dir and gt_dir.is_dir() else []
     if gt_dir and not gt_paths:
-        warn(f"--gt {gt_dir} contains no *.cif; proceeding confidence-only.")
+        warn(f"--gt {gt_dir} contains no structure files; proceeding confidence-only.")
 
     resolve_gt(preds, gt_paths, args.id_regex)
     if gt_paths:
@@ -632,7 +752,7 @@ def stage(pairs, workdir, classification, rewrite_ids, cutoff_date):
             shutil.copyfile(pr.gt, gt_dst)
             if rewrite_ids:
                 rewrite_entry_id(gt_dst, pr.join_id)
-            date = read_deposition_date(gt_dst)
+            date = read_release_date(gt_dst)
             if date:
                 pr.era = "a" if date >= cutoff_date else "b"  # a = post-cutoff, b = pre
         staged.append(pr)
@@ -1012,7 +1132,7 @@ def export_csvs(classification, workdir):
 # era split (optional)
 # --------------------------------------------------------------------------------------
 def era_split(run_db, workdir, staged, classification):
-    """Post-process run.db into a<name>.db / b<name>.db by deposition era so downstream
+    """Post-process run.db into a<name>.db / b<name>.db by release era so downstream
     preprocessing (infer_post_cutoff_from_db_tag: tag.startswith('a')) can split pre/post.
     Rows with no era are dropped from both (their date was unknown)."""
     eras = {"a": set(), "b": set()}
@@ -1068,8 +1188,8 @@ Examples:
   python run_eval.py --pred ./preds --out ./run --metrics quick
 """)
     io = p.add_argument_group("inputs / outputs")
-    io.add_argument("--pred", help="Folder of predicted *.cif (required unless --pair-map).")
-    io.add_argument("--gt", help="Folder of deposited ground-truth *.cif (optional; "
+    io.add_argument("--pred", help="Folder of predicted structures, mmCIF or PDB format (required unless --pair-map).")
+    io.add_argument("--gt", help="Folder of deposited ground-truth structures, mmCIF or PDB format (optional; "
                                  "absent => confidence-only, GT-dependent steps skipped).")
     io.add_argument("--out", "--workdir", dest="out", required=True,
                     help="Run working directory (staging + run.db + CSVs land here).")
@@ -1097,7 +1217,7 @@ Examples:
     idg.add_argument("--cutoff-date", dest="cutoff_date", default="2021-09-30",
                      help="Era cutoff (YYYY-MM-DD); GT on/after => 'a' (post), before => 'b' (pre).")
     idg.add_argument("--era-split", dest="era_split", action="store_true",
-                     help="Also emit a_run.db / b_run.db split by GT deposition era.")
+                     help="Also emit a_run.db / b_run.db split by GT release era.")
 
     sel = p.add_argument_group("metric selection")
     sel.add_argument("--metrics", default="basic",
@@ -1174,6 +1294,7 @@ def main():
 
     pairs = (build_pairs_from_map(args.pair_map) if args.pair_map
              else build_pairs_from_dirs(args))
+    pairs = convert_pdb_inputs(pairs, workdir)
     if not pairs:
         die("no (prediction) inputs found.")
     log(f"resolved {len(pairs)} prediction(s); "

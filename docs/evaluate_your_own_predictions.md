@@ -76,7 +76,8 @@ re-match live, re-scan after renaming, or abort. In a non-interactive shell (or 
 
 ## Era tagging (pre/post cutoff)
 
-With real-PDB ground truth, each complex is tagged from its deposition date against `--cutoff-date`
+With real-PDB ground truth, each complex is tagged from its release date (the first revision; the
+deposition date if there is none) against `--cutoff-date`
 (default `2021-09-30`): on/after → `a` (post), before → `b` (pre). `--era-split` additionally
 writes `a_run.db` / `b_run.db` so the downstream pre/post analysis can split the eras (which it
 infers from the `a`/`b` DB-name prefix). Non-PDB ground truth has no dates → a single lane.
@@ -85,13 +86,15 @@ infers from the `a`/`b` DB-name prefix). Non-PDB ground truth has no dates → a
 
 All inputs are optional except the predictions. Absent sidecars/tools only reduce the metric set.
 
-**Predictions (`--pred DIR`).** Predicted structures as mmCIF (`.cif`). Classification
-(`protein_rna` vs `rna_rna`) is auto-detected from the `_entity_poly.type` records, so the mmCIF must
-carry them (AF3 and RCSB mmCIF do). PDB-format files are not read directly — convert them to mmCIF first
-(e.g. `gemmi convert in.pdb out.cif`, gemmi is in the `RNABench` env), checking that the result has
-`_entity_poly.type`.
+**Predictions (`--pred DIR`).** Predicted structures as mmCIF (`.cif`) or PDB (`.pdb`, `.ent`).
+Classification (`protein_rna` vs `rna_rna`) is auto-detected from the `_entity_poly.type` records, so an
+mmCIF must carry them (AF3 and RCSB mmCIF do). PDB-format files, of predictions and of ground truth, are
+converted to mmCIF with gemmi into `<out>/converted/` before anything else: the polymer type and sequence
+of each chain come from SEQRES or, without SEQRES, from the residues; chain names stay as they are. Fields
+a PDB file does not carry (UniProt id, entity description and source) stay empty (`?`) in the `exp_*`
+table; all structure and interface metrics are the same as for the mmCIF of the same structure.
 
-**Ground truth (`--gt DIR`).** Deposited mmCIF per complex. Optional — omit for a
+**Ground truth (`--gt DIR`).** Deposited structure per complex, mmCIF or PDB format. Optional — omit for a
 confidence-only run.
 
 **AF3 sidecars.** Placed beside each prediction or in a folder given with `--confidence` /

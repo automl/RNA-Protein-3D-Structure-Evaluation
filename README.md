@@ -1,9 +1,11 @@
 # Evaluate RNA and protein–RNA structure predictions
 
+[![DOI](https://zenodo.org/badge/1427994901.svg)](https://doi.org/10.5281/zenodo.23890211)
+
 Code for the paper *AlphaFold 3 Prediction Accuracy and Reliability across RNA Structures and Protein–RNA
 Interfaces* (Tennie, Uhl, Franke, Backofen and Runge). [`run_eval.py`](run_eval.py) scores predicted RNA and
-protein–RNA structures in mmCIF format (from AlphaFold 3 or any other method) against experimental structures
-with the metrics of the paper and writes them to an SQLite database.
+protein–RNA structures in mmCIF or PDB format (from AlphaFold 3 or any other method) against experimental
+structures with the metrics of the paper and writes them to an SQLite database.
 
 ## Install
 
@@ -21,9 +23,8 @@ conda activate RNABench
 python run_eval.py --pred ./preds --gt ./gt --out ./run --metrics full
 ```
 
-- `--pred`: predicted structures as mmCIF (`.cif`), from any method. PDB-format files have to be converted to
-  mmCIF first (see the [guide](docs/evaluate_your_own_predictions.md)).
-- `--gt`: experimental structures as mmCIF; without it, only the AF3 confidence is read.
+- `--pred`: predicted structures as mmCIF (`.cif`) or PDB (`.pdb`, `.ent`), from any method.
+- `--gt`: experimental structures as mmCIF or PDB; without it, only the AF3 confidence is read.
 - `--metrics`: `quick` (TM-score, RMSD, backbone LDDT), `basic` (+ all-atom LDDT) or `full` (+ interface
   scores and interactions).
 - Predictions and experimental structures are paired by their PDB id or a shared part of the file name;
